@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/halaman-dashboard-admin', 'DashboardController@index');
+Route::get('/halaman-daftar-koneksi', 'KoneksiController@index');
+
+
+
