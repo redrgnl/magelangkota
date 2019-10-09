@@ -16,9 +16,11 @@ Route::get('/', function () {
 });
 // master
 Route::get('/master', 'MasterController@index');
-// kontent
+// dashboard
 Route::get('/halaman-dashboard-admin', 'DashboardController@index');
-Route::get('/halaman-daftar-koneksi', 'KoneksiController@index');
+// user
+Route::get('/halaman-daftar-pengguna', 'UserController@index');
+Route::get('/halaman-tambah-pengguna', 'UserController@tambah');
 // menu dinamic metabase
 Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 

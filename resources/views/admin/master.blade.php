@@ -17,7 +17,14 @@
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/animate-css/animate.css">
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/chartist-js/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.css">
+        <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/flag-icon/css/flag-icon.min.css">
     <!-- END: VENDOR CSS-->
+    <!-- datatables -->
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/data-tables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/data-tables/css/select.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/pages/data-tables.css">
+
     <!-- BEGIN: Page Level CSS-->
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/themes/vertical-menu-nav-dark-template/materialize.css">
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/themes/vertical-menu-nav-dark-template/style.css">
@@ -118,12 +125,12 @@
             </ul>
           </div>
         </li>
-        <li class="navigation-header"><a class="navigation-header-text">ADMINISTRATOR </a><i class="navigation-header-icon material-icons">more_horiz</i>
+        <li class="navigation-header"><a class="navigation-header-text">PENGGUNA </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">lock</i><span class="menu-title" data-i18n="">ADMINISTRATOR</span></a>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">people</i><span class="menu-title" data-i18n="">PENGGUNA</span></a>
           <div class="collapsible-body">
             <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="/halaman-daftar-koneksi" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Daftar Koneksi</span></a>
+              <li><a class="collapsible-body" href="/halaman-daftar-pengguna" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>DAFTAR PENGGUNA</span></a>
               </li>
 
             </ul>
@@ -431,6 +438,12 @@
     <script src="/admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.js" type="text/javascript"></script>
     <script src="/admin/app-assets/vendors/chartist-js/chartist-plugin-fill-donut.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
+    <!-- datatables -->
+    <script src="/admin/app-assets/vendors/data-tables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/data-tables/js/dataTables.select.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/scripts/data-tables.js" type="text/javascript"></script>
+
     <!-- BEGIN THEME  JS-->
     <script src="/admin/app-assets/js/plugins.js" type="text/javascript"></script>
     <script src="/admin/app-assets/js/custom/custom-script.js" type="text/javascript"></script>
@@ -439,5 +452,19 @@
     <script src="/admin/app-assets/js/scripts/dashboard-modern.js" type="text/javascript"></script>
     <script src="/admin/app-assets/js/scripts/intro.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="/admin/app-assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <!-- BEGIN VENDOR JS-->
+    <script src="/admin/app-assets/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="/admin/app-assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN THEME  JS-->
+    <script src="/admin/app-assets/js/plugins.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/custom/custom-script.js" type="text/javascript"></script>
+    <!-- END THEME  JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="/admin/app-assets/js/scripts/form-validation.js" type="text/javascript"></script>
   </body>
 </html>
