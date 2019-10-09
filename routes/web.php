@@ -14,11 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+// master
 Route::get('/master', 'MasterController@index');
-
+// kontent
 Route::get('/halaman-dashboard-admin', 'DashboardController@index');
 Route::get('/halaman-daftar-koneksi', 'KoneksiController@index');
+// menu dinamic metabase
 Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 
 
