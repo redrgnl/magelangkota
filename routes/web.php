@@ -21,6 +21,7 @@ Route::get('/halaman-dashboard-admin', 'DashboardController@index');
 // user
 Route::get('/halaman-daftar-pengguna', 'UserController@index');
 Route::get('/halaman-tambah-pengguna', 'UserController@tambah');
+Route::post('/proses-tambah', 'UserController@prs_tambah');
 // menu dinamic metabase
 Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 

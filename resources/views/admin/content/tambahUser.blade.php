@@ -11,13 +11,14 @@
           <div class="card-title">
             <div class="row">
               <div class="col s12 m6 l10">
-                <h4 class="card-title">Jquery Validation Example</h4>
+                <h4 class="card-title">Tambah Pengguna</h4>
               </div>
 
             </div>
           </div>
           <div id="view-validations">
-            <form class="formValidate" id="formValidate" method="get">
+            <form class="formValidate" id="formValidate" action="/proses-tambah/" method="post">
+            	@csrf
               <div class="row">
                 <div class="input-field col s12">
                   <label for="uname">Username*</label>
@@ -45,12 +46,14 @@
                   <div class="errorTxt5"></div>
                 </div> -->
                 <div class="col s12">
-                  <label for="crole">Role *</label>
-                  <select class="error browser-default" id="crole" name="crole" data-error=".errorTxt6">
-                    <option value="" disabled selected>Choose your profile</option>
-                    <option value="1">Manager</option>
-                    <option value="2">Developer</option>
-                    <option value="3">Business</option>
+                  <label for="crole">Bidang</label>
+                  <select class="error browser-default" id="crole" name="bidang" data-error=".errorTxt6">
+                    <option value="" disabled selected>Pilih Bidang</option>
+@if(!empty($bdg))
+@foreach($bdg as $b)
+                    <option value="{{$b->idBidang}}">{{$b->namaBidang}}</option>
+@endforeach
+@endif
                   </select>
                   <div class="input-field">
                     <div class="errorTxt6"></div>
