@@ -10,11 +10,11 @@
           <div class="container">
             <div class="row">
               <div class="col s10 m6 l6 breadcrumbs-left">
-                <h5 class="breadcrumbs-title mt-0 mb-0 display-inline hide-on-small-and-down">Daftar Koneksi</h5>
+                <h5 class="breadcrumbs-title mt-0 mb-0 display-inline hide-on-small-and-down">{{ $judul }}</h5>
                 <ol class="breadcrumbs mb-0">
                   <li class="breadcrumb-item"><a href="/halaman-dashboard">Home</a>
                   </li>
-                  <li class="breadcrumb-item active"><a href="#">Daftar Koneksi</a>
+                  <li class="breadcrumb-item active"><a href="#">{{ $judul }}</a>
                   </li>
 
                 </ol>
@@ -32,7 +32,7 @@
       <div id="basic-tabs" class="card card card-default scrollspy">
         <div class="card-content pt-5 pr-5 pb-5 pl-5">
 <iframe
-src="http://cc.magelangkota.go.id:3000/public/dashboard/12917503-f9ec-4a8b-a424-bf424503f3e5"
+src="http://cc.magelangkota.go.id:3000/public/dashboard/{{ $idMetabase }}"
                         frameborder="0"
                         style="width:100%;height:100vh;"
                         allowtransparency>

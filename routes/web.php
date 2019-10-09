@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/master', 'MasterController@index');
+
 Route::get('/halaman-dashboard-admin', 'DashboardController@index');
 Route::get('/halaman-daftar-koneksi', 'KoneksiController@index');
+Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 
 
 

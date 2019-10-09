@@ -5,27 +5,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
-    <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+    <meta name="description" content="Materialize is a Material Design /Admin Template,It's modern, responsive and based on Material Design by Google.">
+    <meta name="keywords" content="materialize, /admin template, dashboard template, flat /admin template, responsive /admin template, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
-    <title>Dashboard Modern 2 | Materialize - Material Design Admin Template</title>
-    <link rel="apple-touch-icon" href="admin/app-assets/images/favicon/apple-touch-icon-152x152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="admin/app-assets/images/favicon/favicon-32x32.png">
+    <title>Dashboard Modern 2 | Materialize - Material Design /Admin Template</title>
+    <link rel="apple-touch-icon" href="/admin/app-assets/images/favicon/apple-touch-icon-152x152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/admin/app-assets/images/favicon/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- BEGIN: VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/vendors/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/vendors/animate-css/animate.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/vendors/chartist-js/chartist.min.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/animate-css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/chartist-js/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.css">
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/css/themes/vertical-menu-nav-dark-template/materialize.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/css/themes/vertical-menu-nav-dark-template/style.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/css/pages/dashboard-modern.css">
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/css/pages/intro.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/themes/vertical-menu-nav-dark-template/materialize.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/themes/vertical-menu-nav-dark-template/style.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/pages/dashboard-modern.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/pages/intro.css">
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="admin/app-assets/css/custom/custom.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/css/custom/custom.css">
     <!-- END: Custom CSS-->
   </head>
   <!-- END: Head-->
@@ -44,7 +44,7 @@
               <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
               <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
               <li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge">5</small></i></a></li>
-              <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="admin/app-assets/images/avatar/avatar-7.png" alt="avatar"><i></i></span></a></li>
+              <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="/admin/app-assets/images/avatar/avatar-7.png" alt="avatar"><i></i></span></a></li>
               <li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
             </ul>
             <!-- translation-button-->
@@ -106,7 +106,7 @@
     <!-- BEGIN: SideNav-->
     <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light navbar-full sidenav-active-rounded">
       <div class="brand-sidebar">
-        <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="admin/app-assets/images/logo/materialize-logo.png" alt="materialize logo"/><span class="logo-text hide-on-med-and-down">Magelang </span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+        <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="/admin/app-assets/images/logo/materialize-logo.png" alt="materialize logo"/><span class="logo-text hide-on-med-and-down">Magelang </span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
       </div>
       <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="active bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">Dashboard</span><span class="badge badge pill orange float-right mr-10">1</span></a>
@@ -131,19 +131,26 @@
         </li>
         <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">school</i><span class="menu-title" data-i18n="">PENDIDIKAN</span></a>
+<!-- <?php $sektor = DB::table('tb_sektor')->get();?>
+1 -->
+<?php $sektor = DB::table('tb_sektor')->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')->select('judulGrafik','namaSektor','idGrafik')->get();?>
+
+@if (!empty($sektor))
+        @foreach($sektor as $s)
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">school</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
           <div class="collapsible-body">
             <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="eCommerce-products-page.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Products Page</span></a>
+
+              <li><a class="collapsible-body" href="/halaman-sektor/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
               </li>
-              <li><a class="collapsible-body" href="eCommerce-pricing.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Pricing</span></a>
-              </li>
-              <li><a class="collapsible-body" href="eCommerce-invoice.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Invoice</span></a>
-              </li>
+
             </ul>
           </div>
         </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">description</i><span class="menu-title" data-i18n="">PERIZINAN</span></a>
+        @endforeach
+@endif
+
+<!--         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">description</i><span class="menu-title" data-i18n="">PERIZINAN</span></a>
           <div class="collapsible-body">
             <ul class="collapsible collapsible-sub" data-collapsible="accordion">
               <li><a class="collapsible-body" href="eCommerce-products-page.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Products Page</span></a>
@@ -214,7 +221,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
 
        
         <li class="navigation-header"><a class="navigation-header-text">User Interface </a><i class="navigation-header-icon material-icons">more_horiz</i>
@@ -416,21 +423,21 @@
 
     <!-- END: Footer-->
     <!-- BEGIN VENDOR JS-->
-    <script src="admin/app-assets/js/vendors.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/vendors.min.js" type="text/javascript"></script>
     <!-- BEGIN VENDOR JS-->
     <!-- BEGIN PAGE VENDOR JS-->
-    <script src="admin/app-assets/vendors/chartjs/chart.min.js" type="text/javascript"></script>
-    <script src="admin/app-assets/vendors/chartist-js/chartist.min.js" type="text/javascript"></script>
-    <script src="admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.js" type="text/javascript"></script>
-    <script src="admin/app-assets/vendors/chartist-js/chartist-plugin-fill-donut.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/chartjs/chart.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/chartist-js/chartist.min.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/chartist-js/chartist-plugin-tooltip.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/vendors/chartist-js/chartist-plugin-fill-donut.min.js" type="text/javascript"></script>
     <!-- END PAGE VENDOR JS-->
     <!-- BEGIN THEME  JS-->
-    <script src="admin/app-assets/js/plugins.js" type="text/javascript"></script>
-    <script src="admin/app-assets/js/custom/custom-script.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/plugins.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/custom/custom-script.js" type="text/javascript"></script>
     <!-- END THEME  JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="admin/app-assets/js/scripts/dashboard-modern.js" type="text/javascript"></script>
-    <script src="admin/app-assets/js/scripts/intro.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/scripts/dashboard-modern.js" type="text/javascript"></script>
+    <script src="/admin/app-assets/js/scripts/intro.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
   </body>
 </html>
