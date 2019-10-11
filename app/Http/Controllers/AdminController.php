@@ -84,4 +84,6 @@ class AdminController extends Controller
         // redirect to home
         return redirect('/admin/halaman-pengguna');
     }
+    
+    
 }
