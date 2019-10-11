@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-// use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,13 +9,12 @@ use DateTime;
 
 class AdminController extends Controller
 {
-    //
+    //halaman dashboard admin
     public function index(){
         return view('admin/content/dashboard');
     }
     
-    // public function users() {
-
+    //halaman data pengguna
     public function users()
     {
         $query = DB::table('tb_users')
@@ -28,10 +26,10 @@ class AdminController extends Controller
             'users' => $query
         ];
 
-
         return view('admin/content/users', $data);
     }
 
+    //halaman hak akses
     public function bidang()
     {
         $query = DB::table('tb_bidang')->get();
@@ -43,6 +41,7 @@ class AdminController extends Controller
         return view('admin/content/bidang', $data);
     }
     
+    //fungsi tambah user
     public function addUser()
     {
         $query = DB::table('tb_bidang')->get();
@@ -54,6 +53,7 @@ class AdminController extends Controller
         return view('admin/content/tambahUser', $data);
     }
 
+    //fungsi simpan user
     public function store(Request $request)
     {
         $now = new DateTime();
@@ -78,6 +78,7 @@ class AdminController extends Controller
         return redirect('/admin/halaman-pengguna');
     }
     
+    //halaman edit pengguna
     public function halamanEditUser($id) {
         $querypengguna = DB::table('tb_users')->where('idUser', $id)->get();
         $querybidang = DB::table('tb_bidang')->get();
@@ -90,6 +91,7 @@ class AdminController extends Controller
         return view ('admin/content/editUser', $data);
     }
     
+    //fungsi update pengguna
     public function update(Request $update) {
         $now = new DateTime();
         
@@ -109,5 +111,12 @@ class AdminController extends Controller
         ]);
         // redirect to home
         return redirect('/admin/halaman-pengguna');
+    }
+    
+    //fungsi delete pengguna
+    public function delete($id) {
+        DB::table('tb_users')->where('idUser', $id)->delete();
+        
+        return redirect ('/admin/halaman-pengguna');
     }
 }

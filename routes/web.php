@@ -26,7 +26,7 @@
 //Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 
 //Route Admin
-Route::get('/', 'AdminController@index');
+Route::get('/admin/halaman-dashboard', 'AdminController@index');
 Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
 // grafik
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
@@ -40,3 +40,4 @@ Route::post('/admin/store-pengguna', 'AdminController@store');
 
 Route::get('/admin/edit-data-pengguna/{id}', 'AdminController@halamanEditUser');
 Route::post('/admin/update-pengguna', 'AdminController@update');
+Route::get('/admin/delete-data-pengguna/{id}', 'AdminController@delete');
