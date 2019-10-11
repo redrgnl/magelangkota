@@ -120,88 +120,33 @@
             </ul>
           </div>
         </li>
-        <li class="navigation-header"><a class="navigation-header-text">Applications</a><i class="navigation-header-icon material-icons">more_horiz</i>
+        <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT GRAFIK</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-email.html"><i class="material-icons">mail_outline</i><span class="menu-title" data-i18n="">Mail</span><span class="badge new badge pill pink accent-2 float-right mr-10">5</span></a>
+        <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-list-grafik"><i class="material-icons">equalizer</i><span class="menu-title" data-i18n="">GRAFIK</span></a>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-chat.html"><i class="material-icons">chat_bubble_outline</i><span class="menu-title" data-i18n="">Chat</span></a>
+
+
+
+        <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-todo.html"><i class="material-icons">check</i><span class="menu-title" data-i18n="">ToDo</span></a>
-        </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-contacts.html"><i class="material-icons">import_contacts</i><span class="menu-title" data-i18n="">Contacts</span></a>
-        </li>
-        <li class="bold"><a class="waves-effect waves-cyan " href="app-calendar.html"><i class="material-icons">today</i><span class="menu-title" data-i18n="">Calendar</span></a>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">add_shopping_cart</i><span class="menu-title" data-i18n="">eCommerce</span></a>
+<!-- <?php $sektor = DB::table('tb_sektor')->get();?>
+1 -->
+<?php $sektor = DB::table('tb_sektor')->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')->select('judulGrafik','namaSektor','idGrafik')->get();?>
+
+@if (!empty($sektor))
+        @foreach($sektor as $s)
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">school</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
           <div class="collapsible-body">
             <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="eCommerce-products-page.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Products Page</span></a>
+
+              <li><a class="collapsible-body" href="/halaman-sektor/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
               </li>
-              <li><a class="collapsible-body" href="eCommerce-pricing.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Pricing</span></a>
-              </li>
-              <li><a class="collapsible-body" href="eCommerce-invoice.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Invoice</span></a>
-              </li>
+
             </ul>
           </div>
         </li>
-        <li class="navigation-header"><a class="navigation-header-text">Pages </a><i class="navigation-header-icon material-icons">more_horiz</i>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">content_paste</i><span class="menu-title" data-i18n="">Pages</span></a>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="page-contact.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Contact</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-blog-list.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Blog</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-search.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Search</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-knowledge.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Knowledge</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-faq.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>FAQs</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-blank.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Page Blank</span></a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">crop_original</i><span class="menu-title" data-i18n="">Medias</span></a>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="media-gallery-page.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Gallery Page</span></a>
-              </li>
-              <li><a class="collapsible-body" href="media-hover-effects.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Media Hover Effects</span></a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">face</i><span class="menu-title" data-i18n="">User</span><span class="badge badge pill purple float-right mr-10">10</span></a>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="user-profile-page.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>User Profile</span></a>
-              </li>
-              <li><a class="collapsible-body" href="user-login.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Login</span></a>
-              </li>
-              <li><a class="collapsible-body" href="user-register.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Register</span></a>
-              </li>
-              <li><a class="collapsible-body" href="user-forgot-password.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Forgot Password</span></a>
-              </li>
-              <li><a class="collapsible-body" href="user-lock-screen.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Lock Screen</span></a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">filter_tilt_shift</i><span class="menu-title" data-i18n="">Misc</span></a>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-              <li><a class="collapsible-body" href="page-404.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>404</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-maintenance.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>Page Maintenanace</span></a>
-              </li>
-              <li><a class="collapsible-body" href="page-500.html" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>500</span></a>
-              </li>
-            </ul>
-          </div>
-        </li>
+        @endforeach
+@endif
         <li class="navigation-header"><a class="navigation-header-text">User Interface </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">cast</i><span class="menu-title" data-i18n="">Cards</span></a>
@@ -437,5 +382,7 @@
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{ asset('admin/js/scripts/data-tables.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
+    <script src="{{ asset('admin/js/scripts/ui-alerts.js') }}" type="text/javascript"></script>
+
   </body>
 </html>

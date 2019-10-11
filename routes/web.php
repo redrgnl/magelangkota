@@ -26,7 +26,13 @@
 //Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 
 //Route Admin
+Route::get('/', 'AdminController@index');
 Route::get('/admin/halaman-pengguna', 'AdminController@users');
 Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
+Route::get('/admin/halaman-tambah-pengguna', 'AdminController@tambah_pengguna');
+Route::get('/admin/halaman-list-grafik', 'AdminController@grafik');
+Route::get('/admin/halaman-tambah-grafik', 'AdminController@tambah_graf');
+
+Route::post('/admin/proses_tambahGraf', 'AdminController@proses_tambahGraf');
 
 
