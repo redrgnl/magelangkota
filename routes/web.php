@@ -26,7 +26,7 @@
 //Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
 
 //Route Admin
+Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
+Route::post('/admin/store', 'AdminController@store');
 Route::get('/admin/halaman-pengguna', 'AdminController@users');
 Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
-
-

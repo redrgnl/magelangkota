@@ -13,7 +13,7 @@
                 <h4 class="card-title">Daftar Pengguna</h4>
               </div>
               <div class="col s3">
-                <a class="waves-effect waves-light  btn gradient-45deg-red-pink box-shadow-none border-round mr-1 mb-1">Tambah Baru</a>
+                <a href="/admin/tambah-pengguna" class="waves-effect waves-light  btn gradient-45deg-red-pink box-shadow-none border-round mr-1 mb-1">Tambah Baru</a>
               </div>
               <div class="row">
                 <div class="col s12">
