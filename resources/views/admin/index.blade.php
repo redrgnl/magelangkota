@@ -120,19 +120,38 @@
             </ul>
           </div>
         </li>
+<!-- menu grafik -->
         <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT GRAFIK</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-list-grafik"><i class="material-icons">equalizer</i><span class="menu-title" data-i18n="">GRAFIK</span></a>
         </li>
+<!-- menu user -->
 
+        <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT PENGGUNA</a><i class="navigation-header-icon material-icons">more_horiz</i>
+        </li>
+        <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-pengguna"><i class="material-icons">people</i><span class="menu-title" data-i18n="">PENGGUNA</span></a>
+        </li>
+<!-- menu hak akses/ bidang -->
 
+        <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT AKSES</a><i class="navigation-header-icon material-icons">more_horiz</i>
+        </li>
+        <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-hak-akses"><i class="material-icons">vpn_key</i><span class="menu-title" data-i18n="">HAK AKSES</span></a>
+        </li>
+<!-- menu sektor -->
 
         <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
 <!-- <?php $sektor = DB::table('tb_sektor')->get();?>
 1 -->
-<?php $sektor = DB::table('tb_sektor')->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')->select('*')->orderBy('tb_grafik.idSektor')->get();?>
-          <?php $sktr = '-'; ?>
+          <?php 
+                $sektor = DB::table('tb_sektor')
+                ->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')
+                ->select('*')
+                ->orderBy('tb_grafik.idSektor')
+                ->get();
+          ?>
+          
+<?php $sktr = '-'; ?>
 
 @if (!empty($sektor))
         @foreach($sektor as $s)

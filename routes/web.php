@@ -27,7 +27,9 @@
 
 //Route Admin
 Route::get('/admin/halaman-dashboard', 'AdminController@index');
-Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
+
+// Route hak akses / bidang
+Route::get('/admin/halaman-hak-akses', 'BidangController@bidang');
 // grafik
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
 Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');

@@ -29,18 +29,7 @@ class AdminController extends Controller
         return view('admin/content/users', $data);
     }
 
-    //halaman hak akses
-    public function bidang()
-    {
-        $query = DB::table('tb_bidang')->get();
 
-        $data = [
-            'bidang' => $query
-        ];
-        
-        return view('admin/content/bidang', $data);
-    }
-    
     //fungsi tambah user
     public function addUser()
     {
@@ -57,6 +46,14 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $now = new DateTime();
+        $messages = [
+            'required' => 'Form :attribute wajib di isi *',
+            'min' => ':attribute harus berisi minimal 5 karakter *',
+            'email' => 'Tolong gunakan :attribute yang sah *',
+            'max' => ':attribute max 100',
+            'same' => ':attribute harus sama dengan password, mohon cek kembali',
+
+        ];
 
         // validate request data
         $this->validate($request, [
@@ -64,7 +61,7 @@ class AdminController extends Controller
             'email' => 'required|email|max:100|unique:tb_users,emailUser',
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password'
-        ]);
+        ],$messages);
 
         // save into table
         DB::table('tb_users')->insert([
@@ -94,13 +91,21 @@ class AdminController extends Controller
     //fungsi update pengguna
     public function update(Request $update) {
         $now = new DateTime();
+        $messages = [
+            'required' => 'Form :attribute wajib di isi *',
+            'min' => ':attribute harus berisi minimal 5 karakter *',
+            'email' => 'Tolong gunakan :attribute yang sah *',
+            'max' => ':attribute max 100',
+            'same' => ':attribute harus sama dengan password, mohon cek kembali',
+
+        ];
         
         $this->validate($update, [
            'username' => 'required|string',
            'email' => 'required|email|max:100',
            'password' => 'required|min:6',
            'confirm_password' => 'required|same:password'  
-        ]);
+        ], $messages);
         
         DB::table('tb_users')->where('idUser', $update->idd)->update([
             'namaUser' => $update->username,

@@ -9,6 +9,22 @@
       <div id="validations" class="card card-tabs">
         <div class="card-content">
           <div class="card-title">
+<!-- {{-- menampilkan error validasi --}}
+ -->@if (count($errors) > 0)
+
+     @foreach ($errors->all() as $error)
+
+              <div class="card-alert card red">
+                <div class="card-content white-text">
+                  <p>{{ $error }}</p>
+                </div>
+                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+     @endforeach
+
+@endif
             <div class="row">
               <div class="col s12 m6 l10">
                 <h4 class="card-title">Update Data Pengguna</h4>
@@ -47,7 +63,10 @@
                     <option value="" disabled selected>Pilih Bidang</option>
                     @if(!empty($bidang))
                     @foreach($bidang as $b)
-                    <option value="{{$b->idBidang}}">{{$b->namaBidang}}</option>
+                    <option <?php if ($dtpgn->idBidang == $b->idBidang): ?>
+                    selected
+                      
+                    <?php endif ?> value="{{$b->idBidang}}">{{$b->namaBidang}}</option>
                     @endforeach
                     @endif
                   </select>
