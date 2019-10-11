@@ -131,15 +131,15 @@
         </li>
 <!-- <?php $sektor = DB::table('tb_sektor')->get();?>
 1 -->
-<?php $sektor = DB::table('tb_sektor')->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')->select('judulGrafik','namaSektor','idGrafik')->get();?>
+<?php $sektor = DB::table('tb_sektor')->rightjoin('tb_grafik','tb_sektor.idSektor','=','tb_grafik.idSektor')->select('*')->orderBy('tb_grafik.idSektor')->get();?>
           <?php $sktr = '-'; ?>
 
 @if (!empty($sektor))
         @foreach($sektor as $s)
-        <li class="bold">
      @if($sktr =='-'|| $sktr!=$s->namaSektor)
+        <li class="bold">
+
           <?php $kat = $s->namaSektor; ?>
-        <?php  if($sktr!='-') ?>
 
           <a class="collapsible-header waves-effect waves-cyan " href="#">
             <i class="material-icons">school</i>
@@ -162,48 +162,7 @@
 
 @endif
 
-<!-- <?php 
-    $urut=0;
-    $nomor=0;
-    $group='-';
-    foreach($sektor as $d){
-    $nomor++;
-    $urut++;
-    if($group=='-' || $group!=$d->namaSektor){
-        $kat=$d->namaSektor;
-            echo '<li class="bold">';
 
-        if($group!='-')
-
-          echo '<a class="collapsible-header waves-effect waves-cyan " href="#">';
-             echo '<i class="material-icons">school</i>';
-             echo '<span class="menu-title" data-i18n="">  ';
-             echo $kat;
-             echo '</span>';
-           echo '</a>';
-$nomor=1;
-    }
-    $group=$d->namaSektor;
-        if($urut==500){
-        $nomor=0;
-            echo "<div class='pagebreak'> </div>";
-
-            }
-        ?>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-
-              <li><a class="collapsible-body" href="/halaman-sektor/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $d->judulGrafik }}</span></a>
-              </li>
-
-            </ul>
-          </div>
-        </li>
-        
-
-        <?php
-        }
-        ?> -->
         <li class="navigation-header"><a class="navigation-header-text">User Interface </a><i class="navigation-header-icon material-icons">more_horiz</i>
         </li>
         <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="#"><i class="material-icons">cast</i><span class="menu-title" data-i18n="">Cards</span></a>
