@@ -21,12 +21,12 @@
               <div class="row">
                 <div class="input-field col s12">
                   <label for="uname">Username*</label>
-                  <input id="uname" name="uname" type="text" data-error=".errorTxt1">
+                  <input id="uname" name="username" type="text" data-error=".errorTxt1">
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
                   <label for="cemail">E-Mail*</label>
-                  <input id="cemail" type="email" name="cemail" data-error=".errorTxt2">
+                  <input id="cemail" type="email" name="email" data-error=".errorTxt2">
                   <div class="errorTxt2"></div>
                 </div>
                 <div class="input-field col s12">

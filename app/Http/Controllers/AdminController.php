@@ -50,15 +50,15 @@ class AdminController extends Controller
         // validate request data
         $this->validate($request, [
             'username' => 'required|string',
-            'email' => 'required|email|max:100|unique:users,email',
+            'email' => 'required|email|max:100|unique:tb_users,emailUser',
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password'
         ]);
         // save into table
         DB::table('tb_users')->insert([
-            'username' => $request->namaUser,
-            'email' => $request->emailUser,
-            'bidang' => $request->idBidang,
+            'namaUser' => $request->username,
+            'emailUser' => $request->email,
+            'idBidang' => $request->bidang,
             'password' => md5($request->password)
         ]);
         // redirect to home
