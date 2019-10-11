@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Okt 2019 pada 11.26
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.2.22
+-- Generation Time: Oct 11, 2019 at 03:37 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -35,7 +35,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_bidang`
+-- Table structure for table `tb_bidang`
 --
 
 CREATE TABLE `tb_bidang` (
@@ -57,10 +57,17 @@ CREATE TABLE `tb_bidang` (
   `waktuDibuat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `tb_bidang`
+--
+
+INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
+(1, 'Olahraga', '2019-10-01 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detailbidang`
+-- Table structure for table `tb_detailbidang`
 --
 
 CREATE TABLE `tb_detailbidang` (
@@ -72,7 +79,7 @@ CREATE TABLE `tb_detailbidang` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_grafik`
+-- Table structure for table `tb_grafik`
 --
 
 CREATE TABLE `tb_grafik` (
@@ -84,7 +91,7 @@ CREATE TABLE `tb_grafik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_grafik`
+-- Dumping data for table `tb_grafik`
 --
 
 INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `waktuDibuat`) VALUES
@@ -94,7 +101,7 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_sektor`
+-- Table structure for table `tb_sektor`
 --
 
 CREATE TABLE `tb_sektor` (
@@ -104,17 +111,22 @@ CREATE TABLE `tb_sektor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_sektor`
+-- Dumping data for table `tb_sektor`
 --
 
 INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`) VALUES
-(1, 'KESEHATAN', '2019-10-25 00:00:00'),
-(2, 'PENDIDIKAN', '2019-10-26 00:00:00');
+(1, 'Umum', '2019-10-25 00:00:00'),
+(2, 'Bidang Kesehatan', '2019-10-26 00:00:00'),
+(3, 'Bidang Pendidikan', '2019-10-11 00:00:00'),
+(4, 'Executive', '2019-10-11 00:00:00'),
+(5, 'OPD', '2019-10-11 00:00:00'),
+(6, 'Khusus', '2019-10-11 00:00:00'),
+(7, 'Prioritas', '2019-10-11 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_users`
+-- Table structure for table `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -127,95 +139,112 @@ CREATE TABLE `tb_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `tb_users`
+--
+
+INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password`, `waktuDibuat`) VALUES
+(1, 1, 'bombom', 'asd@gmail.com', '123', '2019-10-01 00:00:00'),
+(2, 1, '123', '123', '123', '2019-10-01 00:00:00'),
+(3, 1, 'qq', 'qq', 'qq', '2019-10-01 00:00:00'),
+(4, 1, 'ww', 'ww', 'ww', '2019-10-01 00:00:00'),
+(5, 1, 'ee', 'ee', 'ee', '2019-10-17 00:00:00'),
+(6, 1, 'ff', 'ff', 'ff', '2019-10-15 00:00:00'),
+(7, 1, 'tt', 'tt', 'tt', '2019-10-23 00:00:00'),
+(8, 1, 'yy', 'yy', 'yy', '2019-10-18 00:00:00'),
+(9, 1, 'uu', 'uu', 'uu', '2019-10-12 00:00:00'),
+(10, 1, 'ii', 'ii', 'ii', '2019-10-25 00:00:00'),
+(11, 1, 'oo', 'oo', 'oo', '2019-10-26 00:00:00');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tb_bidang`
+-- Indexes for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
   ADD PRIMARY KEY (`idBidang`);
 
 --
--- Indeks untuk tabel `tb_detailbidang`
+-- Indexes for table `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
   ADD KEY `idGrafik` (`idGrafik`),
   ADD KEY `idBidang` (`idBidang`);
 
 --
--- Indeks untuk tabel `tb_grafik`
+-- Indexes for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
   ADD PRIMARY KEY (`idGrafik`),
   ADD KEY `idSektor` (`idSektor`);
 
 --
--- Indeks untuk tabel `tb_sektor`
+-- Indexes for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
   ADD PRIMARY KEY (`idSektor`);
 
 --
--- Indeks untuk tabel `tb_users`
+-- Indexes for table `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`idUser`),
   ADD UNIQUE KEY `tb_users_emailuser_unique` (`emailUser`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_bidang`
+-- AUTO_INCREMENT for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
   MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_grafik`
+-- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
   MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_sektor`
+-- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_users`
+-- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tb_detailbidang`
+-- Constraints for table `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
   ADD CONSTRAINT `tb_detailbidang_ibfk_1` FOREIGN KEY (`idBidang`) REFERENCES `tb_bidang` (`idBidang`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_detailbidang_ibfk_2` FOREIGN KEY (`idGrafik`) REFERENCES `tb_grafik` (`idGrafik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_grafik`
+-- Constraints for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
   ADD CONSTRAINT `tb_grafik_ibfk_1` FOREIGN KEY (`idSektor`) REFERENCES `tb_sektor` (`idSektor`);
