@@ -27,16 +27,14 @@
 
 //Route Admin
 Route::get('/', 'AdminController@index');
-Route::get('/admin/halaman-pengguna', 'AdminController@users');
 Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
+// grafik
+Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
+Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
+Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
+
+// users
+Route::get('/admin/halaman-pengguna', 'AdminController@users');
 Route::get('/admin/halaman-tambah-pengguna', 'AdminController@tambah_pengguna');
-Route::get('/admin/halaman-list-grafik', 'AdminController@grafik');
-Route::get('/admin/halaman-tambah-grafik', 'AdminController@tambah_graf');
-
-Route::post('/admin/proses_tambahGraf', 'AdminController@proses_tambahGraf');
-
-
 Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
 Route::post('/admin/store', 'AdminController@store');
-Route::get('/admin/halaman-pengguna', 'AdminController@users');
-Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
