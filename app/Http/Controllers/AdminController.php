@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,12 +55,14 @@ class AdminController extends Controller
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password'
         ]);
+
         // save into table
         DB::table('tb_users')->insert([
             'namaUser' => $request->username,
             'emailUser' => $request->email,
             'idBidang' => $request->bidang,
-            'password' => md5($request->password)
+            'password' => md5($request->password),
+            'waktuDibuat' => Carbon\Carbon::now()
         ]);
         // redirect to home
         return redirect('/admin.content.users');
