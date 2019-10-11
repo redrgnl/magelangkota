@@ -36,3 +36,7 @@ Route::get('/admin/halaman-tambah-grafik', 'AdminController@tambah_graf');
 Route::post('/admin/proses_tambahGraf', 'AdminController@proses_tambahGraf');
 
 
+Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
+Route::post('/admin/store', 'AdminController@store');
+Route::get('/admin/halaman-pengguna', 'AdminController@users');
+Route::get('/admin/halaman-hak-akses-pengguna', 'AdminController@bidang');
