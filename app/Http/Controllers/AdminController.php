@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+// use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -63,6 +63,8 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+                $now = new DateTime();
+
         // validate request data
         $this->validate($request, [
             'username' => 'required|string',
@@ -77,9 +79,9 @@ class AdminController extends Controller
             'emailUser' => $request->email,
             'idBidang' => $request->bidang,
             'password' => md5($request->password),
-            'waktuDibuat' => Carbon\Carbon::now()
+            'waktuDibuat' => $now
         ]);
         // redirect to home
-        return redirect('/admin.content.users');
+        return redirect('/admin/halaman-pengguna');
     }
 }
