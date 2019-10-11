@@ -35,6 +35,5 @@ Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
 
 // users
 Route::get('/admin/halaman-pengguna', 'AdminController@users');
-Route::get('/admin/halaman-tambah-pengguna', 'AdminController@tambah_pengguna');
 Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
 Route::post('/admin/store', 'AdminController@store');
