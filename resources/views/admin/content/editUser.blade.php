@@ -11,22 +11,24 @@
           <div class="card-title">
             <div class="row">
               <div class="col s12 m6 l10">
-                <h4 class="card-title">Tambah Pengguna</h4>
+                <h4 class="card-title">Update Data Pengguna</h4>
               </div>
             </div>
           </div>
           <div id="view-validations">
-            <form class="formValidate" id="formValidate" action="/admin/store-pengguna" method="post">
+            <form class="formValidate" id="formValidate" action="/admin/update-pengguna" method="post">
               @csrf
+              @foreach($datapengguna as $dtpgn)
               <div class="row">
                 <div class="input-field col s12">
                   <label for="uname">Username*</label>
-                  <input id="uname" name="username" type="text" data-error=".errorTxt1">
+                  <input id="idd" name="idd" type="hidden" data-error=".errorTxt1" value="{{ $dtpgn->idUser }}">
+                  <input id="uname" name="username" type="text" data-error=".errorTxt1" value="{{ $dtpgn->namaUser }}">
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
                   <label for="cemail">E-Mail*</label>
-                  <input id="cemail" type="email" name="email" data-error=".errorTxt2">
+                  <input id="cemail" type="email" name="email" data-error=".errorTxt2" value="{{ $dtpgn->emailUser }}">
                   <div class="errorTxt2"></div>
                 </div>
                 <div class="input-field col s12">
@@ -54,11 +56,12 @@
                   </div>
                 </div>
                 <div class="input-field col s12">
-                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Daftar
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Update
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
               </div>
+              @endforeach
             </form>
           </div>
         </div>

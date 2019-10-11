@@ -36,4 +36,7 @@ Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
 // users
 Route::get('/admin/halaman-pengguna', 'AdminController@users');
 Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
-Route::post('/admin/store', 'AdminController@store');
+Route::post('/admin/store-pengguna', 'AdminController@store');
+
+Route::get('/admin/edit-data-pengguna/{id}', 'AdminController@halamanEditUser');
+Route::post('/admin/update-pengguna', 'AdminController@update');
