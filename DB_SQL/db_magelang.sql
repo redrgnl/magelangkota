@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 03:37 AM
+-- Generation Time: Oct 11, 2019 at 03:48 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -62,7 +62,13 @@ CREATE TABLE `tb_bidang` (
 --
 
 INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
-(1, 'Olahraga', '2019-10-01 00:00:00');
+(1, 'Umum', '2019-10-01 00:00:00'),
+(2, 'Bidang Pendidikan', '2019-10-11 00:00:00'),
+(3, 'Bidang Kesehatan', '2019-10-11 00:00:00'),
+(4, 'Executive', '2019-10-11 00:00:00'),
+(5, 'OPD', '2019-10-11 00:00:00'),
+(6, 'Khusus', '2019-10-11 00:00:00'),
+(7, 'Prioritas', '2019-10-11 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -115,13 +121,15 @@ CREATE TABLE `tb_sektor` (
 --
 
 INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`) VALUES
-(1, 'Umum', '2019-10-25 00:00:00'),
-(2, 'Bidang Kesehatan', '2019-10-26 00:00:00'),
-(3, 'Bidang Pendidikan', '2019-10-11 00:00:00'),
-(4, 'Executive', '2019-10-11 00:00:00'),
-(5, 'OPD', '2019-10-11 00:00:00'),
-(6, 'Khusus', '2019-10-11 00:00:00'),
-(7, 'Prioritas', '2019-10-11 00:00:00');
+(1, 'Sektor Pendidikan', '2019-10-25 00:00:00'),
+(2, 'Sektor Perizinan', '2019-10-26 00:00:00'),
+(3, 'Sektor Kesehatan', '2019-10-11 00:00:00'),
+(4, 'Sektor Keuangan', '2019-10-11 00:00:00'),
+(5, 'Sektor Perencanaan', '2019-10-11 00:00:00'),
+(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00'),
+(7, 'Sektor Kependudukan', '2019-10-11 00:00:00'),
+(8, 'Sektor Pembangunan', '2019-10-11 00:00:00'),
+(9, 'Administrator', '2019-10-11 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -212,7 +220,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
-  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_grafik`
@@ -224,7 +232,7 @@ ALTER TABLE `tb_grafik`
 -- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
