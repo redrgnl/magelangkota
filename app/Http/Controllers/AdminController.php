@@ -48,7 +48,7 @@ class AdminController extends Controller
         $now = new DateTime();
         $messages = [
             'required' => 'Form :attribute wajib di isi *',
-            'min' => ':attribute harus berisi minimal 5 karakter *',
+            'min' => ':attribute harus berisi minimal 6 karakter *',
             'email' => 'Tolong gunakan :attribute yang sah *',
             'max' => ':attribute max 100',
             'same' => ':attribute harus sama dengan password, mohon cek kembali',
@@ -93,7 +93,7 @@ class AdminController extends Controller
         $now = new DateTime();
         $messages = [
             'required' => 'Form :attribute wajib di isi *',
-            'min' => ':attribute harus berisi minimal 5 karakter *',
+            'min' => ':attribute harus berisi minimal 6 karakter *',
             'email' => 'Tolong gunakan :attribute yang sah *',
             'max' => ':attribute max 100',
             'same' => ':attribute harus sama dengan password, mohon cek kembali',

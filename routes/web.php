@@ -30,6 +30,12 @@ Route::get('/admin/halaman-dashboard', 'AdminController@index');
 
 // Route hak akses / bidang
 Route::get('/admin/halaman-hak-akses', 'BidangController@bidang');
+Route::get('/admin/halaman-tambah-akses', 'BidangController@tambah_bdg');
+Route::post('/admin/proses_tambahBidang', 'BidangController@proses_tambahBidang');
+Route::post('/admin/proses-edit-bidang', 'BidangController@proses_editBidang');
+Route::get('/admin/halaman-edit-bidang/{id}', 'BidangController@editBidang');
+Route::get('/admin/hapus-bidang/{id}','BidangController@hapus');
+
 // grafik
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
 Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
