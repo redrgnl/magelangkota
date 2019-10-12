@@ -30,13 +30,6 @@ Route::get('/admin/halaman-dashboard', 'AdminController@index');
 
 // Route hak akses / bidang
 
-//Route::get('/admin/halaman-hak-akses', 'BidangController@bidang');
-//Route::get('/admin/halaman-tambah-akses', 'BidangController@tambah_bdg');
-//Route::post('/admin/proses_tambahBidang', 'BidangController@proses_tambahBidang');
-//Route::post('/admin/proses-edit-bidang', 'BidangController@proses_editBidang');
-//Route::get('/admin/halaman-edit-bidang/{id}', 'BidangController@editBidang');
-//Route::get('/admin/hapus-bidang/{id}','BidangController@hapus');
-
 Route::get('/admin/halaman-hak-akses', 'AdminController@bidang');
 Route::get('/admin/halaman-tambah-hak-akses', 'AdminController@addakses');
 Route::post('/admin/store-hak-akses', 'AdminController@storeakses');
