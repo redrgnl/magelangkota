@@ -15,13 +15,13 @@
 Route::get('/admin/halaman-dashboard', 'AdminController@index');
 
 // Route hak akses / bidang
-Route::get('/admin/halaman-hak-akses', 'AdminController@bidang');
-Route::get('/admin/halaman-tambah-hak-akses', 'AdminController@addakses');
-Route::post('/admin/store-hak-akses', 'AdminController@storeakses');
+Route::get('/admin/halaman-hak-akses', 'BidangController@bidang');
+Route::get('/admin/halaman-tambah-hak-akses', 'BidangController@addakses');
+Route::post('/admin/store-hak-akses', 'BidangController@storeakses');
 
-Route::get('/admin/edit-data-hak-akses/{id}', 'AdminController@halamanEditAkses');
-Route::post('/admin/update-akses', 'AdminController@updateakses');
-Route::get('/admin/delete-data-hak-akses/{id}', 'AdminController@deleteakses');
+Route::get('/admin/edit-data-hak-akses/{id}', 'BidangController@halamanEditAkses');
+Route::post('/admin/update-akses', 'BidangController@updateakses');
+Route::get('/admin/delete-data-hak-akses/{id}', 'BidangController@deleteakses');
 
 // grafik
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
@@ -29,11 +29,11 @@ Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
 Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
 
 // users
-Route::get('/admin/halaman-pengguna', 'AdminController@users');
-Route::get('/admin/tambah-pengguna', 'AdminController@addUser');
-Route::post('/admin/store-pengguna', 'AdminController@storepengguna');
+Route::get('/admin/halaman-pengguna', 'UsersController@users');
+Route::get('/admin/tambah-pengguna', 'UsersController@addUser');
+Route::post('/admin/store-pengguna', 'UsersController@storepengguna');
 
-Route::get('/admin/edit-data-pengguna/{id}', 'AdminController@halamanEditUser');
-Route::post('/admin/update-pengguna', 'AdminController@updatepengguna');
-Route::get('/admin/delete-data-pengguna/{id}', 'AdminController@deletepengguna');
+Route::get('/admin/edit-data-pengguna/{id}', 'UsersController@halamanEditUser');
+Route::post('/admin/update-pengguna', 'UsersController@updatepengguna');
+Route::get('/admin/delete-data-pengguna/{id}', 'UsersController@deletepengguna');
 
