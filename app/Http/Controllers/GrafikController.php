@@ -9,10 +9,7 @@ use DateTime;
 
 class GrafikController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
     // menu grafik
     public function grafik()
     {
@@ -29,10 +26,10 @@ class GrafikController extends Controller
     //tambah grafik baru
     public function tambah_graf()
     {
-
         $data = [
             'title' => "Tambah Grafik Baru | Command Center Magelang",
-            'sektor' => DB::table('tb_sektor')->get()
+            'sektor' => DB::table('tb_sektor')->get(),
+            'bidang' => DB::table('tb_bidang')->get()
         ];
 
         return view('admin/content/tambahGraf', $data);
@@ -55,13 +52,21 @@ class GrafikController extends Controller
 
         ], $messages);
 
-        DB::table('tb_grafik')->insert([
-            'judulGrafik' => $request->judul,
-            'metabaseId' => $request->metabase,
-            'idSektor' => $request->sektor,
+        $lastid = DB::table('tb_grafik')->insertGetId([
+                    'judulGrafik' => $request->judul,
+                    'metabaseId' => $request->metabase,
+                    'idSektor' => $request->sektor,
+                    'waktuDibuat' => $now
+                  ]);
+
+        $detbidang = implode(",", $request->get('chkbidang')); 
+        
+        DB::table('tb_detailbidang')->insert([
+            'idGrafik' => $lastid,
+            'detBidang' => $detbidang,
             'waktuDibuat' => $now
         ]);
-
+        
         return redirect('admin/halaman-list-grafik');
     }
 }

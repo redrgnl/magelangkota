@@ -9,10 +9,6 @@ use Datetime;
 
 class BidangController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     //halaman bidang
     public function bidang()
     {

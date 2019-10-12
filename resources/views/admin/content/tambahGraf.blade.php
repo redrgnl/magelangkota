@@ -16,13 +16,9 @@
             </div>
           </div>
           <div id="view-validations">
-
-
-<!-- {{-- menampilkan error validasi --}}
- -->@if (count($errors) > 0)
-
-     @foreach ($errors->all() as $error)
-
+            <!-- {{-- menampilkan error validasi --}} -->
+            @if (count($errors) > 0)
+              @foreach ($errors->all() as $error)
               <div class="card-alert card red">
                 <div class="card-content white-text">
                   <p>{{ $error }}</p>
@@ -31,9 +27,8 @@
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-     @endforeach
-
-@endif
+              @endforeach
+            @endif
             <form class="formValidate" id="formValidate" action="/admin/proses_tambahGraf" method="post">
             	@csrf
               <div class="row">
@@ -51,14 +46,23 @@
                   <label for="crole">Kategori Grafik * </label>
                   <select class="error browser-default" id="crole" name="sektor" data-error=".errorTxt6">
                     <option value="" disabled selected>Pilih Sektor</option>
-@if(!empty($sektor))
-@foreach($sektor as $b)
+                    @if(!empty($sektor))
+                    @foreach($sektor as $b)
                     <option value="{{$b->idSektor}}">{{$b->namaSektor}}</option>
-@endforeach
-@endif
+                    @endforeach
+                    @endif
                   </select>
+                  <br>
+                  <label>Dapat Di Akses Oleh *</label>
                   <div class="input-field">
-                    <div class="errorTxt6"></div>
+                    @foreach($bidang as $bdg)
+                    <p>
+                      <label>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]"/>
+                        <span>{{ $bdg->namaBidang }}</span>
+                      </label>
+                    </p>
+                    @endforeach
                   </div>
                 </div>
                 <div class="input-field col s12">
@@ -69,7 +73,6 @@
               </div>
             </form>
           </div>
-
         </div>
       </div>
     </div>

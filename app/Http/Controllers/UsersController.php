@@ -124,8 +124,4 @@ class UsersController extends Controller
 
         return redirect('/admin/halaman-pengguna');
     }
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 }
