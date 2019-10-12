@@ -11,7 +11,6 @@
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-
                <div class="card-title">
                  <div class="row">
                     <div class="col s12 m6 l10">
@@ -38,14 +37,11 @@
                         <tr>
                           <td>{{ $bdg->namaBidang }}</td>
                           <td>
- 
-                            <a href="/admin/halaman-edit-bidang/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                            <a href="/admin/edit-data-hak-akses/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">edit</i>
                             </a>
-                            <a href="/admin/hapus-bidang/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                            <a href="/admin/delete-data-hak-akses/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">delete_forever</i>
-
-
                             </a>
                           </td>
                         </tr>
@@ -54,15 +50,12 @@
                   </table>
                 </div>
               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 
 @endsection
