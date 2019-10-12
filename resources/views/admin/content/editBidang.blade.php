@@ -52,28 +52,8 @@
               </div>
             </div>
           </div>
-          <div id="view-validations">
-            <form class="formValidate" id="formValidate" action="/admin/update-akses" method="post">
-              @csrf
-              @foreach($akses as $aks)
-              <div class="row">
-                <div class="input-field col s12">
-                  <label for="hakses">Hak Akses*</label>
-                  <input type="hidden" name="idakses" id="idakses" value="{{ $aks->idBidang }}">
-                  <input id="hakses" name="hakses" type="text" data-error=".errorTxt1" value="{{ $aks->namaBidang }}">
-                  <div class="errorTxt1"></div>
-                </div>
-                <div class="input-field col s12">
-                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Simpan
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
 
 
-              @endforeach
             </form>
           </div>
         </div>
