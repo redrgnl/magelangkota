@@ -4,7 +4,10 @@
 <!-- page main -->
 @section('content')
   <div class="row">
-    <div class="col s12">
+
+<div class="col s12">
+  <div class="container">
+    <div class="row">
       <div id="validations" class="card card-tabs">
         <div class="card-content">
           <div class="card-title">
@@ -45,6 +48,7 @@
 
                 <div class="input-field col s12">
                   <button class="btn waves-effect waves-light right submit" type="submit" name="action">Submit
+
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -57,4 +61,6 @@
     </div>
   </div>
     <!-- END: Page Main-->
+</div>
+<!-- END: Page Main-->
 @endsection

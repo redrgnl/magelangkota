@@ -3,8 +3,10 @@
 
 <!-- page main -->
 @section('content')
-  <div class="row">
-    <div class="col s12">
+
+<div class="col s12">
+  <div class="container">
+    <div class="row">
       <div id="validations" class="card card-tabs">
         <div class="card-content">
           <div class="card-title">
@@ -46,6 +48,23 @@
 
                 <div class="input-field col s12">
                   <button class="btn waves-effect waves-light right submit" type="submit" name="action">Submit
+                <h4 class="card-title">Edit Data Akses User</h4>
+              </div>
+            </div>
+          </div>
+          <div id="view-validations">
+            <form class="formValidate" id="formValidate" action="/admin/update-akses" method="post">
+              @csrf
+              @foreach($akses as $aks)
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="hakses">Hak Akses*</label>
+                  <input type="hidden" name="idakses" id="idakses" value="{{ $aks->idBidang }}">
+                  <input id="hakses" name="hakses" type="text" data-error=".errorTxt1" value="{{ $aks->namaBidang }}">
+                  <div class="errorTxt1"></div>
+                </div>
+                <div class="input-field col s12">
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Simpan
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
@@ -53,9 +72,16 @@
             </form>
           </div>
 
+
+              @endforeach
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
     <!-- END: Page Main-->
+
+</div>
+<!-- END: Page Main-->
 @endsection

@@ -11,10 +11,11 @@
         <div class="col s12">
           <div class="card">
             <div class="card-content">
-               <div class="card-title">
+
+              <div class="card-title">
                  <div class="row">
                     <div class="col s12 m6 l10">
-                     <h4 class="card-title">Daftar Grafik</h4>
+                     <h4 class="card-title">Daftar grafik</h4>
                     </div>
                     <div class="col s12 m6 l2">
                       <a href="/admin/halaman-tambah-grafik" class="waves-effect waves-light  btn gradient-45deg-red-pink box-shadow-none border-round mr-1 mb-1">Tambah Baru</a>
@@ -22,7 +23,9 @@
                   </div>
                 </div>
                 <hr>
+ 
                 <br>           
+
               <div class="row">
                 <div class="col s12">
                   <table id="page-length-option" class="display">
@@ -30,8 +33,7 @@
                       <tr>
                         <th>Judul Grafik</th>
                         <th>Sektor</th>
-
-                        <th>Action</th>
+                        <th style="width: 15px; text-align: center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
