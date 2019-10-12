@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 03:48 AM
+-- Generation Time: Oct 12, 2019 at 03:37 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -77,10 +77,17 @@ INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
 --
 
 CREATE TABLE `tb_detailbidang` (
-  `idBidang` int(11) NOT NULL,
   `idGrafik` int(11) NOT NULL,
+  `detBidang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `waktuDibuat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_detailbidang`
+--
+
+INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
+(5, '1,2,3,4,5,6,7', '2019-10-12 13:34:04');
 
 -- --------------------------------------------------------
 
@@ -102,7 +109,8 @@ CREATE TABLE `tb_grafik` (
 
 INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `waktuDibuat`) VALUES
 (1, 1, '219c9384-fccf-4a1a-b630-5d0c6e612692', 'ewewewewe', '2019-10-11 00:00:00'),
-(3, 2, '92db4953-839c-4c13-a7aa-d099d39e9361', '32323233', '2019-10-18 00:00:00');
+(3, 2, '92db4953-839c-4c13-a7aa-d099d39e9361', '32323233', '2019-10-18 00:00:00'),
+(5, 7, 'qqqqqqqqqq', 'qqqqqqq', '2019-10-12 13:34:04');
 
 -- --------------------------------------------------------
 
@@ -152,16 +160,8 @@ CREATE TABLE `tb_users` (
 
 INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password`, `waktuDibuat`) VALUES
 (1, 1, 'bombom', 'asd@gmail.com', '123', '2019-10-01 00:00:00'),
-(2, 1, '123', '123', '123', '2019-10-01 00:00:00'),
-(3, 1, 'qq', 'qq', 'qq', '2019-10-01 00:00:00'),
-(4, 1, 'ww', 'ww', 'ww', '2019-10-01 00:00:00'),
-(5, 1, 'ee', 'ee', 'ee', '2019-10-17 00:00:00'),
-(6, 1, 'ff', 'ff', 'ff', '2019-10-15 00:00:00'),
-(7, 1, 'tt', 'tt', 'tt', '2019-10-23 00:00:00'),
-(8, 1, 'yy', 'yy', 'yy', '2019-10-18 00:00:00'),
-(9, 1, 'uu', 'uu', 'uu', '2019-10-12 00:00:00'),
-(10, 1, 'ii', 'ii', 'ii', '2019-10-25 00:00:00'),
-(11, 1, 'oo', 'oo', 'oo', '2019-10-26 00:00:00');
+(2, 4, 'kontolol', 'kontol@kontol.tolol', 'e10adc3949ba59abbe56e057f20f883e', '2019-10-12 02:28:02'),
+(12, 4, 'uvuv', 'uvuv@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-10-11 09:34:23');
 
 --
 -- Indexes for dumped tables
@@ -183,8 +183,8 @@ ALTER TABLE `tb_bidang`
 -- Indexes for table `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
-  ADD KEY `idGrafik` (`idGrafik`),
-  ADD KEY `idBidang` (`idBidang`);
+  ADD UNIQUE KEY `idGrafik_2` (`idGrafik`),
+  ADD KEY `idGrafik` (`idGrafik`);
 
 --
 -- Indexes for table `tb_grafik`
@@ -220,13 +220,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
-  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
-  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_sektor`
@@ -238,7 +238,7 @@ ALTER TABLE `tb_sektor`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -248,8 +248,7 @@ ALTER TABLE `tb_users`
 -- Constraints for table `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
-  ADD CONSTRAINT `tb_detailbidang_ibfk_1` FOREIGN KEY (`idBidang`) REFERENCES `tb_bidang` (`idBidang`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_detailbidang_ibfk_2` FOREIGN KEY (`idGrafik`) REFERENCES `tb_grafik` (`idGrafik`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_detailbidang_ibfk_1` FOREIGN KEY (`idGrafik`) REFERENCES `tb_grafik` (`idGrafik`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_grafik`
