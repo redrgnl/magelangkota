@@ -46,7 +46,7 @@
                             <a class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">edit</i>
                             </a>
-                            <a class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                            <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">delete_forever</i>
                             </a>
                           </td>

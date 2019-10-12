@@ -17,7 +17,7 @@ class GrafikController extends Controller
 
         $data['grafik'] = DB::table('tb_grafik')
             ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
-            ->select('tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
+            ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
             ->get();
 
         return view('admin/content/grafik', $data);
@@ -68,5 +68,11 @@ class GrafikController extends Controller
         ]);
         
         return redirect('admin/halaman-list-grafik');
+    }
+    
+    public function deletegraf($id) {
+        DB::table('tb_grafik')->where('idGrafik', $id)->delete();
+        
+        return redirect ('admin/halaman-list-grafik');
     }
 }
