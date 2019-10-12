@@ -41,6 +41,6 @@ Route::get('login', 'AuthController@index')->name('login');
 Route::post('post-login', 'AuthController@postLogin');
 Route::get('logout', 'AuthController@logout');
 
-Route::get('/beranda', 'BerandaController@index')->name('beranda');
+Route::get('/', 'BerandaController@index')->name('beranda');
 
 Route::get('/home', 'HomeController@index')->name('home');
