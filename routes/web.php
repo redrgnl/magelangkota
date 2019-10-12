@@ -11,25 +11,10 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//// master
-//Route::get('/master', 'MasterController@index');
-//// dashboard
-//Route::get('/halaman-dashboard-admin', 'DashboardController@index');
-//// user
-//Route::get('/halaman-daftar-pengguna', 'UserController@index');
-//Route::get('/halaman-tambah-pengguna', 'UserController@tambah');
-//Route::post('/proses-tambah', 'UserController@prs_tambah');
-//// menu dinamic metabase
-//Route::get('/halaman-sektor/{id}', 'DashboardController@sektor');
-
 //Route Admin
 Route::get('/admin/halaman-dashboard', 'AdminController@index');
 
 // Route hak akses / bidang
-
 Route::get('/admin/halaman-hak-akses', 'AdminController@bidang');
 Route::get('/admin/halaman-tambah-hak-akses', 'AdminController@addakses');
 Route::post('/admin/store-hak-akses', 'AdminController@storeakses');

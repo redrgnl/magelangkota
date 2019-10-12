@@ -3,7 +3,6 @@
 
 <!-- page main -->
 @section('content')
-
 <div class="col s12">
   <div class="container">
     <div class="row">
@@ -12,56 +11,31 @@
           <div class="card-title">
             <div class="row">
               <div class="col s12 m6 l10">
-                <h4 class="card-title">Tambah Grafik Baru</h4>
+                <h4 class="card-title">Tambah Hak Akses Baru</h4>
               </div>
-
             </div>
           </div>
           <div id="view-validations">
-
-
-<!-- {{-- menampilkan error validasi --}}
- -->@if (count($errors) > 0)
-
-     @foreach ($errors->all() as $error)
-
-              <div class="card-alert card red">
-                <div class="card-content white-text">
-                  <p>{{ $error }}</p>
-                </div>
-                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-     @endforeach
-
-@endif
-            <form class="formValidate" id="formValidate" action="/admin/proses-edit-bidang" method="post">
-            	@csrf
-                  <input id="id" name="idBdg" type="hidden" data-error=".errorTxt1" value="{{ $id }}">
+            <form class="formValidate" id="formValidate" action="/admin/update-akses" method="post">
+              @csrf
+              @foreach($akses as $aks)
+              <input id="idakses" name="idakses" type="hidden" data-error=".errorTxt1" value="{{ $aks->idBidang }}">
               <div class="row">
                 <div class="input-field col s12">
-                  <label for="uname">Nama Bidang*</label>
-                  <input id="uname" name="nama_bidang" type="text" value="{{ $oldBidang }}" data-error=".errorTxt1">
+                  <label for="hakses">Nama Bidang*</label>
+                  <input id="hakses" name="hakses" type="text" value="{{ $aks->namaBidang }}" data-error=".errorTxt1">
                   <div class="errorTxt1"></div>
                 </div>
-
                 <div class="input-field col s12">
-                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Submit
-                <h4 class="card-title">Edit Data Akses User</h4>
+                  <button class="btn waves-effect waves-light right submit" type="submit" name="action">Submit</button>
+                </div>
               </div>
-            </div>
-          </div>
-
-
+              @endforeach
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-    <!-- END: Page Main-->
-
 </div>
-<!-- END: Page Main-->
 @endsection

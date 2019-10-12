@@ -149,7 +149,7 @@ class AdminController extends Controller
             'title' => "Tambah Akses | Command Center Magelang",  
         ];
         
-        return view ('admin/content/tambahBidang');
+        return view ('admin/content/tambahBidang', $data);
     }
     
     //store hak akses
