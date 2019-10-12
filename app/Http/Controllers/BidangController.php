@@ -9,75 +9,85 @@ use Datetime;
 
 class BidangController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //halaman bidang
-    public function bidang() {
+    public function bidang()
+    {
         $query = DB::table('tb_bidang')->get();
-        
+
         $data = [
             'title' => "Manajemen Akses Pengguna | Command Center Magelang",
             'bidang' => $query
         ];
-        
-        return view ('admin/content/bidang', $data);
+
+        return view('admin/content/bidang', $data);
     }
-    
+
     //halaman tambah hak akses
-    public function addakses() {
+    public function addakses()
+    {
         $data = [
-            'title' => "Tambah Akses | Command Center Magelang",  
+            'title' => "Tambah Akses | Command Center Magelang",
         ];
-        
-        return view ('admin/content/tambahBidang', $data);
+
+        return view('admin/content/tambahBidang', $data);
     }
-    
+
     //store hak akses
-    public function storeakses(Request $tambah) {
+    public function storeakses(Request $tambah)
+    {
         $now = new DateTime();
-        
+
         $this->validate($tambah, [
             'hakses' => 'required|string'
         ]);
-        
+
         DB::table('tb_bidang')->insert([
             'namaBidang' => $tambah->hakses,
             'waktuDibuat' => $now
         ]);
-        
-        return redirect ('/admin/halaman-hak-akses');
+
+        return redirect('/admin/halaman-hak-akses');
     }
-    
+
     //halaman edit hak akses
-    public function halamanEditAkses($id) {
+    public function halamanEditAkses($id)
+    {
         $queryakses = DB::table('tb_bidang')->where('idBidang', $id)->get();
-        
+
         $data = [
             'title' => "Update Akses Pengguna | Command Center Magelang",
             'akses' => $queryakses
         ];
-        
-        return view ('admin/content/editBidang', $data);
+
+        return view('admin/content/editBidang', $data);
     }
-    
+
     //update hak akses
-    public function updateakses(Request $update) {
+    public function updateakses(Request $update)
+    {
         $now = new DateTime();
-        
+
         $this->validate($update, [
             'hakses' => 'required|string'
         ]);
-        
+
         DB::table('tb_bidang')->where('idBidang', $update->idakses)->update([
             'namaBidang' => $update->hakses,
             'waktuDibuat' => $now
         ]);
-        
-        return redirect ('/admin/halaman-hak-akses');
+
+        return redirect('/admin/halaman-hak-akses');
     }
-    
+
     //delete bidang
-    public function deleteakses($id) {
+    public function deleteakses($id)
+    {
         DB::table('tb_bidang')->where('idBidang', $id)->delete();
-        
-        return redirect ('/admin/halaman-hak-akses');
+
+        return redirect('/admin/halaman-hak-akses');
     }
 }

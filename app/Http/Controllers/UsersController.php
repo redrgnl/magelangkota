@@ -57,7 +57,7 @@ class UsersController extends Controller
             'email' => 'required|email|max:100|unique:tb_users,emailUser',
             'password' => 'required|min:6',
             'confirm_password' => 'required|same:password'
-        ],$messages);
+        ], $messages);
 
         // save into table
         DB::table('tb_users')->insert([
@@ -70,23 +70,25 @@ class UsersController extends Controller
         // redirect to home
         return redirect('/admin/halaman-pengguna');
     }
-    
+
     //halaman edit pengguna
-    public function halamanEditUser($id) {
+    public function halamanEditUser($id)
+    {
         $querypengguna = DB::table('tb_users')->where('idUser', $id)->get();
         $querybidang = DB::table('tb_bidang')->get();
-        
+
         $data = [
             'title' => "Update Data Pengguna | Command Center Magelang",
             'bidang' => $querybidang,
-            'datapengguna' => $querypengguna  
+            'datapengguna' => $querypengguna
         ];
-        
-        return view ('admin/content/editUser', $data);
+
+        return view('admin/content/editUser', $data);
     }
-    
+
     //fungsi update pengguna
-    public function updatepengguna(Request $update) {
+    public function updatepengguna(Request $update)
+    {
         $now = new DateTime();
         $messages = [
             'required' => 'Form :attribute wajib di isi *',
@@ -96,14 +98,14 @@ class UsersController extends Controller
             'same' => ':attribute harus sama dengan password, mohon cek kembali',
 
         ];
-        
+
         $this->validate($update, [
-           'username' => 'required|string',
-           'email' => 'required|email|max:100',
-           'password' => 'required|min:6',
-           'confirm_password' => 'required|same:password'  
+            'username' => 'required|string',
+            'email' => 'required|email|max:100',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|same:password'
         ], $messages);
-        
+
         DB::table('tb_users')->where('idUser', $update->idd)->update([
             'namaUser' => $update->username,
             'emailUser' => $update->email,
@@ -114,11 +116,16 @@ class UsersController extends Controller
         // redirect to home
         return redirect('/admin/halaman-pengguna');
     }
-    
+
     //fungsi delete pengguna
-    public function deletepengguna($id) {
+    public function deletepengguna($id)
+    {
         DB::table('tb_users')->where('idUser', $id)->delete();
-        
-        return redirect ('/admin/halaman-pengguna');
+
+        return redirect('/admin/halaman-pengguna');
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }

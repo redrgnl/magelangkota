@@ -9,22 +9,22 @@
       <div id="validations" class="card card-tabs">
         <div class="card-content">
           <div class="card-title">
-<!-- {{-- menampilkan error validasi --}}
+            <!-- {{-- menampilkan error validasi --}}
  -->@if (count($errors) > 0)
 
-     @foreach ($errors->all() as $error)
+            @foreach ($errors->all() as $error)
 
-              <div class="card-alert card red">
-                <div class="card-content white-text">
-                  <p>{{ $error }}</p>
-                </div>
-                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+            <div class="card-alert card red">
+              <div class="card-content white-text">
+                <p>{{ $error }}</p>
               </div>
-     @endforeach
+              <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            @endforeach
 
-@endif
+            @endif
             <div class="row">
               <div class="col s12 m6 l10">
                 <h4 class="card-title">Tambah Pengguna</h4>

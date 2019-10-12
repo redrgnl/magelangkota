@@ -37,3 +37,10 @@ Route::get('/admin/edit-data-pengguna/{id}', 'UsersController@halamanEditUser');
 Route::post('/admin/update-pengguna', 'UsersController@updatepengguna');
 Route::get('/admin/delete-data-pengguna/{id}', 'UsersController@deletepengguna');
 
+Route::get('login', 'AuthController@index')->name('login');
+Route::post('post-login', 'AuthController@postLogin');
+Route::get('logout', 'AuthController@logout');
+
+Route::get('/beranda', 'BerandaController@index')->name('beranda');
+
+Route::get('/home', 'HomeController@index')->name('home');

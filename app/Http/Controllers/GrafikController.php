@@ -9,20 +9,26 @@ use DateTime;
 
 class GrafikController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // menu grafik
-    public function grafik(){
+    public function grafik()
+    {
         $data['title'] = "Daftar Grafik | Command Center Magelang";
-        
+
         $data['grafik'] = DB::table('tb_grafik')
-        ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
-        ->select('tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
-        ->get();
+            ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
+            ->select('tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
+            ->get();
 
         return view('admin/content/grafik', $data);
     }
-    
+
     //tambah grafik baru
-    public function tambah_graf(){
+    public function tambah_graf()
+    {
 
         $data = [
             'title' => "Tambah Grafik Baru | Command Center Magelang",
@@ -32,7 +38,8 @@ class GrafikController extends Controller
         return view('admin/content/tambahGraf', $data);
     }
 
-    public function proses_tambahGraf(Request $request){
+    public function proses_tambahGraf(Request $request)
+    {
         $now = new DateTime();
 
         $messages = [
@@ -40,7 +47,7 @@ class GrafikController extends Controller
             'min' => ':attribute harus berisi minimal 5 karakter *',
 
         ];
-        $this->validate($request,[
+        $this->validate($request, [
             'judul' => 'required|min:5',
             'metabase' => 'required',
             'sektor' => 'required'
