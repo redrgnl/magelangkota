@@ -9,21 +9,25 @@ use DateTime;
 
 class GrafikController extends Controller
 {
-// menu grafik
+    // menu grafik
     public function grafik(){
-
+        $data['title'] = "Daftar Grafik | Command Center Magelang";
+        
         $data['grafik'] = DB::table('tb_grafik')
         ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
         ->select('tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
         ->get();
 
-
         return view('admin/content/grafik', $data);
     }
+    
+    //tambah grafik baru
     public function tambah_graf(){
 
-        $data['sektor'] = DB::table('tb_sektor')->get();
-
+        $data = [
+            'title' => "Tambah Grafik Baru | Command Center Magelang",
+            'sektor' => DB::table('tb_sektor')->get()
+        ];
 
         return view('admin/content/tambahGraf', $data);
     }
@@ -52,7 +56,5 @@ class GrafikController extends Controller
         ]);
 
         return redirect('admin/halaman-list-grafik');
-
-        // return view('admin/content/bidang', $data);
     }
 }

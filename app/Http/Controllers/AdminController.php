@@ -13,6 +13,8 @@ class AdminController extends Controller
     public function index(){
         return view('admin/content/dashboard');
     }
+        
+    //===========================================================================================================//
     
     //halaman data pengguna
     public function users()
@@ -23,12 +25,12 @@ class AdminController extends Controller
             ->get();
 
         $data = [
+            'title' => "Manajemen Pengguna | Command Center Magelang",
             'users' => $query
         ];
 
         return view('admin/content/users', $data);
     }
-
 
     //fungsi tambah user
     public function addUser()
@@ -36,6 +38,7 @@ class AdminController extends Controller
         $query = DB::table('tb_bidang')->get();
 
         $data = [
+            'title' => "Tambah Pengguna Baru | Command Center Magelang",
             'bidang' => $query
         ];
 
@@ -43,7 +46,7 @@ class AdminController extends Controller
     }
 
     //fungsi simpan user
-    public function store(Request $request)
+    public function storepengguna(Request $request)
     {
         $now = new DateTime();
         $messages = [
@@ -81,6 +84,7 @@ class AdminController extends Controller
         $querybidang = DB::table('tb_bidang')->get();
         
         $data = [
+            'title' => "Update Data Pengguna | Command Center Magelang",
             'bidang' => $querybidang,
             'datapengguna' => $querypengguna  
         ];
@@ -89,7 +93,7 @@ class AdminController extends Controller
     }
     
     //fungsi update pengguna
-    public function update(Request $update) {
+    public function updatepengguna(Request $update) {
         $now = new DateTime();
         $messages = [
             'required' => 'Form :attribute wajib di isi *',
@@ -119,9 +123,83 @@ class AdminController extends Controller
     }
     
     //fungsi delete pengguna
-    public function delete($id) {
+    public function deletepengguna($id) {
         DB::table('tb_users')->where('idUser', $id)->delete();
         
         return redirect ('/admin/halaman-pengguna');
+    }
+    
+    //===========================================================================================================//
+    
+    //halaman bidang
+    public function bidang() {
+        $query = DB::table('tb_bidang')->get();
+        
+        $data = [
+            'title' => "Manajemen Akses Pengguna | Command Center Magelang",
+            'bidang' => $query
+        ];
+        
+        return view ('admin/content/bidang', $data);
+    }
+    
+    //halaman tambah hak akses
+    public function addakses() {
+        $data = [
+            'title' => "Tambah Akses | Command Center Magelang",  
+        ];
+        
+        return view ('admin/content/tambahBidang');
+    }
+    
+    //store hak akses
+    public function storeakses(Request $tambah) {
+        $now = new DateTime();
+        
+        $this->validate($tambah, [
+            'hakses' => 'required|string'
+        ]);
+        
+        DB::table('tb_bidang')->insert([
+            'namaBidang' => $tambah->hakses,
+            'waktuDibuat' => $now
+        ]);
+        
+        return redirect ('/admin/halaman-hak-akses');
+    }
+    
+    //halaman edit hak akses
+    public function halamanEditAkses($id) {
+        $queryakses = DB::table('tb_bidang')->where('idBidang', $id)->get();
+        
+        $data = [
+            'title' => "Update Akses Pengguna | Command Center Magelang",
+            'akses' => $queryakses
+        ];
+        
+        return view ('admin/content/editBidang', $data);
+    }
+    
+    //update hak akses
+    public function updateakses(Request $update) {
+        $now = new DateTime();
+        
+        $this->validate($update, [
+            'hakses' => 'required|string'
+        ]);
+        
+        DB::table('tb_bidang')->where('idBidang', $update->idakses)->update([
+            'namaBidang' => $update->hakses,
+            'waktuDibuat' => $now
+        ]);
+        
+        return redirect ('/admin/halaman-hak-akses');
+    }
+    
+    //delete bidang
+    public function deleteakses($id) {
+        DB::table('tb_bidang')->where('idBidang', $id)->delete();
+        
+        return redirect ('/admin/halaman-hak-akses');
     }
 }
