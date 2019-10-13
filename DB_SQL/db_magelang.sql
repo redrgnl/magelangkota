@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2019 at 03:37 PM
+-- Generation Time: Oct 13, 2019 at 09:15 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -87,7 +87,7 @@ CREATE TABLE `tb_detailbidang` (
 --
 
 INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
-(5, '1,2,3,4,5,6,7', '2019-10-12 13:34:04');
+(8, '1,2,3,4,5,6,7', '2019-10-13 06:19:26');
 
 -- --------------------------------------------------------
 
@@ -108,9 +108,7 @@ CREATE TABLE `tb_grafik` (
 --
 
 INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `waktuDibuat`) VALUES
-(1, 1, '219c9384-fccf-4a1a-b630-5d0c6e612692', 'ewewewewe', '2019-10-11 00:00:00'),
-(3, 2, '92db4953-839c-4c13-a7aa-d099d39e9361', '32323233', '2019-10-18 00:00:00'),
-(5, 7, 'qqqqqqqqqq', 'qqqqqqq', '2019-10-12 13:34:04');
+(8, 5, 'qqqqqqqqqq', 'qqqqqqqq', '2019-10-13 06:19:26');
 
 -- --------------------------------------------------------
 
@@ -226,7 +224,7 @@ ALTER TABLE `tb_bidang`
 -- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
-  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_sektor`

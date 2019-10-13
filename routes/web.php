@@ -23,7 +23,15 @@ Route::get('/admin/edit-data-hak-akses/{id}', 'BidangController@halamanEditAkses
 Route::post('/admin/update-akses', 'BidangController@updateakses');
 Route::get('/admin/delete-data-hak-akses/{id}', 'BidangController@deleteakses');
 
-// grafik
+// grafik fix
+//Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
+//Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
+//Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
+//Route::get('/admin/delete-grafik/{id}', 'GrafikController@deletegraf');
+//Route::get('/admin/edit-data-grafik/{id}', 'GrafikController@halamanEditGrafik');
+//Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
+
+//====================== Bagus ==========================//
 Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
 Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
@@ -31,6 +39,7 @@ Route::get('/admin/delete-grafik/{id}', 'GrafikController@deletegraf');
 Route::get('/admin/edit-data-grafik/{id}', 'GrafikController@halamanEditGrafik');
 Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
 
+//====================== bagus ===========================//
 
 // users
 Route::get('/admin/halaman-pengguna', 'UsersController@users');

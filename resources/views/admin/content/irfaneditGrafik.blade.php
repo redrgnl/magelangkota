@@ -62,11 +62,19 @@
                     @foreach($allBid as $bdg)
                     <p>
                       <label>
-                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" <?php in_array ($bdg->idBidang, $checked) ? print "checked" : ""; ?>>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" 
+                        <?php foreach($bidang as $b):?>
+                        <?php if ($bdg->idBidang == $b->detBidang ): ?>
+							checked
+                        <?php endif ?>
+                        <?php endforeach ?>
+                         >
                         <span>{{ $bdg->namaBidang }}</span>
                       </label>
                     </p>
                     @endforeach
+
+
                   </div>
                 </div>
                 <div class="input-field col s12">
@@ -76,6 +84,7 @@
                 </div>
               </div>
             </form>
+
           </div>
         </div>
       </div>
