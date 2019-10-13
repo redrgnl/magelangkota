@@ -43,7 +43,7 @@
                           <td>{{ $g->namaSektor }}</td>
 
                           <td>
-                            <a class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                            <a href="/admin/edit-data-grafik/{{ $g->idGrafik }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">edit</i>
                             </a>
                             <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
