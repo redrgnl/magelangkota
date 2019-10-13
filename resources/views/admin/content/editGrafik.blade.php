@@ -29,7 +29,7 @@
               </div>
               @endforeach
             @endif
-            <form class="formValidate" id="formValidate" action="/admin/proses_tambahGraf" method="post">
+            <form class="formValidate" id="formValidate" action="/admin/update-grafik" method="post">
             	@csrf
               <div class="row">
                 <div class="input-field col s12">

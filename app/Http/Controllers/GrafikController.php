@@ -25,7 +25,7 @@ class GrafikController extends Controller
     public function halamanEditGrafik($id)
     {
         $queryGrafik = DB::table('tb_grafik')->where('idGrafik', $id)->get();
-        
+
         $queryAllBidang = DB::table('tb_bidang')->get();
 
         $sektor = DB::table('tb_sektor')->get();
@@ -52,6 +52,57 @@ class GrafikController extends Controller
         // ];
 
         return view('admin/content/editGrafik', $data);
+    }
+   public function updategrafik(Request $update)
+    {
+        $now = new DateTime();
+        $messages = [
+            'required' => 'Form :attribute wajib di isi *',
+            'min' => ':attribute harus berisi minimal 5 karakter *',
+
+        ];
+        $this->validate($update, [
+            'judul' => 'required|min:5',
+            'metabase' => 'required',
+            'sektor' => 'required'
+
+
+        ], $messages);
+        $old_id = $update->id_graf;
+
+        DB::table('tb_grafik')->where('idGrafik', $old_id)->update([
+                        'judulGrafik' => $update->judul,
+                        'metabaseId' => $update->metabase,
+                        'idSektor' => $update->sektor
+                  ]);
+
+
+
+        $detbidang = $update->get('chkbidang');
+
+        $dipilih = count($detbidang);
+
+        for($count = 0; $count<$dipilih; $count++)
+        {
+            $detbidang_clean = $detbidang[$count];
+            $waktu = $now;
+
+
+            DB::table('tb_detailbidang')
+            ->where('detBidang', $detbidang_clean)
+            ->where('idGrafik', $old_id)
+            ->update([
+                // 'idGrafik' => $lastid,
+                'detBidang' => $detbidang_clean,
+                // 'status_akses' => 2,
+                'waktuDibuat' => $waktu
+            ]);
+
+        }
+
+
+        // redirect to home
+        return redirect('/admin/edit-data-grafik/'.$old_id.'');
     }
 
     //tambah grafik baru
@@ -105,6 +156,7 @@ class GrafikController extends Controller
             DB::table('tb_detailbidang')->insert([
                 'idGrafik' => $lastid,
                 'detBidang' => $detbidang_clean,
+                // 'status_akses' => 1,
                 'waktuDibuat' => $waktu
             ]);
 

@@ -29,6 +29,7 @@ Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
 Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
 Route::get('/admin/delete-grafik/{id}', 'GrafikController@deletegraf');
 Route::get('/admin/edit-data-grafik/{id}', 'GrafikController@halamanEditGrafik');
+Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
 
 
 // users
