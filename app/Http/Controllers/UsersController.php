@@ -110,7 +110,7 @@ class UsersController extends Controller
             'namaUser' => $update->username,
             'emailUser' => $update->email,
             'idBidang' => $update->bidang,
-            'password' => md5($update->password),
+            'password' => Hash::make($update->password),
             'waktuDibuat' => $now
         ]);
         // redirect to home

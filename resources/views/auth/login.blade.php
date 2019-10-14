@@ -8,7 +8,7 @@
             <div class="container">
                 <div id="login-page" class="row">
                     <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">
-                        <form class="login-form " action="{{url('post-login')}}" method="POST">
+                        <form class="login-form " action="/post-login" method="POST">
                             @csrf
 
                             <div class="row">
@@ -19,10 +19,10 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">person_outline</i>
-                                    <input id="email" type="text" name="email">
-                                    <label for="email" class="center-align">Alamat Email</label>
+                                    <input id="emailUser" type="text" name="emailUser">
+                                    <label for="emailUser" class="center-align">Alamat Email</label>
 
-                                    @error('username')
+                                    @error('emailUser')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
