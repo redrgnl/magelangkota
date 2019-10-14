@@ -52,7 +52,15 @@ class GrafikController extends Controller
            $data['nam_sek'] = $key->namaSektor;
         }
 
-        return view('admin/content/tampilGrafik', $data);
+        if (!empty($graf)) {
+             return view('admin/content/tampilGrafik', $data);
+
+        } else {
+             return "Data kosong";
+
+        }
+        
+
     }
     public function tampil_sub_graf($id)
     {
