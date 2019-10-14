@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 use Datetime;
 
@@ -64,7 +66,7 @@ class UsersController extends Controller
             'namaUser' => $request->username,
             'emailUser' => $request->email,
             'idBidang' => $request->bidang,
-            'password' => md5($request->password),
+            'password' => Hash::make($request->password),
             'waktuDibuat' => $now
         ]);
         // redirect to home

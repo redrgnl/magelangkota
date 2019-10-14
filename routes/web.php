@@ -38,6 +38,9 @@ Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
 Route::get('/admin/delete-grafik/{id}', 'GrafikController@deletegraf');
 Route::get('/admin/edit-data-grafik/{id}', 'GrafikController@halamanEditGrafik');
 Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
+Route::get('/admin/halaman-tampil-grafik/{id}', 'GrafikController@tampil_graf');
+Route::get('/admin/halaman-grafik/{id}', 'GrafikController@tampil_sub_graf');
+
 
 //====================== bagus ===========================//
 
@@ -58,3 +61,7 @@ Route::get('/logout', 'AuthController@logout');
 Route::get('/', 'BerandaController@index')->name('beranda');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ====== ajax metabase
+Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
+

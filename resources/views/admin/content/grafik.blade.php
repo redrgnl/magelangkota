@@ -37,6 +37,7 @@
                       </tr>
                     </thead>
                     <tbody>
+@if(!empty($grafik))
                       @foreach($grafik as $g)
                         <tr>
                           <td>{{ $g->judulGrafik }}</td>
@@ -52,6 +53,7 @@
                           </td>
                         </tr>
                       @endforeach
+@endif
                     </tbody>
                   </table>
                 </div>

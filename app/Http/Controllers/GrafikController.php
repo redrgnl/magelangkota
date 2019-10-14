@@ -34,6 +34,67 @@ class GrafikController extends Controller
 
         return view('admin/content/tambahGraf', $data);
     }
+    public function tampil_graf($id)
+    {
+        $graf = DB::table('tb_grafik')
+        ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
+        ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
+        ->where('tb_grafik.idSektor', $id)
+        ->get();
+        $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id)->get();
+
+        $data['title'] = "Halaman Grafik | Command Center Magelang";
+
+        foreach ($graf as $key) {
+           $data['id'] = $key->idGrafik;
+           $data['meta'] = $key->metabaseId;
+           $data['judul'] = $key->judulGrafik;
+           $data['nam_sek'] = $key->namaSektor;
+        }
+
+        return view('admin/content/tampilGrafik', $data);
+    }
+    public function tampil_sub_graf($id)
+    {
+        $graf = DB::table('tb_grafik')
+        ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
+        ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
+        ->where('tb_grafik.idGrafik', $id)
+        ->get();
+        // $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id)->select('idSektor')->get();
+
+        $data['title'] = "Halaman Grafik | Command Center Magelang";
+
+        foreach ($graf as $key) {
+           $id_graf = $key->idGrafik;
+           $data['meta'] = $key->metabaseId;
+           $data['judul'] = $key->judulGrafik;
+           $data['nam_sek'] = $key->namaSektor;
+        }
+        $sektor = DB::table('tb_grafik')->where('idGrafik', $id)->select('idSektor')->get();
+        foreach ($sektor as $s) {
+            $id_sek = $s->idSektor;
+        }
+        $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id_sek)->get();
+
+
+
+        return view('admin/content/tampilGrafik', $data);
+    }
+    public function ajax_metabase($id){
+
+        $grafik = DB::table('tb_grafik')->where('metabaseId', $id)->get();
+
+        foreach ($grafik as $key) {
+            $meta = $key->metabaseId;
+            $judul = $key->judulGrafik;
+        }
+        return response()->json([
+            'metabaseId' => $meta,
+            'judulGrafik' => $judul
+    ]);
+
+    }
     
 //======================== end irfan ============================//
 //    public function proses_tambahGraf(Request $request)
