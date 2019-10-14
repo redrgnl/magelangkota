@@ -66,7 +66,7 @@ class UsersController extends Controller
             'namaUser' => $request->username,
             'emailUser' => $request->email,
             'idBidang' => $request->bidang,
-            'password' => Hash::make($request->password),
+            'password' => md5($request->password),
             'waktuDibuat' => $now
         ]);
         // redirect to home
