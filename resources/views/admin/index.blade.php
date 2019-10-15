@@ -47,9 +47,9 @@
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
-            @if(!empty($all_graf))
+<!--             @if(!empty($all_graf))
             <li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
-            @endif
+            @endif -->
           </ul>
           <!-- profile-dropdown-->
           <ul class="dropdown-content" id="profile-dropdown">
@@ -105,9 +105,9 @@
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
-      <?php $sektor = DB::table('tb_sektor')->get(); ?>
+<!--       <?php $sektor = DB::table('tb_sektor')->get(); ?>
       @if(!empty($sektor))
-      @foreach($sektor as $s)
+      @foreach($sektor as $s) -->
       <!--         <li class="bold">
 
           <a class="collapsible-header waves-effect waves-cyan " href="#">
@@ -124,12 +124,12 @@
           </div>
 
         </li> -->
-      <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}"><i class="material-icons">location_city</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
+<!--       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}"><i class="material-icons">location_city</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
       </li>
       @endforeach
       @endif
-      <br>
-      <!--         <?php $sektor = DB::table('tb_sektor')->get(); ?>
+      <br> -->
+              <?php $sektor = DB::table('tb_sektor')->get(); ?>
         
           <?php
           $sektor = DB::table('tb_sektor')
@@ -165,7 +165,7 @@
 
       @endforeach
         </li>
-    @endif -->
+    @endif
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
   </aside>
@@ -211,7 +211,7 @@
   <!-- END: Page Main-->
   @if(!empty($all_graf))
   <!-- side right bar -->
-  <aside id="right-sidebar-nav">
+<!--   <aside id="right-sidebar-nav">
     <div id="slide-out-right" class="slide-out-right-sidenav sidenav rightside-navigation">
       <div class="row">
         <div class="slide-out-right-title">
@@ -251,7 +251,7 @@
     </div>
 
 
-  </aside>
+  </aside> -->
   @endif
   <!-- END RIGHT SIDEBAR NAV -->
   <!-- end side right bar -->
