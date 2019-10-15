@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    //menampilkan halaman login
     public function index()
     {
         return view('auth/login');
@@ -19,20 +20,37 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        //isi allert
+        $messages = [
+            'required' => 'Form : attribute wajib di isi *',
+            'email' => 'Tolong gunakan : attribute yang sah *',
+            'max' => ': attribute max 100',
+        ];
+
+        //validasi form
         request()->validate([
-            'emailUser' => 'required',
+            'emailUser' => 'required|email|max:100',
             'password' => 'required',
-        ]);
+        ], $messages);
+
+        //fungsi login
         $user = Tb_users::where('emailUser', $request->emailUser)
             ->where('password', md5($request->password))
             ->first();
         if (!empty($user)) {
+            //membuat session user logged in
+            Session::put('namaUser', $user->namaUser);
+            Session::put('emailUser', $user->emailUser);
+            Session::put('idBidang', $user->idBidang);
+            Session::put('login', TRUE);
             return redirect('admin/halaman-dashboard');
         } else {
-            return redirect('login');
+            //gagal login
+            return redirect('login')->with('alert', 'Password atau Email, Salah !');
         }
     }
 
+    //logout function
     public function logout()
     {
         Session::flush();

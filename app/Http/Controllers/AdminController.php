@@ -9,7 +9,7 @@ use DateTime;
 
 class AdminController extends Controller
 {
-    
+
     //halaman dashboard admin
     public function index()
     {

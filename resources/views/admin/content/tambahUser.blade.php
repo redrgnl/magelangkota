@@ -9,8 +9,8 @@
       <div id="validations" class="card card-tabs">
         <div class="card-content">
           <div class="card-title">
-            <!-- {{-- menampilkan error validasi --}}
- -->@if (count($errors) > 0)
+            <!-- {{-- menampilkan error validasi --}}-->
+            @if (count($errors) > 0)
 
             @foreach ($errors->all() as $error)
 

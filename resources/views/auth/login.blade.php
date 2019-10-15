@@ -16,6 +16,17 @@
                                     <h5 class="ml-4">MASUK KE DASHBOARD</h5>
                                 </div>
                             </div>
+
+                            @if(Session('alert'))
+                            <div class="card-alert card red">
+                                <div class="card-content white-text">
+                                    <p>{{Session('alert')}}</p>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                                </button>
+                            </div>
+                            @endif
+
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix pt-2">person_outline</i>
