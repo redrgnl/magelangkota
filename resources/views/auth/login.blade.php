@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col s12 center-align">
                                     <h5 class="ml-4">MASUK KE DASHBOARD</h5>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <button type="submit" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12"">
+                                    <button type="submit" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">
                                         Login
                                     </button>
                                 </div>

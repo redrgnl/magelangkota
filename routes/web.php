@@ -65,3 +65,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // ====== ajax metabase
 Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
+
+//halaman front office
+Route::get('/home', 'DashboardController@index');
