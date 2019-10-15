@@ -189,9 +189,22 @@
                 </li>
               </ol>
             </div>
+
+            @if(Session('alert'))
+            <div class="card-alert card red">
+              <div class="card-content white-text">
+                <p>{{Session('alert')}}</p>
+              </div>
+              <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            @endif
+
           </div>
         </div>
       </div>
+
       @yield('content')
     </div>
   </div>

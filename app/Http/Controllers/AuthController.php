@@ -13,8 +13,12 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     //menampilkan halaman login
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->session()->exists('login')) {
+            // user value cannot be found in session
+            return redirect()->back()->with('alert', 'Silahkan logout Terlebih dahulu!');
+        }
         return view('auth/login');
     }
 
