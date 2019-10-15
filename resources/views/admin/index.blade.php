@@ -47,7 +47,7 @@
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
-<!--             @if(!empty($all_graf))
+            <!--             @if(!empty($all_graf))
             <li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
             @endif -->
           </ul>
@@ -105,7 +105,7 @@
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
-<!--       <?php $sektor = DB::table('tb_sektor')->get(); ?>
+      <!--       <?php $sektor = DB::table('tb_sektor')->get(); ?>
       @if(!empty($sektor))
       @foreach($sektor as $s) -->
       <!--         <li class="bold">
@@ -124,48 +124,48 @@
           </div>
 
         </li> -->
-<!--       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}"><i class="material-icons">location_city</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
+      <!--       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}"><i class="material-icons">location_city</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
       </li>
       @endforeach
       @endif
       <br> -->
-              <?php $sektor = DB::table('tb_sektor')->get(); ?>
-        
-          <?php
-          $sektor = DB::table('tb_sektor')
-            ->rightjoin('tb_grafik', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
-            ->select('*')
-            ->orderBy('tb_grafik.idSektor')
-            ->get();
-          ?>
-          
-          <?php $sktr = '-'; ?>
+      <?php $sektor = DB::table('tb_sektor')->get(); ?>
 
-    @if (!empty($sektor))
+      <?php
+      $sektor = DB::table('tb_sektor')
+        ->rightjoin('tb_grafik', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
+        ->select('*')
+        ->orderBy('tb_grafik.idSektor')
+        ->get();
+      ?>
+
+      <?php $sktr = '-'; ?>
+
+      @if (!empty($sektor))
       @foreach($sektor as $s)
-        @if($sktr =='-'|| $sktr!=$s->namaSektor)
-        <li class="bold">
+      @if($sktr =='-'|| $sktr!=$s->namaSektor)
+      <li class="bold">
 
-          <?php $kat = $s->namaSektor; ?>
+        <?php $kat = $s->namaSektor; ?>
 
-          <a class="collapsible-header waves-effect waves-cyan " href="#">
-            <i class="material-icons">school</i>
-            <span class="menu-title" data-i18n="">{{ $kat }}</span>
-          </a>
+        <a class="collapsible-header waves-effect waves-cyan " href="#">
+          <i class="material-icons">school</i>
+          <span class="menu-title" data-i18n="">{{ $kat }}</span>
+        </a>
         @endif
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+        <div class="collapsible-body">
+          <ul class="collapsible collapsible-sub" data-collapsible="accordion">
 
-              <li><a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
-              </li>
+            <li><a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
+            </li>
 
-            </ul>
-          </div>
-          <?php $sktr = $s->namaSektor; ?>
+          </ul>
+        </div>
+        <?php $sktr = $s->namaSektor; ?>
 
-      @endforeach
-        </li>
-    @endif
+        @endforeach
+      </li>
+      @endif
     </ul>
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
   </aside>
@@ -189,16 +189,29 @@
                 </li>
               </ol>
             </div>
+
+            @if(Session('alert'))
+            <div class="card-alert card red">
+              <div class="card-content white-text">
+                <p>{{Session('alert')}}</p>
+              </div>
+              <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            @endif
+
           </div>
         </div>
       </div>
+
       @yield('content')
     </div>
   </div>
   <!-- END: Page Main-->
   @if(!empty($all_graf))
   <!-- side right bar -->
-<!--   <aside id="right-sidebar-nav">
+  <!--   <aside id="right-sidebar-nav">
     <div id="slide-out-right" class="slide-out-right-sidenav sidenav rightside-navigation">
       <div class="row">
         <div class="slide-out-right-title">
