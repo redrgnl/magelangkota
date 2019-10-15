@@ -9,6 +9,14 @@
             background-size: cover;
 }
 
+.magelang-bg
+{
+    background-image: url('../../images/dashboard-bg.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+
 #lock-screen
 {
     display: -webkit-box;

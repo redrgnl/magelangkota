@@ -25,7 +25,7 @@
     <!-- END: Custom CSS-->
   </head>
   <!-- END: Head-->
-  <body class="vertical-layout page-header-light vertical-menu-collapsible vertical-menu-nav-dark 1-column forgot-bg  blank-page blank-page" data-open="click" data-menu="vertical-menu-nav-dark" data-col="1-column">
+  <body class="vertical-layout page-header-light vertical-menu-collapsible vertical-menu-nav-dark 1-column magelang-bg  blank-page blank-page" data-open="click" data-menu="vertical-menu-nav-dark" data-col="1-column">
   <!-- BEGIN: Page Main-->
   <div id="main ml-0 mr-0 ">
     <div class="row">
@@ -39,13 +39,13 @@
               </div>
               <div class="col m4 l4 mt-2" style="padding-left: 0px">
                 <div class="input-field">
-                  <h8 style="font-weight: bold; color: #333">Tentang Command Center</h8>
+                  <h8 style="font-weight: bold; color: white">Tentang Command Center</h8>
                 </div>
               </div>
               <div class="col m5 l5 mt-2 hide-on-small-only"></div>
               <div class="col m1 l1 mt-2 hide-on-small-only">
                 <div class="list-right">
-                  <a href="/login" class="mb-6 btn waves-effect waves-light amber darken-4 border-round">Login</a>
+                  <a href="/login" class="mb-6 btn waves-effect waves-light red border-round">Login</a>
                 </div>
               </div>
             </div>
@@ -58,9 +58,9 @@
               <div class="row">
                 <div class="input-field col s12 center-align mt-10">
                   <img class="z-depth-4 circle responsive-img" width="100" src="{{ asset('admin/images/user/4.jpg') }}" alt="">
-                  <h6 style="font-size: 20px; font-weight: bold">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
+                  <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
                   <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 70%; text-align: center; background-color: white">
-                  <a href="/login" class="btn waves-effect waves-light amber darken-4 border-round hide-on-large-only">Login</a>
+                  <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
                 </div>
               </div>
             </form>
