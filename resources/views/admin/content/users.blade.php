@@ -42,7 +42,7 @@
                           <a href="/admin/edit-data-pengguna/{{ $usr->idUser }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                             <i class="material-icons">edit</i>
                           </a>
-                          <a href="/admin/delete-data-pengguna/{{ $usr->idUser }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                          <a href="/admin/delete-data-pengguna/{{ $usr->idUser }}" id="tombol-delete" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1 ">
                             <i class="material-icons">delete_forever</i>
                           </a>
                         </td>

@@ -269,7 +269,7 @@ class GrafikController extends Controller
             'waktuDibuat' => $now
         ]);
 
-        return redirect('admin/halaman-list-grafik');
+        return redirect('admin/halaman-list-grafik')->with('success', 'Tambah Grafik');
     }
 
     public function halamanEditGrafik($id)
@@ -324,7 +324,7 @@ class GrafikController extends Controller
             'waktuDibuat' => $now
         ]);
 
-        return redirect('admin/halaman-list-grafik');
+        return redirect('admin/halaman-list-grafik')->with('success', 'Delete Grafik');
     }
 
     //================= END GRAFIK BAGUS ===============================//   
@@ -333,6 +333,6 @@ class GrafikController extends Controller
     {
         DB::table('tb_grafik')->where('idGrafik', $id)->delete();
 
-        return redirect('admin/halaman-list-grafik');
+        return redirect('admin/halaman-list-grafik')->with('success', 'Delete Grafik');
     }
 }

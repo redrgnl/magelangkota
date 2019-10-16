@@ -46,7 +46,7 @@ class BidangController extends Controller
             'waktuDibuat' => $now
         ]);
 
-        return redirect('/admin/halaman-hak-akses');
+        return redirect('/admin/halaman-hak-akses')->with('success', 'Tambah Bidang');
     }
 
     //halaman edit hak akses
@@ -76,7 +76,7 @@ class BidangController extends Controller
             'waktuDibuat' => $now
         ]);
 
-        return redirect('/admin/halaman-hak-akses');
+        return redirect('/admin/halaman-hak-akses')->with('success', 'Update Hakakses');
     }
 
     //delete bidang
@@ -84,6 +84,6 @@ class BidangController extends Controller
     {
         DB::table('tb_bidang')->where('idBidang', $id)->delete();
 
-        return redirect('/admin/halaman-hak-akses');
+        return redirect('/admin/halaman-hak-akses')->with('success', 'Delete Hak akses');
     }
 }

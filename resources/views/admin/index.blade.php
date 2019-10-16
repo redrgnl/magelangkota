@@ -233,6 +233,23 @@
           </div>
         </div>
       </div>
+<!-- @if(Session('alert'))
+<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success');?>"></div>
+
+                                    <p>{{Session('alert')}}</p> -->
+
+<!-- @endif -->
+ 
+   @if(Session('alert'))
+   
+<div class="flash-alert" data-flashalert="{{Session('alert')}}"></div>
+
+   @elseif (Session('success')) {
+<div class="flash-data" data-flashdata="{{Session('success')}}"></div>
+
+
+   @endif
+
 
       @yield('content')
     </div>
@@ -312,8 +329,87 @@
   <!-- END PAGE LEVEL JS-->
   <script src="{{ asset('admin/js/scripts/ui-alerts.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
+
+<!-- script sweetalert2 selesai-->
+    <script type="text/javascript">
+      $('.tombol-selesai').on('click', function (e) {
+          e.preventDefault();
+          // console.log(e);
+          const link = $(this).attr('href');
+
+          Swal.fire({
+                      title: 'Apakah Anda Yakin ?',
+                      text: "Pesanan ini akan selesai",
+                      type: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Ya, pesanan ini selesai!'
+                    }).then((result) => {
+                      if (result.value) {
+
+                          document.location.href = link;
+                      }
+            })
+
+      });
+
+    </script>
+<!-- script sweetalert2 batal-->
+    <script type="text/javascript">
+      $('#tombol-delete').on('click', function (e) {
+          e.preventDefault();
+          // console.log(e);
+          const link = $(this).attr('href');
+
+          Swal.fire({
+                      title: 'Apakah Anda Yakin ?',
+                      text: "Data ini akan dihapus",
+                      type: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Ya, Hapus!'
+                    }).then((result) => {
+                      if (result.value) {
+
+                          document.location.href = link;
+                      }
+            })
+
+      });
+
+    </script>
+<!-- script sweetalert2 -->
+    <script type="text/javascript">
+        const flash = $('.flash-data').data('flashdata');
+        if (flash) {
+          Swal.fire({
+              title: 'Data',
+              text: 'Berhasil ' + flash,
+              type: 'success',
+              showConfirmButton: false,
+              timer: 1500
+          });
+        }
+
+    </script>
+<!-- script sweetalert2 -->
+    <script type="text/javascript">
+        const alert = $('.flash-alert').data('flashalert');
+        if (alert) {
+          Swal.fire({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Gagal ' + alert,
+              showConfirmButton: false,
+              timer: 1500
+                   });
+        }
 
 
+    </script>
 </body>
 
 </html>

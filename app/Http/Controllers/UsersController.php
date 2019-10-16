@@ -70,7 +70,7 @@ class UsersController extends Controller
             'waktuDibuat' => $now
         ]);
         // redirect to home
-        return redirect('/admin/halaman-pengguna');
+        return redirect('/admin/halaman-pengguna')->with('success', 'Tambah Pengguna');
     }
 
     //halaman edit pengguna
@@ -116,7 +116,7 @@ class UsersController extends Controller
             'waktuDibuat' => $now
         ]);
         // redirect to home
-        return redirect('/admin/halaman-pengguna');
+        return redirect('/admin/halaman-pengguna')->with('success', 'Edit Pengguna');;
     }
 
     //fungsi delete pengguna
@@ -124,6 +124,6 @@ class UsersController extends Controller
     {
         DB::table('tb_users')->where('idUser', $id)->delete();
 
-        return redirect('/admin/halaman-pengguna');
+        return redirect('/admin/halaman-pengguna')->with('success', 'Delete Pengguna');;
     }
 }
