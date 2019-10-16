@@ -102,9 +102,7 @@
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-hak-akses"><i class="material-icons">vpn_key</i><span class="menu-title" data-i18n="">HAK AKSES</span></a>
       </li>
 
-      <!-- menu sektor -->
-      <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
-      </li>
+
       <!--       <?php $sektor = DB::table('tb_sektor')->get(); ?>
       @if(!empty($sektor))
       @foreach($sektor as $s) -->
@@ -129,24 +127,40 @@
       @endforeach
       @endif
       <br> -->
-      <?php $sektor = DB::table('tb_sektor')->get(); ?>
+      <?php
+      $sektor = DB::table('tb_sektor')->get();
+
+      // foreach ($detbid as $b) {
+      //   $checked = explode(',', $b->detBidang);
+      // }
+
+      // $data['checked'] = $checked;
+      ?>
+
+      <!-- menu sektor -->
+      <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
+      </li>
 
       <?php
-      $sektor = DB::table('tb_sektor')
-        ->rightjoin('tb_grafik', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
+      $sektor = DB::table('tb_detailbidang')
+        ->join('tb_grafik', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
+        ->join('tb_sektor', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
         ->select('*')
         ->orderBy('tb_grafik.idSektor')
         ->get();
       ?>
 
-      <?php $sktr = '-'; ?>
+      <?php $sktr = ''; ?>
 
       @if (!empty($sektor))
       @foreach($sektor as $s)
-      @if($sktr =='-'|| $sktr!=$s->namaSektor)
+      @if($sktr != $s->namaSektor)
       <li class="bold">
 
-        <?php $kat = $s->namaSektor; ?>
+        <?php
+        $kat = $s->namaSektor;
+        $aaa = Session::get('idBidang');
+        ?>
 
         <a class="collapsible-header waves-effect waves-cyan " href="#">
           <i class="material-icons">school</i>
@@ -155,9 +169,18 @@
         @endif
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-
-            <li><a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
-            </li>
+            <?php
+            if (in_array(Session::get('idBidang'), explode(',', $s->detBidang))) {
+              ?>
+              <li>
+                <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="">
+                  <i class="material-icons">radio_button_unchecked</i>
+                  <span>{{ $s->judulGrafik }}</span>
+                </a>
+              </li>
+            <?php
+            }
+            ?>
 
           </ul>
         </div>
@@ -167,12 +190,18 @@
       </li>
       @endif
     </ul>
-    <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
+    <div class="navigation-background"></div>
+    <a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out">
+      <i class="material-icons">menu</i>
+    </a>
   </aside>
   <!-- END: SideNav-->
 
   <!-- BEGIN: Page Main-->
   <div id="main">
+    <?php echo '<pre>';
+    print_r($aaa);
+    echo '</pre>'; ?>
     <div class="row">
       <div class="breadcrumbs-inline pt-3 pb-1" id="breadcrumbs-wrapper">
         <!-- Search for small screen-->
