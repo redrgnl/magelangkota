@@ -8,6 +8,13 @@
     background-size: cover;
 }
 
+.magelang-login-bg {
+    background-image: url("../../images/magelang-login-bg.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
 #login-page {
     display: -webkit-box;
     display: -webkit-flex;

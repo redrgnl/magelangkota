@@ -36,75 +36,76 @@
           <div class="row margin">
             <div class="col m1 l1 mt-1 ml-5">
               <div class="input-field">
-                <img class="responsive-img" width="50" src="{{ asset('admin/images/Logo_kota_magelang.png') }}" alt="">
-              </div>
-            </div>
-            <div class="col m4 l4 mt-2" style="padding-left: 0px">
-              <div class="input-field">
-                <h8 style="font-weight: bold; color: white">Tentang Command Center</h8>
-              </div>
-            </div>
-            <div class="col m5 l5 mt-2 hide-on-small-only"></div>
-            <div class="col m1 l1 mt-2 hide-on-small-only">
-              <div class="list-right">
-                <a href="/login" class="mb-6 btn waves-effect waves-light red border-round">Login</a>
+                <img class="responsive-img" width="50" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col s12 m7 l7">
-        <div class="row">
-          <div class="col s12 m9 l9">
-            <form class="login-form">
-              <div class="row">
-                <div class="input-field col s12 center-align mt-10">
-                  <img class="z-depth-4 circle responsive-img" width="100" src="{{ asset('admin/images/user/4.jpg') }}" alt="">
-                  <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
-                  <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 70%; text-align: center; background-color: white">
-                  <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
-                </div>
-              </div>
-            </form>
+          <div class="col m4 l4 mt-2" style="padding-left: 0px">
+            <div class="input-field">
+              <h8 style="font-weight: bold; color: white">Tentang Command Center</h8>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col s12 m7 l7">
-        <div class="row">
-          <div class="col s12 m9 l9">
-            <form class="login-form">
-              <div class="row">
-                <div class="input-field col s12 center-align">
-                  <a href="#modal1" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/1.png') }}" alt="">
-                  </a>
-                  <a href="#modal2" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/2.png') }}" alt="">
-                  </a>
-                  <a href="#modal3" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/3.png') }}" alt="">
-                  </a>
-                  <a href="#modal4" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/4.png') }}" alt="">
-                  </a>
-                </div>
-                <div class="input-field col s12 center-align" style="margin-top: -39px">
-                  <a href="#modal5" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/5.png') }}" alt="">
-                  </a>
-                  <a href="#modal6" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/6.png') }}" alt="">
-                  </a>
-                  <a href="#modal7" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
-                  </a>
-                </div>
-              </div>
-            </form>
+          <div class="col m5 l5 mt-2 hide-on-small-only"></div>
+          <div class="col m1 l1 mt-2 hide-on-small-only">
+            <div class="list-right">
+              <a href="/login" class="mb-6 btn waves-effect waves-light red border-round">Login</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col s12 m7 l7">
+      <div class="row">
+        <div class="col s12 m9 l9">
+          <form class="login-form">
+            <div class="row">
+              <div class="input-field col s12 center-align mt-10">
+                <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
+                <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
+                <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 70%; text-align: center; background-color: white">
+                <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m7 l7">
+      <div class="row">
+        <div class="col s12 m9 l9">
+          <form class="login-form">
+            <div class="row">
+              <div class="input-field col s12 center-align">
+                <a href="#modal1" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/1.png') }}" alt="">
+                </a>
+                <a href="#modal2" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/2.png') }}" alt="">
+                </a>
+                <a href="#modal3" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/3.png') }}" alt="">
+                </a>
+                <a href="#modal4" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/4.png') }}" alt="">
+                </a>
+              </div>
+              <div class="input-field col s12 center-align" style="margin-top: -39px">
+                <a href="#modal5" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/5.png') }}" alt="">
+                </a>
+                <a href="#modal6" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/6.png') }}" alt="">
+                </a>
+                <a href="#modal7" class="modal-trigger">
+                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <!-- BEGIN VENDOR JS-->
   <script src="{{ asset('admin/js/vendors.min.js') }}" type="text/javascript"></script>

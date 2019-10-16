@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body class="vertical-layout page-header-light vertical-menu-collapsible vertical-menu-nav-dark 1-column login-bg  blank-page blank-page" data-open="click" data-menu="vertical-menu-nav-dark" data-col="1-column">
+<body class="vertical-layout page-header-light vertical-menu-collapsible vertical-menu-nav-dark 1-column magelang-login-bg  blank-page blank-page" data-open="click" data-menu="vertical-menu-nav-dark" data-col="1-column">
     <div class="row">
         <div class="col s12">
             <div class="container">
@@ -62,7 +62,7 @@
                             </div>
                         <div class=" row">
                                         <div class="input-field col s12">
-                                            <a href="/" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">BATAL</a>
+                                            <a href="/homepage" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">BATAL</a>
                                         </div>
                                 </div>
                         </form>

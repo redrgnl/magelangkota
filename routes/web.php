@@ -67,4 +67,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 
 //halaman front office
-Route::get('/home', 'DashboardController@index');
+Route::get('/homepage', 'GuestController@index');
+Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf');
