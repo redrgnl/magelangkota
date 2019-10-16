@@ -57,7 +57,7 @@
             <form class="login-form">
               <div class="row">
                 <div class="input-field col s12 center-align mt-10">
-                  <img class="z-depth-4 circle responsive-img" width="100" src="{{ asset('admin/images/user/4.jpg') }}" alt="">
+                  <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
                   <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
                   <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 70%; text-align: center; background-color: white">
                   <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
