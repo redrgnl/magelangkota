@@ -34,7 +34,7 @@
             <div class="row margin">
               <div class="col m1 l1 mt-1 ml-5">
                 <div class="input-field">
-                  <img class="responsive-img" width="50" src="{{ asset('admin/images/Logo_kota_magelang.png') }}" alt="">
+                  <img class="responsive-img" width="50" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
                 </div>
               </div>
               <div class="col m4 l4 mt-2" style="padding-left: 0px">
