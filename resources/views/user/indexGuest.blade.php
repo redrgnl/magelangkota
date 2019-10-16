@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google.">
-  <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   <meta name="author" content="ThemeSelect">
   <title>{{ $sector }} | {{ $title }}</title>
   <link rel="apple-touch-icon" href="{{ asset('admin/images/favicon/apple-touch-icon-152x152.png') }}">
@@ -83,8 +83,6 @@
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
-        
-        
       <!-- 
       @if(!empty($sektor))
       @foreach($sektor as $s) -->
@@ -109,8 +107,6 @@
       @endforeach
       @endif
       <br> -->
-        
-      
 
       <?php
       $sektor = DB::table('tb_sektor')
