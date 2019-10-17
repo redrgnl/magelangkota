@@ -38,37 +38,5 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-	        $(document).on("click",".metabase-link",function(e){
-            metabase = $(this).data('id');
-            $.ajax({
-                url : 'http://localhost:8000/ajax-metabase/'+metabase,
-                type : 'get',
-                success : function(xhr){
-                    // if(xhr){
-                    //     frame = `<iframe
-                    //                 src="http://cc.magelangkota.go.id:3000/public/dashboard/${xhr.metabaseId}"
-                    //                 frameborder="0"
-                    //                 style="width:100%;height:100vh;"
-                    //                 allowtransparency>
-                    //             </iframe>`;
-                    //     $("#metabase-frame").html(frame);
-                    //     $('#grafik-title').html(xhr.judulGrafik);
-                    // }else{
-                    //     $('#warningModal').modal('show');
-                    // }
-console.log( xhr.metabaseId );
-                },
-                // beforeSend : function(xhr){
-                //     $('#grafik-title').html(``);
-                //     $("#metabase-frame").html(`<h4 class="text-center text-green">Loading . . . </h4>`);
-                // },
-                // error : function(xhr){
-                //     $('#warningModal').modal('show');
-                // }
-            })
-        })
-</script>
-
 
 @endsection

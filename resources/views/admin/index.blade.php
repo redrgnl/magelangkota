@@ -151,6 +151,7 @@
         @endforeach
       </li>
       @endif
+      <br><br>
     </ul>
     <div class="navigation-background"></div>
     <a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out">
@@ -162,36 +163,22 @@
   <!-- BEGIN: Page Main-->
   <div id="main">
     <div class="row">
-      <div class="breadcrumbs-inline pt-3 pb-1" id="breadcrumbs-wrapper">
-        <!-- Search for small screen-->
-        <div class="container">
-          <div class="row">
-            
-            @if(Session('alert'))
-            <div class="card-alert card red">
-              <div class="card-content white-text">
-                <p>{{Session('alert')}}</p>
-              </div>
-              <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
+        @if(Session('alert'))
+          <div class="card-alert card red ml-2">
+            <div class="card-content white-text">
+              <p>{{Session('alert')}}</p>
             </div>
-            @endif
-
+            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-        </div>
-      </div>
- 
-   @if(Session('alert'))
-   
-<div class="flash-alert" data-flashalert="{{Session('alert')}}"></div>
-
-   @elseif (Session('success')) {
-<div class="flash-data" data-flashdata="{{Session('success')}}"></div>
-
-
-   @endif
-
+        @endif
+        
+        @if(Session('alert'))
+          <div class="flash-alert" data-flashalert="{{Session('alert')}}"></div>
+        @elseif (Session('success'))
+           <div class="flash-data" data-flashdata="{{Session('success')}}"></div>
+        @endif
 
       @yield('content')
     </div>
