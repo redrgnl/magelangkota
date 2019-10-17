@@ -29,15 +29,13 @@
 
 <body class="vertical-layout page-header-light vertical-menu-collapsible vertical-menu-nav-dark 1-column magelang-bg  blank-page blank-page" data-open="click" data-menu="vertical-menu-nav-dark" data-col="1-column">
   <!-- BEGIN: Page Main-->
-  <div id="main ml-0 mr-0 ">
+  <div class="row mr-0">
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="container">
-          <div class="row margin">
-            <div class="col m1 l1 mt-1 ml-5">
-              <div class="input-field">
-                <img class="responsive-img" width="50" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
-              </div>
+          <div class="col m1 l1 mt-1 ml-5">
+            <div class="input-field">
+              <img class="responsive-img" width="50" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
             </div>
           </div>
           <div class="col m4 l4 mt-2" style="padding-left: 0px">
@@ -54,9 +52,10 @@
         </div>
       </div>
     </div>
-    <div class="col s12 m7 l7">
+    <div class="row">
+    <div class="col s12 m12 l12">
       <div class="row">
-        <div class="col s12 m9 l9">
+        <div class="col s12 m6 l6">
           <form class="login-form">
             <div class="row">
               <div class="input-field col s12 center-align mt-10">
@@ -72,7 +71,7 @@
     </div>
     <div class="col s12 m7 l7">
       <div class="row">
-        <div class="col s12 m9 l9">
+        <div class="col s12 m10 l10">
           <form class="login-form">
             <div class="row">
               <div class="input-field col s12 center-align">
@@ -104,8 +103,7 @@
           </form>
         </div>
       </div>
-    </div>
-  </div>
+    </div></div>
   </div>
   <!-- BEGIN VENDOR JS-->
   <script src="{{ asset('admin/js/vendors.min.js') }}" type="text/javascript"></script>
