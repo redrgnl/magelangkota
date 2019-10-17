@@ -34,6 +34,8 @@ class GrafikController extends Controller
 
         return view('admin/content/tambahGraf', $data);
     }
+    
+    //tampil grafik
     public function tampil_graf($id)
     {
         $graf = DB::table('tb_grafik')
@@ -58,33 +60,7 @@ class GrafikController extends Controller
             return "Data kosong";
         }
     }
-    // public function tampil_sub_graf($id)
-    // {
-    //     $graf = DB::table('tb_grafik')
-    //     ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
-    //     ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
-    //     ->where('tb_grafik.idGrafik', $id)
-    //     ->get();
-    //     // $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id)->select('idSektor')->get();
-
-    //     $data['title'] = "Halaman Grafik | Command Center Magelang";
-
-    //     foreach ($graf as $key) {
-    //        $id_graf = $key->idGrafik;
-    //        $data['meta'] = $key->metabaseId;
-    //        $data['judul'] = $key->judulGrafik;
-    //        $data['nam_sek'] = $key->namaSektor;
-    //     }
-    //     $sektor = DB::table('tb_grafik')->where('idGrafik', $id)->select('idSektor')->get();
-    //     foreach ($sektor as $s) {
-    //         $id_sek = $s->idSektor;
-    //     }
-    //     $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id_sek)->get();
-
-
-
-    //     return view('admin/content/tampilGrafik', $data);
-    // }
+    
     public function ajax_metabase($id)
     {
 
@@ -100,143 +76,7 @@ class GrafikController extends Controller
         ]);
     }
 
-    //======================== end irfan ============================//
-    //    public function proses_tambahGraf(Request $request)
-    //    {
-    //        $now = new DateTime();
-    //
-    //        $messages = [
-    //            'required' => 'Form :attribute wajib di isi *',
-    //            'min' => ':attribute harus berisi minimal 5 karakter *',
-    //
-    //        ];
-    //        $this->validate($request, [
-    //            'judul' => 'required|min:5',
-    //            'metabase' => 'required',
-    //            'sektor' => 'required'
-    //
-    //
-    //        ], $messages);
-    //
-    //
-    //
-    //        $lastid = DB::table('tb_grafik')->insertGetId([
-    //                    'judulGrafik' => $request->judul,
-    //                    'metabaseId' => $request->metabase,
-    //                    'idSektor' => $request->sektor,
-    //                    'waktuDibuat' => $now
-    //                  ]);
-    //
-    //        $detbidang = $request->get('chkbidang');
-    //
-    //        $dipilih = count($detbidang);
-    //
-    //        for($count = 0; $count<$dipilih; $count++)
-    //        {
-    //            $id_clean = $lastid;
-    //            $detbidang_clean = $detbidang[$count];
-    //            $waktu = $now;
-    //
-    //            DB::table('tb_detailbidang')->insert([
-    //                'idGrafik' => $lastid,
-    //                'detBidang' => $detbidang_clean,
-    //                // 'status_akses' => 1,
-    //                'waktuDibuat' => $waktu
-    //            ]);
-    //
-    //
-    //
-    //        }
-    //
-    //        return redirect('admin/halaman-list-grafik');
-    //
-    //    }
-    //    public function halamanEditGrafik($id)
-    //    {
-    //        $queryGrafik = DB::table('tb_grafik')->where('idGrafik', $id)->get();
-    //
-    //        $queryAllBidang = DB::table('tb_bidang')->get();
-    //
-    //        $sektor = DB::table('tb_sektor')->get();
-    //
-    //        $querydetBidang = DB::table('tb_detailbidang')->where('idGrafik', $id)->get();
-    //
-    //        foreach ($queryGrafik as $key ) {
-    //            $data['id_graf'] = $key->idGrafik;
-    //            $data['sktr'] = $key->idSektor;
-    //            $data['meta'] = $key->metabaseId;
-    //            $data['judul'] = $key->judulGrafik;
-    //        }
-    //        $data['title'] = "Update Data Grafik | Command Center Magelang";
-    //        $data['bidang'] = $querydetBidang;
-    //        $data['grafik'] = $queryGrafik;
-    //        $data['all_sktr'] = $sektor;
-    //        $data['allBid'] = $queryAllBidang;
-    //
-    //        // $data = [
-    //        //     'title' => "Update Data Grafik | Command Center Magelang",
-    //        //     'bidang' => $querydetBidang,
-    //        //     'grafik' => $queryGrafik,
-    //        //     'all_sktr' => $sektor
-    //        // ];
-    //
-    //        return view('admin/content/editGrafik', $data);
-    //    }
-    //      public function updategrafik(Request $update)
-    //    {
-    //        $now = new DateTime();
-    //        $messages = [
-    //            'required' => 'Form :attribute wajib di isi *',
-    //            'min' => ':attribute harus berisi minimal 5 karakter *',
-    //
-    //        ];
-    //        $this->validate($update, [
-    //            'judul' => 'required|min:5',
-    //            'metabase' => 'required',
-    //            'sektor' => 'required'
-    //
-    //
-    //        ], $messages);
-    //        $old_id = $update->id_graf;
-    //
-    //        DB::table('tb_grafik')->where('idGrafik', $old_id)->update([
-    //                        'judulGrafik' => $update->judul,
-    //                        'metabaseId' => $update->metabase,
-    //                        'idSektor' => $update->sektor
-    //                  ]);
-    //
-    //
-    //
-    //        $detbidang = $update->get('chkbidang');
-    //
-    //        $dipilih = count($detbidang);
-    //
-    //        for($count = 0; $count<$dipilih; $count++)
-    //        {
-    //            $detbidang_clean = $detbidang[$count];
-    //            $waktu = $now;
-    //
-    //
-    //            DB::table('tb_detailbidang')
-    //            ->where('detBidang', $detbidang_clean)
-    //            ->where('idGrafik', $old_id)
-    //            ->update([
-    //                // 'idGrafik' => $lastid,
-    //                'detBidang' => $detbidang_clean,
-    //                // 'status_akses' => 2,
-    //                'waktuDibuat' => $waktu
-    //            ]);
-    //
-    //        }
-    //
-    //
-    //        // redirect to home
-    //        return redirect('/admin/edit-data-grafik/'.$old_id.'');
-    //    }
-    //======================== end irfan ============================//
-
-    //======================== bagus ============================//
-
+    //proses tambah graf
     public function proses_tambahGraf(Request $request)
     {
         $now = new DateTime();
@@ -272,6 +112,7 @@ class GrafikController extends Controller
         return redirect('admin/halaman-list-grafik')->with('success', 'Tambah Grafik');
     }
 
+    //halaman edit grafik
     public function halamanEditGrafik($id)
     {
         $queryGrafik = DB::table('tb_grafik')->where('idGrafik', $id)->get();
@@ -306,6 +147,7 @@ class GrafikController extends Controller
         return view('admin/content/editGrafik', $data);
     }
 
+    //proses update grafik
     public function updategrafik(Request $update)
     {
         $now = new DateTime();
@@ -324,11 +166,10 @@ class GrafikController extends Controller
             'waktuDibuat' => $now
         ]);
 
-        return redirect('admin/halaman-list-grafik')->with('success', 'Delete Grafik');
+        return redirect('admin/halaman-list-grafik')->with('success', 'Update Grafik');
     }
 
-    //================= END GRAFIK BAGUS ===============================//   
-
+    //proses delete grafik
     public function deletegraf($id)
     {
         DB::table('tb_grafik')->where('idGrafik', $id)->delete();

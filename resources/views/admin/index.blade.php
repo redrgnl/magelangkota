@@ -43,13 +43,10 @@
           </div>
           <ul class="navbar-list right">
 
-
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
-            <!--             @if(!empty($all_graf))
-            <li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
-            @endif -->
+            
           </ul>
           <!-- profile-dropdown-->
           <ul class="dropdown-content" id="profile-dropdown">
@@ -101,41 +98,6 @@
       </li>
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-hak-akses"><i class="material-icons">vpn_key</i><span class="menu-title" data-i18n="">HAK AKSES</span></a>
       </li>
-
-
-      <!--       <?php $sektor = DB::table('tb_sektor')->get(); ?>
-      @if(!empty($sektor))
-      @foreach($sektor as $s) -->
-      <!--         <li class="bold">
-
-          <a class="collapsible-header waves-effect waves-cyan " href="#">
-            <i class="material-icons">location_city</i>
-            <span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span>
-          </a>
-          <div class="collapsible-body">
-            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-
-              <li><a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->namaSektor }}</span></a>
-              </li>
-
-            </ul>
-          </div>
-
-        </li> -->
-      <!--       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-tampil-grafik/{{ $s->idSektor }}"><i class="material-icons">location_city</i><span class="menu-title" data-i18n="">{{ $s->namaSektor }}</span></a>
-      </li>
-      @endforeach
-      @endif
-      <br> -->
-      <?php
-      $sektor = DB::table('tb_sektor')->get();
-
-      // foreach ($detbid as $b) {
-      //   $checked = explode(',', $b->detBidang);
-      // }
-
-      // $data['checked'] = $checked;
-      ?>
 
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
@@ -199,26 +161,12 @@
 
   <!-- BEGIN: Page Main-->
   <div id="main">
-    <?php echo '<pre>';
-    print_r($aaa);
-    echo '</pre>'; ?>
     <div class="row">
       <div class="breadcrumbs-inline pt-3 pb-1" id="breadcrumbs-wrapper">
         <!-- Search for small screen-->
         <div class="container">
           <div class="row">
-            <div class="col s10 m6 l6 breadcrumbs-left">
-              <h5 class="breadcrumbs-title mt-0 mb-0 display-inline hide-on-small-and-down">DataTable</h5>
-              <ol class="breadcrumbs mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Home</a>
-                </li>
-                <li class="breadcrumb-item"><a href="#">Table</a>
-                </li>
-                <li class="breadcrumb-item active">DataTable
-                </li>
-              </ol>
-            </div>
-
+            
             @if(Session('alert'))
             <div class="card-alert card red">
               <div class="card-content white-text">
@@ -233,12 +181,6 @@
           </div>
         </div>
       </div>
-<!-- @if(Session('alert'))
-<div class="flash-data" data-flashdata="<?= $this->session->flashdata('success');?>"></div>
-
-                                    <p>{{Session('alert')}}</p> -->
-
-<!-- @endif -->
  
    @if(Session('alert'))
    
@@ -255,51 +197,6 @@
     </div>
   </div>
   <!-- END: Page Main-->
-  @if(!empty($all_graf))
-  <!-- side right bar -->
-  <!--   <aside id="right-sidebar-nav">
-    <div id="slide-out-right" class="slide-out-right-sidenav sidenav rightside-navigation">
-      <div class="row">
-        <div class="slide-out-right-title">
-          <div class="col s12 border-bottom-1 pb-0 pt-1">
-            <div class="row">
-              <div class="col s2 pr-0 center">
-                <i class="material-icons vertical-text-middle"><a href="#" class="sidenav-close">clear</a></i>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="slide-out-right-body">
-          <div id="messages" class="col s12">
-            <p class="mt-8 mb-0 ml-5 font-weight-900">List Grafik @if(!empty($nam_sek)) {{ $nam_sek }} @endif</p>
-            <ul class="collection border-none">
-              <li class="collection-item border-none mt-3">
-                <div class="m-0">
-                  @foreach($all_graf as $a)
-              <li><a href="/admin/halaman-grafik/{{$a->idGrafik}}" class="metabase-link" data-id="{{$a->idGrafik}}"><span class="material-icons icon-bg-circle cyan small">insert_chart</span> {{$a->judulGrafik}}</a>
-
-              </li>
-
-
-
-
-              @endforeach
-          </div>
-          </li>
-
-
-          </ul>
-        </div>
-
-      </div>
-    </div>
-    </div>
-
-
-  </aside> -->
-  @endif
-  <!-- END RIGHT SIDEBAR NAV -->
   <!-- end side right bar -->
   <!-- BEGIN: Footer-->
 
@@ -308,8 +205,6 @@
       <div class="container"><span>&copy; 2019 <a href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span><span class="right hide-on-small-only">Design and Developed by <a href="https://pixinvent.com/">PIXINVENT</a></span></div>
     </div>
   </footer>
-  <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
- -->
 
   <!-- END: Footer-->
   <!-- BEGIN VENDOR JS-->
