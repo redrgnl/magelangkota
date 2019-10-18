@@ -46,7 +46,14 @@
           <div class="col m5 l5 mt-2 hide-on-small-only"></div>
           <div class="col m1 l1 mt-2 hide-on-small-only">
             <div class="list-right">
+@if(Session::get('idBidang'))
+              <a href="/homepage" class="mb-6 btn waves-effect waves-light red border-round">Home</a>
+
+
+@else
               <a href="/login" class="mb-6 btn waves-effect waves-light red border-round">Login</a>
+
+@endif
             </div>
           </div>
         </div>

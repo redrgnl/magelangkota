@@ -16,7 +16,7 @@ class UsersController extends Controller
     {
         $query = DB::table('tb_users')
             ->join('tb_bidang', 'tb_bidang.idBidang', '=', 'tb_users.idBidang')
-            ->select('tb_users.idUser', 'tb_users.namaUser', 'tb_users.emailUser', 'tb_bidang.namaBidang')
+            ->select('tb_users.idUser', 'tb_users.namaUser', 'tb_users.emailUser', 'tb_bidang.namaBidang', 'tb_users.idBidang')
             ->get();
 
         $data = [
