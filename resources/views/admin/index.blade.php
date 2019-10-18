@@ -46,7 +46,7 @@
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
-            
+
           </ul>
           <!-- profile-dropdown-->
           <ul class="dropdown-content" id="profile-dropdown">
@@ -81,6 +81,8 @@
       <li class="bold"><a class="waves-effect waves-cyan " href="#"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">DASHBOARD</span></a>
       </li>
 
+      @if(Session::get('idBidang') == 15)
+
       <!-- menu grafik -->
       <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT GRAFIK</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
@@ -103,6 +105,8 @@
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
 
+      @endif
+
       <?php
       $sektor = DB::table('tb_detailbidang')
         ->join('tb_grafik', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
@@ -110,13 +114,14 @@
         ->select('*')
         ->orderBy('tb_grafik.idSektor')
         ->get();
-      ?>
 
-      <?php $sktr = ''; ?>
+      $sktr = '';
+      ?>
 
       @if (!empty($sektor))
       @foreach($sektor as $s)
       @if($sktr != $s->namaSektor)
+
       <li class="bold">
 
         <?php
@@ -128,30 +133,38 @@
           <i class="material-icons">school</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
+
         @endif
+
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+
             <?php
             if (in_array(Session::get('idBidang'), explode(',', $s->detBidang))) {
               ?>
+
               <li>
                 <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="">
                   <i class="material-icons">radio_button_unchecked</i>
                   <span>{{ $s->judulGrafik }}</span>
                 </a>
               </li>
+
             <?php
             }
+            $sktr = $s->namaSektor;
             ?>
 
           </ul>
         </div>
-        <?php $sktr = $s->namaSektor; ?>
 
         @endforeach
+
       </li>
+
       @endif
       <br><br>
+
     </ul>
     <div class="navigation-background"></div>
     <a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out">
@@ -163,22 +176,22 @@
   <!-- BEGIN: Page Main-->
   <div id="main">
     <div class="row">
-        @if(Session('alert'))
-          <div class="card-alert card red ml-2">
-            <div class="card-content white-text">
-              <p>{{Session('alert')}}</p>
-            </div>
-            <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-        @endif
-        
-        @if(Session('alert'))
-          <div class="flash-alert" data-flashalert="{{Session('alert')}}"></div>
-        @elseif (Session('success'))
-           <div class="flash-data" data-flashdata="{{Session('success')}}"></div>
-        @endif
+      @if(Session('alert'))
+      <div class="card-alert card red ml-2">
+        <div class="card-content white-text">
+          <p>{{Session('alert')}}</p>
+        </div>
+        <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      @endif
+
+      @if(Session('alert'))
+      <div class="flash-alert" data-flashalert="{{Session('alert')}}"></div>
+      @elseif (Session('success'))
+      <div class="flash-data" data-flashdata="{{Session('success')}}"></div>
+      @endif
 
       @yield('content')
     </div>
@@ -213,85 +226,80 @@
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
-<!-- script sweetalert2 selesai-->
-    <script type="text/javascript">
-      $('.tombol-selesai').on('click', function (e) {
-          e.preventDefault();
-          // console.log(e);
-          const link = $(this).attr('href');
+  <!-- script sweetalert2 selesai-->
+  <script type="text/javascript">
+    $('.tombol-selesai').on('click', function(e) {
+      e.preventDefault();
+      // console.log(e);
+      const link = $(this).attr('href');
 
-          Swal.fire({
-                      title: 'Apakah Anda Yakin ?',
-                      text: "Pesanan ini akan selesai",
-                      type: 'warning',
-                      showCancelButton: true,
-                      confirmButtonColor: '#3085d6',
-                      cancelButtonColor: '#d33',
-                      confirmButtonText: 'Ya, pesanan ini selesai!'
-                    }).then((result) => {
-                      if (result.value) {
+      Swal.fire({
+        title: 'Apakah Anda Yakin ?',
+        text: "Pesanan ini akan selesai",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, pesanan ini selesai!'
+      }).then((result) => {
+        if (result.value) {
 
-                          document.location.href = link;
-                      }
-            })
-
-      });
-
-    </script>
-<!-- script sweetalert2 batal-->
-    <script type="text/javascript">
-      $('#tombol-delete').on('click', function (e) {
-          e.preventDefault();
-          // console.log(e);
-          const link = $(this).attr('href');
-
-          Swal.fire({
-                      title: 'Apakah Anda Yakin ?',
-                      text: "Data ini akan dihapus",
-                      type: 'warning',
-                      showCancelButton: true,
-                      confirmButtonColor: '#3085d6',
-                      cancelButtonColor: '#d33',
-                      confirmButtonText: 'Ya, Hapus!'
-                    }).then((result) => {
-                      if (result.value) {
-
-                          document.location.href = link;
-                      }
-            })
-
-      });
-
-    </script>
-<!-- script sweetalert2 -->
-    <script type="text/javascript">
-        const flash = $('.flash-data').data('flashdata');
-        if (flash) {
-          Swal.fire({
-              title: 'Data',
-              text: 'Berhasil ' + flash,
-              type: 'success',
-              showConfirmButton: false,
-              timer: 1500
-          });
+          document.location.href = link;
         }
+      })
 
-    </script>
-<!-- script sweetalert2 -->
-    <script type="text/javascript">
-        const alert = $('.flash-alert').data('flashalert');
-        if (alert) {
-          Swal.fire({
-              type: 'error',
-              title: 'Oops...',
-              text: 'Gagal ' + alert,
-              showConfirmButton: false,
-              timer: 1500
-                   });
+    });
+  </script>
+  <!-- script sweetalert2 batal-->
+  <script type="text/javascript">
+    $('#tombol-delete').on('click', function(e) {
+      e.preventDefault();
+      // console.log(e);
+      const link = $(this).attr('href');
+
+      Swal.fire({
+        title: 'Apakah Anda Yakin ?',
+        text: "Data ini akan dihapus",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+      }).then((result) => {
+        if (result.value) {
+
+          document.location.href = link;
         }
+      })
 
-
-    </script>
+    });
+  </script>
+  <!-- script sweetalert2 -->
+  <script type="text/javascript">
+    const flash = $('.flash-data').data('flashdata');
+    if (flash) {
+      Swal.fire({
+        title: 'Data',
+        text: 'Berhasil ' + flash,
+        type: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  </script>
+  <!-- script sweetalert2 -->
+  <script type="text/javascript">
+    const alert = $('.flash-alert').data('flashalert');
+    if (alert) {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Gagal ' + alert,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  </script>
 </body>
 
 </html>
