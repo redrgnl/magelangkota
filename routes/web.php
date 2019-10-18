@@ -61,8 +61,6 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::get('/', 'BerandaController@index')->name('beranda');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 // ====== ajax metabase
 Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 

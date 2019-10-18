@@ -53,57 +53,58 @@
       </div>
     </div>
     <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="row">
-        <div class="col s12 m6 l6">
-          <form class="login-form">
-            <div class="row">
-              <div class="input-field col s12 center-align mt-10">
-                <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
-                <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
-                <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white">
-                <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
+      <div class="col s12 m12 l12">
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <form class="login-form">
+              <div class="row">
+                <div class="input-field col s12 center-align mt-10">
+                  <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
+                  <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
+                  <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white">
+                  <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m7 l7">
+        <div class="row">
+          <div class="col s12 m10 l10">
+            <form class="login-form">
+              <div class="row">
+                <div class="input-field col s12 center-align">
+                  <a href="#modal1" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/1.png') }}" alt="">
+                  </a>
+                  <a href="#modal2" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/2.png') }}" alt="">
+                  </a>
+                  <a href="#modal3" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/3.png') }}" alt="">
+                  </a>
+                  <a href="#modal4" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/4.png') }}" alt="">
+                  </a>
+                </div>
+                <div class="input-field col s12 center-align" style="margin-top: -39px">
+                  <a href="#modal5" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/5.png') }}" alt="">
+                  </a>
+                  <a href="#modal6" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/6.png') }}" alt="">
+                  </a>
+                  <a href="#modal7" class="modal-trigger">
+                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col s12 m7 l7">
-      <div class="row">
-        <div class="col s12 m10 l10">
-          <form class="login-form">
-            <div class="row">
-              <div class="input-field col s12 center-align">
-                <a href="#modal1" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/1.png') }}" alt="">
-                </a>
-                <a href="#modal2" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/2.png') }}" alt="">
-                </a>
-                <a href="#modal3" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/3.png') }}" alt="">
-                </a>
-                <a href="#modal4" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/4.png') }}" alt="">
-                </a>
-              </div>
-              <div class="input-field col s12 center-align" style="margin-top: -39px">
-                <a href="#modal5" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/5.png') }}" alt="">
-                </a>
-                <a href="#modal6" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/6.png') }}" alt="">
-                </a>
-                <a href="#modal7" class="modal-trigger">
-                  <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
-                </a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div></div>
   </div>
   <!-- BEGIN VENDOR JS-->
   <script src="{{ asset('admin/js/vendors.min.js') }}" type="text/javascript"></script>
@@ -122,8 +123,16 @@
 <!-- Modals -->
 <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Perizinan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 2)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -132,8 +141,16 @@
 
 <div id="modal2" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Kepegawaian</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 6)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -142,8 +159,16 @@
 
 <div id="modal3" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Pembangunan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 8)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -152,8 +177,16 @@
 
 <div id="modal4" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Kesehatan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 3)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -162,8 +195,16 @@
 
 <div id="modal5" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Pendidikan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 1)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -172,8 +213,16 @@
 
 <div id="modal6" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Perencanaan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 5)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
@@ -182,8 +231,16 @@
 
 <div id="modal7" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Dinas Keuangan</h4>
+    @if(!empty($graf))
+    @foreach($graf as $g)
+    @if($g->idSektor == 4)
+    <ul>
+      <li>{{$g->judulGrafik}}</li>
+    </ul>
+    @endif
+    @endforeach
+    @endif
   </div>
   <div class="modal-footer">
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
