@@ -50,7 +50,7 @@
           </ul>
           <!-- profile-dropdown-->
           <ul class="dropdown-content" id="profile-dropdown">
-            <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
+            <li><a class="grey-text text-darken-1" href="/admin/edit-data-pengguna/{{ Session::get('idUser') }}"><i class="material-icons">person_outline</i> Profile</a></li>
             <li class="divider"></li>
             <li><a class="grey-text text-darken-1" href="/logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
 

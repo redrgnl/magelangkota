@@ -39,6 +39,14 @@ class GuestController extends Controller
             'metaID' => $metagraf
         ];
 
+        if (Session::get('idUser')) {
+            // redirect ke halaman backoffice
+        return view('/admin/content/tampilGrafik', $data);
+
+        } else {
+            // redirect ke halaman front office guest
         return view('/user/contentGuest/tampilGrafik', $data);
+        }
+        
     }
 }

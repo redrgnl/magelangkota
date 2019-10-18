@@ -12,7 +12,10 @@
               <div class="card-title">
                  <div class="row">
                     <div class="col s12 m6 l10">
-                     <h4 class="card-title" id="grafik-title">{{ $judulgraf }}</h4>
+                     <h4 class="card-title">{{ $judulgraf }}</h4>
+                    </div>
+                    <div class="col s12 m6 l2">
+                      <a href="/homepage" class="waves-effect waves-light  btn gradient-45deg-red-pink box-shadow-none border-round mr-1 mb-1">Home Page</a>
                     </div>
                   </div>
                 </div>

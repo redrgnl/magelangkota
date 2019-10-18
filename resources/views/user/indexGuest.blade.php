@@ -46,16 +46,16 @@
 
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 
-            <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li>
+<!--             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li> -->
             
           </ul>
           <!-- profile-dropdown-->
-          <ul class="dropdown-content" id="profile-dropdown">
+<!--           <ul class="dropdown-content" id="profile-dropdown">
             <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
             <li class="divider"></li>
             <li><a class="grey-text text-darken-1" href="/logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
 
-          </ul>
+          </ul> -->
 
         </div>
         <nav class="display-none search-sm">
@@ -75,7 +75,7 @@
   <!-- BEGIN: SideNav-->
   <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light navbar-full sidenav-active-rounded">
     <div class="brand-sidebar">
-      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="{{ asset('admin/images/logo/materialize-logo.png') }}" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">Materialize</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="{{ asset('admin/images/logo/materialize-logo.png') }}" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">Magelang</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
       <!-- menu sektor -->
@@ -98,11 +98,12 @@
       <li class="bold">
 
         <?php $kat = $s->namaSektor; ?>
-
+@if($s->idSektor != 9)
         <a class="collapsible-header waves-effect waves-cyan " href="#">
           <i class="material-icons">school</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
+@endif
         @endif
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">

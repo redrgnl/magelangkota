@@ -46,6 +46,7 @@ class AuthController extends Controller
             Session::put('namaUser', $user->namaUser);
             Session::put('emailUser', $user->emailUser);
             Session::put('idBidang', $user->idBidang);
+            Session::put('idUser', $user->idUser);
             Session::put('login', TRUE);
             return redirect('admin/halaman-dashboard');
         } else {

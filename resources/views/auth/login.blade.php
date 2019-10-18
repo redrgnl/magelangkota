@@ -62,7 +62,7 @@
                             </div>
                         <div class=" row">
                                         <div class="input-field col s12">
-                                            <a href="/homepage" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">BATAL</a>
+                                            <a href="/homepage" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">HOME</a>
                                         </div>
                                 </div>
                         </form>
