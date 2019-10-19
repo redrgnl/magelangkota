@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2019 at 09:15 AM
+-- Generation Time: Oct 19, 2019 at 04:26 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -68,7 +68,8 @@ INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
 (4, 'Executive', '2019-10-11 00:00:00'),
 (5, 'OPD', '2019-10-11 00:00:00'),
 (6, 'Khusus', '2019-10-11 00:00:00'),
-(7, 'Prioritas', '2019-10-11 00:00:00');
+(7, 'Prioritas', '2019-10-11 00:00:00'),
+(15, 'Administrator', '2019-10-19 01:40:30');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,49 @@ CREATE TABLE `tb_detailbidang` (
 --
 
 INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
-(8, '1,2,3,4,5,6,7', '2019-10-13 06:19:26');
+(11, '1,4,6', '2019-10-14 08:58:45'),
+(12, '1,4,6', '2019-10-14 08:59:17'),
+(13, '1,4', '2019-10-14 08:59:53'),
+(14, '1,4', '2019-10-14 09:01:07'),
+(15, '1,4', '2019-10-14 09:01:41'),
+(16, '1,4', '2019-10-14 09:02:12'),
+(17, '1,4,5', '2019-10-14 09:04:04'),
+(18, '1,4', '2019-10-14 09:04:36'),
+(19, '1,2,5', '2019-10-14 09:05:19'),
+(20, '1', '2019-10-14 09:05:51'),
+(21, '15', '2019-10-17 02:26:46'),
+(22, '1,15', '2019-10-19 01:52:48'),
+(23, '1', '2019-10-14 09:08:22'),
+(24, '1', '2019-10-14 09:08:57'),
+(25, '1', '2019-10-14 09:10:25'),
+(26, '1', '2019-10-14 09:11:00'),
+(27, '1', '2019-10-14 09:12:22'),
+(28, '1', '2019-10-14 09:13:23'),
+(29, '1', '2019-10-14 09:13:54'),
+(30, '1', '2019-10-14 09:14:53'),
+(31, '1', '2019-10-14 09:15:39'),
+(32, '1', '2019-10-14 09:16:10'),
+(33, '1', '2019-10-14 09:16:40'),
+(34, '1', '2019-10-14 09:17:26'),
+(35, '1', '2019-10-14 09:17:58'),
+(36, '1', '2019-10-14 09:18:40'),
+(37, '1', '2019-10-14 09:19:11'),
+(38, '1', '2019-10-14 09:19:38'),
+(39, '1', '2019-10-14 09:20:10'),
+(40, '1', '2019-10-14 09:21:28'),
+(41, '1', '2019-10-14 09:22:04'),
+(42, '1', '2019-10-14 09:23:11'),
+(43, '1', '2019-10-14 09:23:43'),
+(44, '1', '2019-10-14 09:24:19'),
+(45, '1', '2019-10-14 09:24:47'),
+(46, '1', '2019-10-14 09:25:15'),
+(47, '1', '2019-10-14 09:25:51'),
+(48, '1', '2019-10-14 09:26:21'),
+(49, '1', '2019-10-14 09:27:27'),
+(50, '1', '2019-10-14 09:28:45'),
+(51, '1', '2019-10-14 09:29:22'),
+(52, '1', '2019-10-14 09:29:50'),
+(53, '1', '2019-10-14 09:30:30');
 
 -- --------------------------------------------------------
 
@@ -108,7 +151,49 @@ CREATE TABLE `tb_grafik` (
 --
 
 INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `waktuDibuat`) VALUES
-(8, 5, 'qqqqqqqqqq', 'qqqqqqqq', '2019-10-13 06:19:26');
+(11, 3, '219c9384-fccf-4a1a-b630-5d0c6e612692', 'Rekapitulasi Pelayanan Kesehatan dan Dokter Spesialis', '2019-10-14 08:58:45'),
+(12, 3, '464c059d-0cd3-43c6-b1af-3cabfb58a8c5', 'Rekapitulasi SDM Kesehatan', '2019-10-14 08:59:17'),
+(13, 1, '92db4953-839c-4c13-a7aa-d099d39e9361', 'Rekapitulasi Guru SD & SMP Berdasarkan Golongan', '2019-10-14 08:59:53'),
+(14, 1, 'd0311422-2e20-44f0-a3e8-974c6c907d26', 'Rekapitulasi Unit Sekolah Dasar & Menengah Pertama', '2019-10-14 09:01:07'),
+(15, 1, 'afc124f3-6f78-4dbd-a4d0-5cfb09785218', 'Rekapitulasi Jumlah Siswa SD & SMP Berdasarkan Gender', '2019-10-14 09:01:41'),
+(16, 1, 'a4b07465-bd0c-4d4b-a50f-7b2b37dc363f', 'Rekapitulasi Unit Sekolah Menengah Pertama', '2019-10-14 09:02:12'),
+(17, 2, '49c487f3-80e4-434b-84e9-6cd718ba89b2', 'Jumlah Permohonan Izin', '2019-10-14 09:04:04'),
+(18, 2, '1158e60e-e466-4be2-92aa-456cf93faa26', 'Jumlah Retribusi Perizinan', '2019-10-14 09:04:36'),
+(19, 1, 'e7d39029-780d-4546-86c4-b402c1c30f44', 'Rekapitulasi Unit Sekolah Dasar', '2019-10-14 09:05:19'),
+(20, 2, '6de5ddd4-d018-46bf-957c-8694d7ac6d8e', 'Timeline Perijinan', '2019-10-14 09:05:51'),
+(21, 9, '12917503-f9ec-4a8b-a424-bf424503f3e5', 'Daftar Koneksi', '2019-10-17 02:26:46'),
+(22, 6, 'b37914cb-514e-45e3-8a5a-eb6695007ccf', 'Detail Pegawai dan Jejak Jabatan', '2019-10-19 01:52:48'),
+(23, 6, '9066c15f-f7e6-4409-9953-8ffc65e59d0e', 'Jumlah Pegawai Berdasarkan Eselon', '2019-10-14 09:08:22'),
+(24, 6, '2e428c2a-8ccd-4a2a-aa7b-dc63d5e2da50', 'Jumlah Pegawai Berdasarkan Gender', '2019-10-14 09:08:57'),
+(25, 6, '60f3892c-d498-4b00-ae00-13fc7fa7ac5c', 'Jumlah Pegawai Berdasarkan Golongan', '2019-10-14 09:10:25'),
+(26, 6, '3c390d35-ac17-49a3-a1ac-498a57a7f2cc', 'Jumlah Pegawai Berdasarkan Tingkat Pendidikan', '2019-10-14 09:11:00'),
+(27, 6, '0681fe73-ce29-4a57-ab20-b5afb3332adc', 'Jumlah Pegawai Berdasarkan Umur', '2019-10-14 09:12:22'),
+(28, 6, 'a950e953-06b4-4eef-9def-6752d1fde244', 'Jumlah Pegawai Berdasarkan Unit Kerja', '2019-10-14 09:13:23'),
+(29, 6, '9c9d7b54-2e65-4b57-ba8e-8fa80afb2ff8', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Eselon', '2019-10-14 09:13:54'),
+(30, 6, '5c04d17b-de17-47ac-911e-68e3f7be0928', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Gender', '2019-10-14 09:14:53'),
+(31, 6, '98d94a45-c773-43bd-9993-33223ec2bcaa', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Golongan', '2019-10-14 09:15:39'),
+(32, 6, '246220c1-ae09-4f2e-9331-de098a655d03', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Tingkat Pendidikan', '2019-10-14 09:16:10'),
+(33, 6, '7f49da11-e296-4ee4-a040-705fcb36f6e4', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Tingkat Pendidikan dan Gender', '2019-10-14 09:16:40'),
+(34, 6, '2001fcbe-6d3d-40c0-b72a-907c5bb22c57', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Tingkat Pendidikan, Gender dan Umur', '2019-10-14 09:17:26'),
+(35, 6, 'f899c44a-cc97-4a36-9d34-fd7a27a3a353', 'Jumlah Pegawai Struktural/Fungsional Berdasarkan Unit Kerja', '2019-10-14 09:17:58'),
+(36, 4, '342c2b2f-7dbb-4eb1-b167-eeb14bea2c90', 'Dimensi Waktu', '2019-10-14 09:18:40'),
+(37, 4, 'd738fdd9-c041-429f-a228-307e6d7fe6cd', 'Dimensi Waktu Berdasarkan Jenis Pajak', '2019-10-14 09:19:11'),
+(38, 4, 'faaf58ca-46fd-4464-ba34-8f557b7c546a', 'Dimensi Waktu Berdasarkan Wilayah', '2019-10-14 09:19:38'),
+(39, 4, 'f7ea0078-fe11-4753-a262-3ef1bdbc8a64', 'Jumlah Pajak Berdasarkan Jenis Pajak dan Wilayah', '2019-10-14 09:20:10'),
+(40, 4, 'caef8214-4f01-45f5-b108-3bbec624079c', 'Jumlah Pajak Berdasarkan Waktu, Jenis Pajak dan Wilayah', '2019-10-14 09:21:28'),
+(41, 4, 'b3256a55-0c92-4c9c-bbde-cb0fc68e4d0c', 'Jumlah Pendapatan berdasarkan Wilayah', '2019-10-14 09:22:04'),
+(42, 4, '76b8d942-d70b-4149-afe9-0e47cb097ded', 'Jumlah Pendapatan Sudah Terbayar', '2019-10-14 09:23:11'),
+(43, 4, '2a2a8557-889d-40da-9d3f-c1eed0603767', 'Jumlah Pendapatan Sudah Terbayar dan Belum Terbayar', '2019-10-14 09:23:43'),
+(44, 4, 'dc95947c-784d-4f05-bf5f-edb39bcb834d', 'Jumlah Wajib Pajak Yang Harus Dibayar Per Kecamatan', '2019-10-14 09:24:19'),
+(45, 4, 'c8ac25d4-12e0-4bfd-a8b9-6f9dc3588c83', 'Jumlah Wajib Pajak Yang Harus Dibayar Per Periode Waktu', '2019-10-14 09:24:47'),
+(46, 3, '5f8698c3-1a4c-44de-aac2-fc52e46669ca', 'Rekapitulasi Tenaga Keperawatan', '2019-10-14 09:25:15'),
+(47, 4, 'a9e07a0c-23b3-437f-a0fa-ea83552f84c1', 'Realisasi Per Jenis Pajak', '2019-10-14 09:25:51'),
+(48, 1, '0f424eb3-aa97-47c6-90bd-24a749f22ee4', 'Rekapitulasi Pendidikan Guru SD & SMP', '2019-10-14 09:26:21'),
+(49, 1, '709a94b1-44c7-4ffb-9b4f-1ad582376e5a', 'Rekapitulasi Jumlah Siswa SD & SMP Berdasarkan Agama', '2019-10-14 09:27:27'),
+(50, 8, 'b7827e83-738b-4580-8f55-a130144a8fad', 'Rekapitulasi Anggaran SIMPOK', '2019-10-14 09:28:45'),
+(51, 8, '7d9995bb-284c-4c1d-8e37-1307ae84506e', 'Realisasi Anggaran Per OPD', '2019-10-14 09:29:22'),
+(52, 4, '2acb95a8-d5ce-4849-a811-013c787ce908', 'Rekapitulasi Total Anggaran dan Realisasi SIMDA', '2019-10-14 09:29:50'),
+(53, 6, '9ab1b682-1df1-441f-b5d3-701232324678', 'Jumlah Pegawai Berdasrkan Agama dan Golongan Darah', '2019-10-14 09:30:30');
 
 -- --------------------------------------------------------
 
@@ -119,23 +204,24 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 CREATE TABLE `tb_sektor` (
   `idSektor` int(11) NOT NULL,
   `namaSektor` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `waktuDibuat` datetime NOT NULL
+  `waktuDibuat` datetime NOT NULL,
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tb_sektor`
 --
 
-INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`) VALUES
-(1, 'Sektor Pendidikan', '2019-10-25 00:00:00'),
-(2, 'Sektor Perizinan', '2019-10-26 00:00:00'),
-(3, 'Sektor Kesehatan', '2019-10-11 00:00:00'),
-(4, 'Sektor Keuangan', '2019-10-11 00:00:00'),
-(5, 'Sektor Perencanaan', '2019-10-11 00:00:00'),
-(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00'),
-(7, 'Sektor Kependudukan', '2019-10-11 00:00:00'),
-(8, 'Sektor Pembangunan', '2019-10-11 00:00:00'),
-(9, 'Administrator', '2019-10-11 00:00:00');
+INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`) VALUES
+(1, 'Sektor Pendidikan', '2019-10-25 00:00:00', 'school'),
+(2, 'Sektor Perizinan', '2019-10-26 00:00:00', 'verified_user'),
+(3, 'Sektor Kesehatan', '2019-10-11 00:00:00', 'favorite_border'),
+(4, 'Sektor Keuangan', '2019-10-11 00:00:00', 'attach_money'),
+(5, 'Sektor Perencanaan', '2019-10-11 00:00:00', 'book'),
+(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00', 'account_box'),
+(7, 'Sektor Kependudukan', '2019-10-11 00:00:00', 'child_friendly'),
+(8, 'Sektor Pembangunan', '2019-10-11 00:00:00', 'nature_people'),
+(9, 'Administrator', '2019-10-11 00:00:00', 'android');
 
 -- --------------------------------------------------------
 
@@ -157,9 +243,9 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password`, `waktuDibuat`) VALUES
-(1, 1, 'bombom', 'asd@gmail.com', '123', '2019-10-01 00:00:00'),
-(2, 4, 'kontolol', 'kontol@kontol.tolol', 'e10adc3949ba59abbe56e057f20f883e', '2019-10-12 02:28:02'),
-(12, 4, 'uvuv', 'uvuv@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-10-11 09:34:23');
+(16, 15, 'Super Administrator Sistem', 'superadmin@cc.magelangkota.go.id', 'e807f1fcf82d132f9bb018ca6738a19f', '2019-10-14 09:34:59'),
+(17, 2, 'mimin', 'mimin@cc.magelangkota.go.id', 'e807f1fcf82d132f9bb018ca6738a19f', '2019-10-14 09:36:58'),
+(18, 2, 'kontolization', 'kontolization@kontol.com', 'fcea920f7412b5da7be0cf42b8c93759', '2019-10-17 02:51:25');
 
 --
 -- Indexes for dumped tables
@@ -218,25 +304,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
-  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
-  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
@@ -247,12 +333,6 @@ ALTER TABLE `tb_users`
 --
 ALTER TABLE `tb_detailbidang`
   ADD CONSTRAINT `tb_detailbidang_ibfk_1` FOREIGN KEY (`idGrafik`) REFERENCES `tb_grafik` (`idGrafik`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tb_grafik`
---
-ALTER TABLE `tb_grafik`
-  ADD CONSTRAINT `tb_grafik_ibfk_1` FOREIGN KEY (`idSektor`) REFERENCES `tb_sektor` (`idSektor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

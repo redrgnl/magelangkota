@@ -23,15 +23,7 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/admin/update-akses', 'BidangController@updateakses');
     Route::get('/admin/delete-data-hak-akses/{id}', 'BidangController@deleteakses');
 
-    // grafik fix
-    //Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
-    //Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
-    //Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
-    //Route::get('/admin/delete-grafik/{id}', 'GrafikController@deletegraf');
-    //Route::get('/admin/edit-data-grafik/{id}', 'GrafikController@halamanEditGrafik');
-    //Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
-
-    //====================== Bagus ==========================//
+    //GRAFIK
     Route::get('/admin/halaman-tambah-grafik', 'GrafikController@tambah_graf');
     Route::get('/admin/halaman-list-grafik', 'GrafikController@grafik');
     Route::post('/admin/proses_tambahGraf', 'GrafikController@proses_tambahGraf');
@@ -40,10 +32,7 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
     Route::get('/admin/halaman-tampil-grafik/{id}', 'GrafikController@tampil_graf');
     Route::get('/admin/halaman-grafik/{id}', 'GrafikController@tampil_sub_graf');
-
-
-    //====================== bagus ===========================//
-
+    
     // users
     Route::get('/admin/halaman-pengguna', 'UsersController@users');
     Route::get('/admin/tambah-pengguna', 'UsersController@addUser');
@@ -52,6 +41,15 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::get('/admin/edit-data-pengguna/{id}', 'UsersController@halamanEditUser');
     Route::post('/admin/update-pengguna', 'UsersController@updatepengguna');
     Route::get('/admin/delete-data-pengguna/{id}', 'UsersController@deletepengguna');
+    
+    //SEKTOR
+    Route::get('/admin/halaman-sektor', 'SektorController@sektor');
+    Route::get('/admin/halaman-tambah-sektor', 'SektorController@addsektor');
+    
+    Route::post('/admin/store-sektor', 'SektorController@storesektor');
+    Route::get('/admin/edit-data-sektor/{id}', 'SektorController@editsektor');
+    Route::post('/admin/update-sektor', 'SektorController@updatesektor');
+//    Route::get('/admin/delete-data-sektor/{id}', 'SektorController@deletesektor');
 });
 
 //login

@@ -101,6 +101,12 @@
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-hak-akses"><i class="material-icons">vpn_key</i><span class="menu-title" data-i18n="">HAK AKSES</span></a>
       </li>
 
+      <!-- menu hak akses/ bidang -->
+      <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
+      </li>
+      <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-sektor"><i class="material-icons">account_balance</i><span class="menu-title" data-i18n="">DATA SEKTOR</span></a>
+      </li>    
+        
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
@@ -126,11 +132,12 @@
 
         <?php
         $kat = $s->namaSektor;
+        $sekicon = $s->icon;
         $aaa = Session::get('idBidang');
         ?>
 
         <a class="collapsible-header waves-effect waves-cyan " href="#">
-          <i class="material-icons">school</i>
+          <i class="material-icons">{{ $sekicon }}</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
 

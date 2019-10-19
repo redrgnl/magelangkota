@@ -58,7 +58,7 @@
                 <div class="col s12">
                   <label for="crole">Bidang</label>
                   <select class="error browser-default" id="crole" name="bidang" data-error=".errorTxt6">
-                    <option value="" disabled selected>Pilih Bidang</option>
+                    <option value="" disabled selected>Pilih Akses Bidang</option>
                     @if(!empty($bidang))
                     @foreach($bidang as $b)
                     <option value="{{$b->idBidang}}">{{$b->namaBidang}}</option>

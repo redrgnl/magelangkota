@@ -11,7 +11,7 @@
           <div class="card-title">
             <div class="row">
               <div class="col s12 m6 l10">
-                <h4 class="card-title">Tambah Hak Akses Baru</h4>
+                <h4 class="card-title">Update Data Bidang</h4>
               </div>
             </div>
           </div>

@@ -105,7 +105,7 @@ class GrafikController extends Controller
 
         DB::table('tb_detailbidang')->insert([
             'idGrafik' => $lastid,
-            'detBidang' => $detbidang,
+            'detBidang' => $detbidang . ",15",
             'waktuDibuat' => $now
         ]);
 
