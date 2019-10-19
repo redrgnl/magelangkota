@@ -162,7 +162,7 @@ class GrafikController extends Controller
         $detbidang = implode(",", $update->get('chkbidang'));
 
         DB::table('tb_detailbidang')->where('idGrafik', $update->id_graf)->update([
-            'detBidang' => $detbidang,
+            'detBidang' => $detbidang . ",15",
             'waktuDibuat' => $now
         ]);
 

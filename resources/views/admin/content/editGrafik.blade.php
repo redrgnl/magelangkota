@@ -62,7 +62,7 @@
                     @foreach($allBid as $bdg)
                     <p>
                       <label>
-                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" <?php in_array ($bdg->idBidang, $checked) ? print "checked" : ""; ?> required>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" <?php in_array ($bdg->idBidang, $checked) ? print "checked" : ""; ?>>
                         <span>{{ $bdg->namaBidang }}</span>
                       </label>
                     </p>

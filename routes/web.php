@@ -65,3 +65,6 @@ Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 //halaman front office
 Route::get('/homepage', 'GuestController@index');
 Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf');
+
+Route::get('/guest/test', 'GuestController@guesttest');
+Route::get('/cari', 'GuestController@loadData');

@@ -58,7 +58,7 @@
                     @foreach($bidang as $bdg)
                     <p>
                       <label>
-                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" required/>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]"/>
                         <span>{{ $bdg->namaBidang }}</span>
                       </label>
                     </p>

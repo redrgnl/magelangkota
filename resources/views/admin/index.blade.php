@@ -231,8 +231,8 @@
   <!-- END PAGE LEVEL JS-->
   <script src="{{ asset('admin/js/scripts/ui-alerts.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
-
+  <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>   
+    
   <!-- script sweetalert2 selesai-->
   <script type="text/javascript">
     $('.tombol-selesai').on('click', function(e) {

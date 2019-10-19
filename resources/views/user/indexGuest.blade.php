@@ -28,6 +28,13 @@
   <!-- BEGIN: Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
   <!-- END: Custom CSS-->
+    
+  <!-- Live search -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <!-- Live search -->
+    
 </head>
 <!-- END: Head-->
 
@@ -81,10 +88,13 @@
       @foreach($sektor as $s)
       @if($sktr =='-'|| $sktr!=$s->namaSektor)
       <li class="bold">
-        <?php $kat = $s->namaSektor; ?>
+        <?php 
+          $kat = $s->namaSektor; 
+          $sekicon = $s->icon;
+        ?>
         @if($s->idSektor != 9)
         <a class="collapsible-header waves-effect waves-cyan " href="#">
-          <i class="material-icons">school</i>
+          <i class="material-icons">{{ $sekicon }}</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
         @endif
