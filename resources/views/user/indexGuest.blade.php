@@ -42,21 +42,8 @@
             <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize">
           </div>
           <ul class="navbar-list right">
-
-
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
-
-<!--             <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="{{ asset('admin/images/avatar/avatar-7.png') }}" alt="avatar"><i></i></span></a></li> -->
-            
           </ul>
-          <!-- profile-dropdown-->
-<!--           <ul class="dropdown-content" id="profile-dropdown">
-            <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
-            <li class="divider"></li>
-            <li><a class="grey-text text-darken-1" href="/logout"><i class="material-icons">keyboard_tab</i> Logout</a></li>
-
-          </ul> -->
-
         </div>
         <nav class="display-none search-sm">
           <div class="nav-wrapper">
@@ -89,28 +76,27 @@
         ->orderBy('tb_grafik.idSektor')
         ->get();
       ?>
-
       <?php $sktr = '-'; ?>
-
       @if (!empty($sektor))
       @foreach($sektor as $s)
       @if($sktr =='-'|| $sktr!=$s->namaSektor)
       <li class="bold">
-
         <?php $kat = $s->namaSektor; ?>
-@if($s->idSektor != 9)
+        @if($s->idSektor != 9)
         <a class="collapsible-header waves-effect waves-cyan " href="#">
           <i class="material-icons">school</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
-@endif
         @endif
+      @endif
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-
-            <li><a class="collapsible-body" href="/guest/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n=""><i class="material-icons">radio_button_unchecked</i><span>{{ $s->judulGrafik }}</span></a>
+            <li>
+              <a class="collapsible-body" href="/guest/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
+                <i class="material-icons">radio_button_unchecked</i>
+                <span class="truncate">{{ $s->judulGrafik }}</span>
+              </a>
             </li>
-
           </ul>
         </div>
         <?php $sktr = $s->namaSektor; ?>

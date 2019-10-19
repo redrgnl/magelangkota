@@ -34,19 +34,19 @@
               <div class="row">
                 <div class="input-field col s12">
                   <label for="uname">Judul Grafik*</label>
-                  <input id="uname" name="judul" type="text" value="{{ $judul }}" data-error=".errorTxt1">
+                  <input id="uname" name="judul" type="text" value="{{ $judul }}" data-error=".errorTxt1" required>
                   <input id="uname" name="id_graf" type="hidden" value="{{ $id_graf }}" data-error=".errorTxt1">
 
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
                   <label for="cemail">Metabase ID *</label>
-                  <input id="cemail" type="text" name="metabase" value="{{ $meta }}" data-error=".errorTxt2">
+                  <input id="cemail" type="text" name="metabase" value="{{ $meta }}" data-error=".errorTxt2" required>
                   <div class="errorTxt2"></div>
                 </div>
                 <div class="col s12">
                   <label for="crole">Kategori Grafik * </label>
-                  <select class="error browser-default" id="crole" name="sektor" data-error=".errorTxt6">
+                  <select class="error browser-default" id="crole" name="sektor" data-error=".errorTxt6" required>
                     <option value="" disabled selected>Pilih Sektor</option>
                     @if(!empty($all_sktr))
                     @foreach($all_sktr as $b)
@@ -62,7 +62,7 @@
                     @foreach($allBid as $bdg)
                     <p>
                       <label>
-                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" <?php in_array ($bdg->idBidang, $checked) ? print "checked" : ""; ?>>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" <?php in_array ($bdg->idBidang, $checked) ? print "checked" : ""; ?> required>
                         <span>{{ $bdg->namaBidang }}</span>
                       </label>
                     </p>

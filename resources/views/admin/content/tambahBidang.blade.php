@@ -23,7 +23,7 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <label for="hakses">Nama Bidang*</label>
-                    <input id="hakses" name="hakses" type="text" data-error=".errorTxt1">
+                    <input id="hakses" name="hakses" type="text" data-error=".errorTxt1" required>
                     <div class="errorTxt1"></div>
                   </div>
                   <div class="input-field col s12">

@@ -20,7 +20,7 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <label for="sektor">Nama Sektor*</label>
-                    <input id="sektor" name="sektor" type="text" data-error=".errorTxt1">
+                    <input id="sektor" name="sektor" type="text" data-error=".errorTxt1" required>
                     <div class="errorTxt1"></div>
                   </div>
                   <div class="input-field col s12">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col m10 l10">
                       <label for="iconsektor">Nama icon Sektor*</label>
-                      <input id="iconsektor" name="iconsektor" type="text" data-error=".errorTxt2">
+                      <input id="iconsektor" name="iconsektor" type="text" data-error=".errorTxt2" required>
                       <div class="errorTxt2"></div>
                     </div>
                   </div>

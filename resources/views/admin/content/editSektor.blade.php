@@ -22,7 +22,7 @@
                   <div class="input-field col s12">
                     <input type="hidden" value="{{ $dtsktr->idSektor }}" name="id">
                     <label for="sektor">Nama Sektor*</label>
-                    <input id="sektor" name="sektor" type="text" data-error=".errorTxt1" value="{{ $dtsktr->namaSektor }}">
+                    <input id="sektor" name="sektor" type="text" data-error=".errorTxt1" value="{{ $dtsktr->namaSektor }}" required>
                     <div class="errorTxt1"></div>
                   </div>
                   <div class="input-field col s12">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col m10 l10">
                       <label for="iconsektor">Nama icon Sektor*</label>
-                      <input id="iconsektor" name="iconsektor" type="text" data-error=".errorTxt2" value="{{ $dtsktr->icon }}">
+                      <input id="iconsektor" name="iconsektor" type="text" data-error=".errorTxt2" value="{{ $dtsktr->icon }}" required>
                       <div class="errorTxt2"></div>
                     </div>
                   </div>

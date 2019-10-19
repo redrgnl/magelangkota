@@ -34,17 +34,17 @@
               <div class="row">
                 <div class="input-field col s12">
                   <label for="uname">Judul Grafik*</label>
-                  <input id="uname" name="judul" type="text" data-error=".errorTxt1">
+                  <input id="uname" name="judul" type="text" data-error=".errorTxt1" required>
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
                   <label for="cemail">Metabase ID *</label>
-                  <input id="cemail" type="text" name="metabase" data-error=".errorTxt2">
+                  <input id="cemail" type="text" name="metabase" data-error=".errorTxt2" required>
                   <div class="errorTxt2"></div>
                 </div>
                 <div class="col s12">
                   <label for="crole">Kategori Grafik * </label>
-                  <select class="error browser-default" id="crole" name="sektor" data-error=".errorTxt6">
+                  <select class="error browser-default" id="crole" name="sektor" data-error=".errorTxt6" required>
                     <option value="" disabled selected>Pilih Sektor</option>
                     @if(!empty($sektor))
                     @foreach($sektor as $b)
@@ -58,7 +58,7 @@
                     @foreach($bidang as $bdg)
                     <p>
                       <label>
-                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]"/>
+                        <input type="checkbox" class="filled-in" value="{{ $bdg->idBidang }}" name="chkbidang[]" required/>
                         <span>{{ $bdg->namaBidang }}</span>
                       </label>
                     </p>

@@ -78,9 +78,9 @@
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
       <!-- Dashboard -->
-      <li class="bold"><a class="waves-effect waves-cyan " href="#"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">DASHBOARD</span></a>
+      <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-dashboard"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">DASHBOARD</span></a>
       </li>
-
+      
       @if(Session::get('idBidang') == 15)
 
       <!-- menu grafik -->
