@@ -77,44 +77,65 @@
       </li>
       
       <?php
-      $sektor = DB::table('tb_sektor')
-        ->rightjoin('tb_grafik', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
+      $sektor = DB::table('tb_detailbidang')
+        ->join('tb_grafik', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
+        ->join('tb_sektor', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
         ->select('*')
         ->orderBy('tb_grafik.idSektor')
         ->get();
+
+      $sktr = '';
       ?>
-      <?php $sktr = '-'; ?>
+
       @if (!empty($sektor))
       @foreach($sektor as $s)
-      @if($sktr =='-'|| $sktr!=$s->namaSektor)
+      @if($sktr != $s->namaSektor)
+
       <li class="bold">
-        <?php 
-          $kat = $s->namaSektor; 
-          $sekicon = $s->icon;
+
+        <?php
+        $kat = $s->namaSektor;
+        $sekicon = $s->icon;
+        $bdgumum = "1";
         ?>
-        @if($s->idSektor != 9)
+
         <a class="collapsible-header waves-effect waves-cyan " href="#">
           <i class="material-icons">{{ $sekicon }}</i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
+
         @endif
-      @endif
+
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-            <li>
-              <a class="collapsible-body" href="/guest/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
-                <i class="material-icons">radio_button_unchecked</i>
-                <span class="truncate">{{ $s->judulGrafik }}</span>
-              </a>
-            </li>
+
+            <?php
+            if (in_array($bdgumum, explode(',', $s->detBidang))) {
+              ?>
+
+              <li>
+                <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
+                  <i class="material-icons">radio_button_unchecked</i>
+                  <span class="truncate">{{ $s->judulGrafik }}</span>
+                </a>
+              </li>
+
+            <?php
+            }
+            $sktr = $s->namaSektor;
+            ?>
+
           </ul>
         </div>
-        <?php $sktr = $s->namaSektor; ?>
 
         @endforeach
+
       </li>
+
       @endif
+      <br><br>
     </ul>
+      
     <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
   </aside>
   <!-- END: SideNav-->
