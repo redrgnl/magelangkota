@@ -151,9 +151,9 @@
               ?>
 
               <li>
-                <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="">
+                <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
                   <i class="material-icons">radio_button_unchecked</i>
-                  <span>{{ $s->judulGrafik }}</span>
+                  <span class="truncate">{{ $s->judulGrafik }}</span>
                 </a>
               </li>
 
