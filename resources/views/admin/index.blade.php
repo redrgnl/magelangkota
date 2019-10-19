@@ -105,13 +105,13 @@
       <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-sektor"><i class="material-icons">account_balance</i><span class="menu-title" data-i18n="">DATA SEKTOR</span></a>
-      </li>    
+      </li> 
+
+      @endif   
         
       <!-- menu sektor -->
       <li class="navigation-header"><a class="navigation-header-text">SEKTOR</a><i class="navigation-header-icon material-icons">more_horiz</i>
       </li>
-
-      @endif
 
       <?php
       $sektor = DB::table('tb_detailbidang')
