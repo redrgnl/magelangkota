@@ -176,4 +176,34 @@ class GrafikController extends Controller
 
         return redirect('admin/halaman-list-grafik')->with('success', 'Delete Grafik');
     }
+    function fetch(Request $request)
+    {
+        if(!empty($request->get('query')))
+        {
+            $query = $request->get('query');
+            $data = DB::table('tb_grafik')->where('judulGrafik', 'LIKE', "%".$query."%")->get();
+
+
+
+            $output = '<ul class="dropdown-menu" style="display:block;position:relative;">';
+            $total_row = $data->count();
+          if($total_row > 0)
+          {
+                foreach ($data as $graf) 
+                {   
+
+                        $output .= '<li><a href="/guest/halaman-tampil-grafik/'.$graf->idGrafik.'">'.$graf->judulGrafik.'</a></li>';
+
+                }
+                    $output .= '</ul>';
+         }else{
+
+            $output .= '<li><a href="#">Tidak Di Temukan</a></li>';
+         }
+                    $output .= '</ul>';
+
+            echo $output;
+
+        }
+    }
 }

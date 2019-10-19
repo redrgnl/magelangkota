@@ -24,6 +24,9 @@
   <!-- BEGIN: Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
   <!-- END: Custom CSS-->
+    <script src="{{ asset('admin/js/custom/jquery.min.js') }}"></script>
+  <!--     <link rel="stylesheet" href="{{ asset('admin/js/custom/bootstrap.min.css') }}">
+      <script src="{{ asset('admin/js/custom/bootstrap.min.js') }}"></script> -->
 </head>
 <!-- END: Head-->
 
@@ -65,7 +68,19 @@
                 <div class="input-field col s12 center-align mt-10">
                   <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
                   <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
-                  <input class="border-round" type="text" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white">
+<!-- pencarian -->
+<div class="container box">
+
+  <div class="form-group">
+
+                  <input class="border-round" class="form-control input-lg" type="text" name="nama_graf" id="nama_graf" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white">
+    <div id="list_graf"></div>
+
+</div>
+    @csrf
+  </div>
+
+<!-- endpencarian -->
                   <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
                 </div>
               </div>
@@ -250,3 +265,34 @@
     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
   </div>
 </div>
+
+<script>
+  
+  $(document).ready(function(){
+
+    $('#nama_graf').keyup(function(){
+      var query = $(this).val();
+
+      if(query != '')
+      {
+        var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+          url:"{{ route('autocomplete.fetch') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data)
+          {
+          console.log(data)
+
+            $('#list_graf').fadeIn();
+            $('#list_graf').html(data);
+          }
+        })
+
+      }
+    });
+
+  });
+
+</script>
