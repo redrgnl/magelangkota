@@ -36,7 +36,7 @@
                       @foreach($users as $usr)
                       <tr>
                         <td>{{ $usr->namaUser }} 
-@if($usr->idBidang == 15)
+@if($usr->idBidang == 99)
  <sup class="red-text text-darken-2" >Admin</sup>
 @endif
 </td>
@@ -46,7 +46,7 @@
                           <a href="/admin/edit-data-pengguna/{{ $usr->idUser }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                             <i class="material-icons">edit</i>
                           </a>
-@if($usr->idBidang != 15)
+@if($usr->idBidang != 99)
                           <a href="/admin/delete-data-pengguna/{{ $usr->idUser }}" id="tombol-delete" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1 ">
                             <i class="material-icons">delete_forever</i>
                           </a>

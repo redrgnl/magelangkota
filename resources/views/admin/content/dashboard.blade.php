@@ -13,7 +13,7 @@
         <div class="col s12 m12 l12">
           <div id="basic-tabs" class="card card card-default scrollspy">
             <div class="card-content pt-5 pr-5 pb-5 pl-5">
-              @if(Session::get('idBidang')==15)
+              @if(Session::get('idBidang')==99)
               <iframe src="http://cc.magelangkota.go.id:3000/public/dashboard/12917503-f9ec-4a8b-a424-bf424503f3e5" frameborder="0" style="width:100%;height:100vh;" allowtransparency>
               </iframe>
               @else

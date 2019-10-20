@@ -105,7 +105,7 @@ class GrafikController extends Controller
 
         DB::table('tb_detailbidang')->insert([
             'idGrafik' => $lastid,
-            'detBidang' => $detbidang . ",15",
+            'detBidang' => $detbidang . ",99",
             'waktuDibuat' => $now
         ]);
 
@@ -162,7 +162,7 @@ class GrafikController extends Controller
         $detbidang = implode(",", $update->get('chkbidang'));
 
         DB::table('tb_detailbidang')->where('idGrafik', $update->id_graf)->update([
-            'detBidang' => $detbidang . ",15",
+            'detBidang' => $detbidang . ",99",
             'waktuDibuat' => $now
         ]);
 
@@ -182,7 +182,11 @@ class GrafikController extends Controller
         if(!empty($request->get('query')))
         {
             $query = $request->get('query');
-            $data = DB::table('tb_grafik')->where('judulGrafik', 'LIKE', "%".$query."%")->get();
+            $data = DB::table('tb_grafik')
+                ->join('tb_detailbidang', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
+                ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik')
+                ->where('tb_detailbidang.detBidang', 'LIKE', "%,1,%")
+                ->where('tb_grafik.judulGrafik', 'LIKE', "%".$query."%")->get();
             
             $output = '
                 <ul style="background-color: white; border: 2px solid blue; border-radius: 5px; max-height: 500px; overflow: scroll; opacity: 0.8">

@@ -40,7 +40,7 @@
                           <a href="/admin/edit-data-hak-akses/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                             <i class="material-icons">edit</i>
                           </a>
-                          @if($bdg->idBidang != 15 && $bdg->idBidang != 1)
+                          @if($bdg->idBidang != 99 && $bdg->idBidang != 1)
                           <a href="/admin/delete-data-hak-akses/{{ $bdg->idBidang }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                             <i class="material-icons">delete_forever</i>
                           </a>

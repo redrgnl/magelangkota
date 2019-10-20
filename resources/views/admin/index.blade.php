@@ -81,7 +81,7 @@
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-dashboard"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="">DASHBOARD</span></a>
       </li>
       
-      @if(Session::get('idBidang') == 15)
+      @if(Session::get('idBidang') == 99)
 
       <!-- menu grafik -->
       <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT GRAFIK</a><i class="navigation-header-icon material-icons">more_horiz</i>
