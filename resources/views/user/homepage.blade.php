@@ -68,29 +68,18 @@
                 <div class="input-field col s12 center-align mt-10">
                   <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
                   <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
-<!-- pencarian -->
-<div class="container box">
-
-  <div class="form-group">
-
-                  <input class="border-round" class="form-control input-lg" type="text" name="nama_graf" id="nama_graf" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white">
-    <div id="list_graf"></div>
-
-</div>
-    @csrf
-  </div>
-
-<!-- endpencarian -->
+                    <!-- pencarian -->
+                    <div class="container box">
+                      <div class="form-group">
+                        <input class="border-round" class="form-control input-lg" type="text" name="nama_graf" id="nama_graf" placeholder="PENCARIAN" style="width: 60%; text-align: center; background-color: white" autocomplete="off">
+                      </div>
+                      @csrf
+                    </div>
+                    <!-- endpencarian -->
                   <a href="/login" class="btn waves-effect waves-light red border-round hide-on-large-only">Login</a>
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m7 l7">
-        <div class="row">
-          <div class="col s12 m10 l10">
             <form class="login-form">
               <div class="row">
                 <div class="input-field col s12 center-align">
@@ -120,6 +109,9 @@
                 </div>
               </div>
             </form>
+          </div>
+          <div class="col s12 m6 l6">
+            <div id="list_graf" class="mr-5"></div>
           </div>
         </div>
       </div>
@@ -289,7 +281,8 @@
             $('#list_graf').html(data);
           }
         })
-
+      } else {
+          $('#list_graf').html('');
       }
     });
 
