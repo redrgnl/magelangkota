@@ -185,7 +185,7 @@ class GrafikController extends Controller
             $data = DB::table('tb_grafik')
                 ->join('tb_detailbidang', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
                 ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik')
-                ->where('tb_detailbidang.detBidang', 'LIKE', "%,1,%")
+                ->where('tb_detailbidang.detBidang', 'LIKE', "%1%")
                 ->where('tb_grafik.judulGrafik', 'LIKE', "%".$query."%")->get();
             
             $output = '
@@ -203,7 +203,7 @@ class GrafikController extends Controller
                     $output .= '</ul>';
          }else{
 
-            $output .= '<li><a href="#">Tidak Di Temukan</a></li>';
+            $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
          }
                     $output .= '</ul>';
 
