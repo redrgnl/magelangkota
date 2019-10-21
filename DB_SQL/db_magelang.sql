@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2019 at 09:39 AM
+-- Generation Time: Oct 21, 2019 at 06:13 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -205,23 +205,24 @@ CREATE TABLE `tb_sektor` (
   `idSektor` int(11) NOT NULL,
   `namaSektor` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `waktuDibuat` datetime NOT NULL,
-  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `tb_sektor`
 --
 
-INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`) VALUES
-(1, 'Sektor Pendidikan', '2019-10-25 00:00:00', 'school'),
-(2, 'Sektor Perizinan', '2019-10-26 00:00:00', 'verified_user'),
-(3, 'Sektor Kesehatan', '2019-10-11 00:00:00', 'favorite_border'),
-(4, 'Sektor Keuangan', '2019-10-11 00:00:00', 'attach_money'),
-(5, 'Sektor Perencanaan', '2019-10-11 00:00:00', 'book'),
-(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00', 'account_box'),
-(7, 'Sektor Kependudukan', '2019-10-11 00:00:00', 'child_friendly'),
-(8, 'Sektor Pembangunan', '2019-10-11 00:00:00', 'nature_people'),
-(9, 'Administrator', '2019-10-11 00:00:00', 'android');
+INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`, `color`) VALUES
+(1, 'Sektor Pendidikan', '2019-10-25 00:00:00', 'school', '#4caf50'),
+(2, 'Sektor Perizinan', '2019-10-26 00:00:00', 'verified_user', '#ff9800'),
+(3, 'Sektor Kesehatan', '2019-10-11 00:00:00', 'favorite_border', '#2196f3'),
+(4, 'Sektor Keuangan', '2019-10-11 00:00:00', 'attach_money', '#f44336'),
+(5, 'Sektor Perencanaan', '2019-10-11 00:00:00', 'book', '#9c27b0'),
+(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00', 'account_box', '#e91e63'),
+(7, 'Sektor Kependudukan', '2019-10-11 00:00:00', 'child_friendly', '#ffeb3b'),
+(8, 'Sektor Pembangunan', '2019-10-11 00:00:00', 'nature_people', '#cddc39'),
+(9, 'Administrator', '2019-10-21 16:01:49', 'android', '#424242');
 
 -- --------------------------------------------------------
 
@@ -316,7 +317,7 @@ ALTER TABLE `tb_grafik`
 -- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_users`

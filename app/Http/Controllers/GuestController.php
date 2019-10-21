@@ -15,6 +15,7 @@ class GuestController extends Controller
             ->join('tb_sektor', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
             ->select('*')
             ->get();
+        $data['sektorss'] = DB::table('tb_sektor')->get();
         return view('/user/homepage', $data);
     }
 

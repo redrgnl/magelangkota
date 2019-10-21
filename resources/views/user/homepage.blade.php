@@ -110,23 +110,26 @@
               </div>
             </form>
 -->
-            <form class="login-form">
+            <div class="col m10 l10 ml-8 hide-on-small-only">
+              <form class="login-form">
               <div class="row">
-                <ul id="categories" class="clr">
-	              <li>
-                    <div style="background-color: blue">
-<!--                      <img src="https://farm3.staticflickr.com/2878/10944255073_973d2cd25c.jpg" alt=""/>-->
-                      <i class="material-icons">person_outline</i>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt=""/>
-                    </div>
-                  </li>
-                </ul>
+                <div class="grid">
+                  <ul id="hexGrid">
+                    @foreach($sektorss as $sektors)
+                    <li class="hex">
+                      <div class="hexIn">
+                        <a class="hexLink" href="#">
+                          <div class='img' style="background-color: {{ $sektors->color }}"></div>
+                            <i class="material-icons right">{{ $sektors->icon }}</i>
+                        </a>
+                      </div>
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
               </div>
             </form>
+            </div>
           </div>
           <div class="col s12 m6 l6">
             <div id="list_graf" class="mr-5"></div>

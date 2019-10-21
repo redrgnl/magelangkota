@@ -32,7 +32,8 @@ class SektorController extends Controller
         DB::table('tb_sektor')->insert([
             'namaSektor' => $insert->sektor,
             'waktuDibuat' => $now,
-            'icon' => $insert->iconsektor
+            'icon' => $insert->iconsektor,
+            'color' => $insert->warnasektor
         ]);
         
         return redirect ('admin/halaman-sektor');
@@ -53,7 +54,8 @@ class SektorController extends Controller
         DB::table('tb_sektor')->where('idSektor', $update->id)->update([
             'namaSektor' => $update->sektor,
             'waktuDibuat' => $now,
-            'icon' => $update->iconsektor
+            'icon' => $update->iconsektor,
+            'color' => $update->warnasektor
         ]);
         
         return redirect ('admin/halaman-sektor');
