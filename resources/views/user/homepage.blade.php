@@ -23,10 +23,9 @@
   <!-- END: Page Level CSS-->
   <!-- BEGIN: Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/hexagon.css') }}">
   <!-- END: Custom CSS-->
-    <script src="{{ asset('admin/js/custom/jquery.min.js') }}"></script>
-  <!--     <link rel="stylesheet" href="{{ asset('admin/js/custom/bootstrap.min.css') }}">
-      <script src="{{ asset('admin/js/custom/bootstrap.min.js') }}"></script> -->
+  <script src="{{ asset('admin/js/custom/jquery.min.js') }}"></script>
 </head>
 <!-- END: Head-->
 
@@ -80,6 +79,7 @@
                 </div>
               </div>
             </form>
+<!--
             <form class="login-form">
               <div class="row">
                 <div class="input-field col s12 center-align">
@@ -107,6 +107,24 @@
                     <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
                   </a>
                 </div>
+              </div>
+            </form>
+-->
+            <form class="login-form">
+              <div class="row">
+                <ul id="categories" class="clr">
+	              <li>
+                    <div style="background-color: blue">
+<!--                      <img src="https://farm3.staticflickr.com/2878/10944255073_973d2cd25c.jpg" alt=""/>-->
+                      <i class="material-icons">person_outline</i>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt=""/>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </form>
           </div>
@@ -150,116 +168,8 @@
   </div>
 </div>
 
-<div id="modal2" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Kepegawaian</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 6)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-<div id="modal3" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Pembangunan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 8)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-<div id="modal4" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Kesehatan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 3)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-<div id="modal5" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Pendidikan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 1)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-<div id="modal6" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Perencanaan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 5)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
-<div id="modal7" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Dinas Keuangan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 4)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-  </div>
-</div>
-
+<!-- Script Search -->
 <script>
-  
   $(document).ready(function(){
 
     $('#nama_graf').keyup(function(){
@@ -285,7 +195,5 @@
           $('#list_graf').html('');
       }
     });
-
   });
-
 </script>
