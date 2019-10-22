@@ -57,13 +57,13 @@ Route::get('/login', 'AuthController@index')->name('login');
 Route::post('/post-login', 'AuthController@postLogin');
 Route::get('/logout', 'AuthController@logout');
 
-Route::get('/', 'BerandaController@index')->name('beranda');
+Route::get('/beranda', 'BerandaController@index')->name('beranda');
 
 // ====== ajax metabase
 Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 
 //halaman front office
-Route::get('/homepage', 'GuestController@index');
+Route::get('/', 'GuestController@index');
 Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf');
 
 // autocomplete ajax
