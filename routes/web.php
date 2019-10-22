@@ -66,7 +66,6 @@ Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 Route::get('/homepage', 'GuestController@index');
 Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf');
 
-Route::get('/guest/test', 'GuestController@guesttest');
-Route::get('/cari', 'GuestController@loadData');
 // autocomplete ajax
 Route::post('/autocomplete/fetch', 'GrafikController@fetch')->name('autocomplete.fetch');
+Route::post('/modaldata/fetch', 'GuestController@fetchsektor')->name('modaldata.fetch');

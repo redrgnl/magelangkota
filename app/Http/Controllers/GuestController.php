@@ -15,7 +15,12 @@ class GuestController extends Controller
             ->join('tb_sektor', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
             ->select('*')
             ->get();
-        $data['sektorss'] = DB::table('tb_sektor')->get();
+        
+        $data['sektorss'] = DB::table('tb_sektor')
+            ->join('tb_grafik', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
+            ->select('tb_sektor.color', 'tb_sektor.icon', 'tb_sektor.namaSektor', 'tb_sektor.idSektor')
+            ->groupBy('tb_sektor.idSektor')
+            ->get();
         return view('/user/homepage', $data);
     }
 
@@ -48,5 +53,51 @@ class GuestController extends Controller
             // redirect ke halaman front office guest
         return view('/user/contentGuest/tampilGrafik', $data);
         }  
+    }
+    
+    function fetchsektor(Request $request)
+    {
+        if(!empty($request->get('query')))
+        {            
+            $idsek = $request->get('query');
+            
+            /* 
+            
+            SELECT tb_grafik.idGrafik, tb_grafik.judulGrafik, tb_sektor.idSektor, tb_detailbidang.detBidang FROM tb_sektor, tb_grafik, tb_detailbidang WHERE tb_sektor.idSektor = tb_grafik.idSektor AND tb_grafik.idGrafik = tb_detailbidang.idGrafik
+            
+            */
+                        
+            $data = DB::table('tb_grafik')
+                ->join('tb_sektor', 'tb_sektor.idSektor', '=', 'tb_grafik.idSektor')
+                ->join('tb_detailbidang', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
+                ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_detailbidang.detBidang')
+                ->where('tb_grafik.idSektor', $idsek)
+                ->get();
+            
+            $output = '
+                <ul>
+                ';
+            
+            $total_row = $data->count();
+              if($total_row > 0)
+                {
+                    foreach ($data as $graf) 
+                        {  
+                            if (in_array("1", explode(',', $graf->detBidang))) {
+                                $output .= '<li style="padding: 10px">
+                                        <a style="color: blue" href="/guest/halaman-tampil-grafik/'.$graf->idGrafik.'">'.$graf->judulGrafik.'</a>
+                                        </li>';
+                            }
+                        }
+                    $output .= '</ul>';
+                } else {
+
+                    $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
+                }
+                    $output .= '</ul>';
+
+            echo $output;
+
+        }
     }
 }

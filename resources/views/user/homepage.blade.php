@@ -79,51 +79,23 @@
                 </div>
               </div>
             </form>
-<!--
-            <form class="login-form">
-              <div class="row">
-                <div class="input-field col s12 center-align">
-                  <a href="#modal1" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/1.png') }}" alt="">
-                  </a>
-                  <a href="#modal2" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/2.png') }}" alt="">
-                  </a>
-                  <a href="#modal3" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/3.png') }}" alt="">
-                  </a>
-                  <a href="#modal4" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/4.png') }}" alt="">
-                  </a>
-                </div>
-                <div class="input-field col s12 center-align" style="margin-top: -39px">
-                  <a href="#modal5" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/5.png') }}" alt="">
-                  </a>
-                  <a href="#modal6" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/6.png') }}" alt="">
-                  </a>
-                  <a href="#modal7" class="modal-trigger">
-                    <img class="responsive-img" width="80" src="{{ asset('admin/images/logo/7.png') }}" alt="">
-                  </a>
-                </div>
-              </div>
-            </form>
--->
             <div class="col m10 l10 ml-8 hide-on-small-only">
               <form class="login-form">
               <div class="row">
                 <div class="grid">
                   <ul id="hexGrid">
                     @foreach($sektorss as $sektors)
+                    @if($sektors->idSektor != 9)
                     <li class="hex">
                       <div class="hexIn">
-                        <a class="hexLink" href="#">
+                        <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
                             <i class="material-icons right">{{ $sektors->icon }}</i>
                         </a>
+                        @csrf
                       </div>
                     </li>
+                    @endif
                     @endforeach
                   </ul>
                 </div>
@@ -152,29 +124,15 @@
 
 </html>
 
-<!-- Modals -->
-<div id="modal1" class="modal modal-fixed-footer">
+<div id="modalsektor" class="modal modal-fixed-footer">
   <div class="modal-content">
-    <h4>Dinas Perizinan</h4>
-    @if(!empty($graf))
-    @foreach($graf as $g)
-    @if($g->idSektor == 2)
-    <ul>
-      <li>{{$g->judulGrafik}}</li>
-    </ul>
-    @endif
-    @endforeach
-    @endif
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    <div id="returndatasektor">
   </div>
 </div>
 
 <!-- Script Search -->
 <script>
   $(document).ready(function(){
-
     $('#nama_graf').keyup(function(){
       var query = $(this).val();
 
@@ -199,4 +157,21 @@
       }
     });
   });
+     
+    function datasektor($idsektor) {
+        var query = $idsektor;
+        var _token = $('input[name="_token"]').val();
+        
+        $.ajax({
+          url:"{{ route('modaldata.fetch') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data)
+          {
+          console.log(data)
+
+            $('#returndatasektor').html(data);
+          }
+        })
+    }
 </script>
