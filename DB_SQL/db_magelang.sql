@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2019 at 06:13 PM
+-- Generation Time: Oct 22, 2019 at 06:58 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -130,7 +130,8 @@ INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
 (50, '1,99', '2019-10-14 09:28:45'),
 (51, '1,99', '2019-10-14 09:29:22'),
 (52, '1,99', '2019-10-14 09:29:50'),
-(53, '1,99', '2019-10-14 09:30:30');
+(53, '1,99', '2019-10-14 09:30:30'),
+(63, '2,99', '2019-10-22 04:53:45');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,8 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 (50, 8, 'b7827e83-738b-4580-8f55-a130144a8fad', 'Rekapitulasi Anggaran SIMPOK', '2019-10-14 09:28:45'),
 (51, 8, '7d9995bb-284c-4c1d-8e37-1307ae84506e', 'Realisasi Anggaran Per OPD', '2019-10-14 09:29:22'),
 (52, 4, '2acb95a8-d5ce-4849-a811-013c787ce908', 'Rekapitulasi Total Anggaran dan Realisasi SIMDA', '2019-10-14 09:29:50'),
-(53, 6, '9ab1b682-1df1-441f-b5d3-701232324678', 'Jumlah Pegawai Berdasrkan Agama dan Golongan Darah', '2019-10-14 09:30:30');
+(53, 6, '9ab1b682-1df1-441f-b5d3-701232324678', 'Jumlah Pegawai Berdasrkan Agama dan Golongan Darah', '2019-10-14 09:30:30'),
+(63, 1, 'qweqwe', 'qwqwe', '2019-10-22 04:53:45');
 
 -- --------------------------------------------------------
 
@@ -245,8 +247,7 @@ CREATE TABLE `tb_users` (
 
 INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password`, `waktuDibuat`) VALUES
 (16, 99, 'Super Administrator Sistem', 'superadmin@cc.magelangkota.go.id', 'e807f1fcf82d132f9bb018ca6738a19f', '2019-10-14 09:34:59'),
-(17, 2, 'mimin', 'mimin@cc.magelangkota.go.id', 'e807f1fcf82d132f9bb018ca6738a19f', '2019-10-14 09:36:58'),
-(18, 2, 'kontolization', 'kontolization@kontol.com', 'fcea920f7412b5da7be0cf42b8c93759', '2019-10-17 02:51:25');
+(17, 2, 'mimin', 'mimin@cc.magelangkota.go.id', 'e807f1fcf82d132f9bb018ca6738a19f', '2019-10-14 09:36:58');
 
 --
 -- Indexes for dumped tables
@@ -311,13 +312,13 @@ ALTER TABLE `tb_bidang`
 -- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
-  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_users`
