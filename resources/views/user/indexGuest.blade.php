@@ -13,6 +13,7 @@
   <link rel="apple-touch-icon" href="{{ asset('admin/images/favicon/apple-touch-icon-152x152.png') }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/favicon/favicon-32x32.png') }}">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- BEGIN: VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendors/vendors.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendors/flag-icon/css/flag-icon.min.css') }}">
@@ -69,7 +70,7 @@
   <!-- BEGIN: SideNav-->
   <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light navbar-full sidenav-active-rounded">
     <div class="brand-sidebar">
-      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="{{ asset('admin/images/logo/materialize-logo.png') }}" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">Magelang</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
+      <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="#"><img/><span class="logo-text hide-on-med-and-down">Kota Magelang</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
       <!-- menu sektor -->
@@ -100,7 +101,7 @@
         ?>
 
         <a class="collapsible-header waves-effect waves-cyan " href="#">
-          <i class="material-icons">{{ $sekicon }}</i>
+          <i class="fa {{ $sekicon }}"></i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
 
@@ -173,7 +174,7 @@
 
   <footer class="page-footer footer footer-static footer-dark gradient-45deg-purple-deep-orange gradient-shadow navbar-border navbar-shadow">
     <div class="footer-copyright">
-      <div class="container"><span>&copy; 2019 <a href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank">PIXINVENT</a> All rights reserved.</span><span class="right hide-on-small-only">Design and Developed by <a href="https://pixinvent.com/">PIXINVENT</a></span></div>
+      <div class="container"><span>&copy; 2019 <a href="#" target="_blank">Pemerintahan Kota Magelang</a></span><span class="right hide-on-small-only">Command Center Kota Magelang</span></div>
     </div>
   </footer>
   <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

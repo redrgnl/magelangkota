@@ -13,6 +13,7 @@
   <link rel="apple-touch-icon" href="{{ asset('admin/images/favicon/apple-touch-icon-152x152.png') }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/favicon/favicon-32x32.png') }}">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- BEGIN: VENDOR CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/vendors/vendors.min.css') }}">
   <!-- END: VENDOR CSS-->
@@ -35,17 +36,11 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="container">
-          <div class="col m1 l1 mt-1 ml-5">
+          <div class="col m10 l10 mt-1 ml-5" style="padding-right: 5px">
             <div class="input-field">
-              <img class="responsive-img" width="50" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
+              <img class="responsive-img" width="250" src="{{ asset('admin/images/magelang-logo.png') }}" alt="">
             </div>
           </div>
-          <div class="col m4 l4 mt-2" style="padding-left: 0px">
-            <div class="input-field">
-              <h8 style="font-weight: bold; color: white">Tentang Command Center</h8>
-            </div>
-          </div>
-          <div class="col m5 l5 mt-2 hide-on-small-only"></div>
           <div class="col m1 l1 mt-2 hide-on-small-only">
             <div class="list-right">
             @if(Session::get('idBidang'))
@@ -90,7 +85,7 @@
                       <div class="hexIn">
                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
-                            <i class="material-icons right">{{ $sektors->icon }}</i>
+                            <i class="fa {{ $sektors->icon }}"></i>
                         </a>
                         @csrf
                       </div>

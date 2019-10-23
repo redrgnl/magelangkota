@@ -37,7 +37,7 @@
                       </tr>
                     </thead>
                     <tbody>
-@if(!empty($grafik))
+                    @if(!empty($grafik))
                       @foreach($grafik as $g)
                         <tr>
                           <td>{{ $g->judulGrafik }}</td>
@@ -47,13 +47,24 @@
                             <a href="/admin/edit-data-grafik/{{ $g->idGrafik }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
                               <i class="material-icons">edit</i>
                             </a>
-                            <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="mb-6 btn-floating waves-effect waves-light purple lightrn-1">
+                            <a class="mb-6 btn-floating waves-effect waves-light purple lightrn-1 modal-trigger" href="#modaldelete{{ $g->idGrafik }}">
                               <i class="material-icons">delete_forever</i>
                             </a>
                           </td>
                         </tr>
+                        <!-- Modal Icons -->
+                          <div id="modaldelete{{ $g->idGrafik }}" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                              <h4>Apakah Anda Yakin Untuk Menghapus Data Ini?</h4>
+                              <h4>{{ $g->judulGrafik }}</h4>
+                              <p>Tempel pada field Nama Icon</p>
+                            </div>
+                            <div class="modal-footer">
+                              <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete Data Ini!!</a>
+                            </div>
+                          </div>
                       @endforeach
-@endif
+                    @endif
                     </tbody>
                   </table>
                 </div>
