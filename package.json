@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "video.js": "^7.6.5"
+        "video.js": "^7.6.5",
+        "videojs-dvr": "^1.4.0"
     }
 }

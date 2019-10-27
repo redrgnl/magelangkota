@@ -37,7 +37,8 @@
             <ul class="dropdown-content" id="translation-dropdown">
               <li><a class="grey-text text-darken-1" href="#!">Delete</a></li>
               <li><a class="grey-text text-darken-1" href="#!">Edit</a></li>
-              <li><a class="grey-text text-darken-1" href="#!">View</a></li>
+
+
 
             </ul>
             <!-- notifications-dropdown-->
