@@ -32,7 +32,7 @@
                     <p>{{$s->alamatCctv}}</p>
 
                     <video id='my-video' class='video-js' controls preload='auto' width='350' height='180' poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
-                      <source src="{{$s->urlCctv}}" type="video/webm">
+                      <source src="{{$s->urlCctv}}" type="video/rtsp">
                     </video>
 
                     <div class="total-transaction-container">

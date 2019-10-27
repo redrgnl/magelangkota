@@ -34,7 +34,13 @@
   <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+  <script src="//path/to/video.min.js"></script>
+  <script src="//path/to/videojs-dvr.min.js"></script>
+  <script>
+    var player = videojs('my-video');
+
+    player.dvr();
+  </script>
   <!--END: videoJS-->
 
 </head>
