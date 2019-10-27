@@ -28,16 +28,31 @@
               <div class="col s12 m8 l6 animate fadeRight">
                 <div class="card">
                   <div class="card-content">
-                    <h4 class="card-title mb-0">{{$s->namaCctv}} <i class="material-icons float-right">more_vert</i></h4>
-                    <p>{{$s->alamatCctv}}</p>
+      <ul class="navbar-list right">               
+                     <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light translation-button" href="javascript:void(0);" data-target="translation-dropdown"><i class="material-icons float-right">more_vert</i>
+ </a></li>
+                  </ul>
 
-                    <video id='my-video' class='video-js' controls preload='auto' width='350' height='180' poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
+           <!-- translation-button-->
+            <ul class="dropdown-content" id="translation-dropdown">
+              <li><a class="grey-text text-darken-1" href="#!">Delete</a></li>
+              <li><a class="grey-text text-darken-1" href="#!">Edit</a></li>
+              <li><a class="grey-text text-darken-1" href="#!">View</a></li>
+
+            </ul>
+            <!-- notifications-dropdown-->
+<!--                     <video id='my-video' class='video-js' controls preload='auto' width='350' height='180' poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
                       <source src="{{$s->urlCctv}}" type="video/webm">
-                    </video>
-
-                    <div class="total-transaction-container">
-                      <div id="total-transaction-line-chart" class="total-transaction-shadow"></div>
-                    </div>
+                    </video> -->
+  <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+  poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
+    <source src='{{$s->urlCctv}}' type='video/mp4'>
+    <source src='{{$s->urlCctv}}' type='video/webm'>
+    <p class='vjs-no-js'>
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+    </p>
+  </video>
                   </div>
                 </div>
               </div>

@@ -30,12 +30,10 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
   <!-- END: Custom CSS-->
 
-  <!-- videoJS-->
   <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-  <!--END: videoJS-->
 
 </head>
 <!-- END: Head-->
@@ -249,8 +247,7 @@
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
-  <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
-
+  <script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
   <!-- script sweetalert2 selesai-->
   <script type="text/javascript">
     $('.tombol-selesai').on('click', function(e) {
