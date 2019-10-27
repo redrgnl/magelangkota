@@ -85,7 +85,7 @@
                       <div class="hexIn">
                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
-                            <i class="fa {{ $sektors->icon }}"></i>
+                            <i class="fa fa-{{ $sektors->icon }}"></i>
                         </a>
                         @csrf
                       </div>

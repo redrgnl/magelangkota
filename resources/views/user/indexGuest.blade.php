@@ -101,7 +101,7 @@
         ?>
 
         <a class="collapsible-header waves-effect waves-cyan " href="#">
-          <i class="fa {{ $sekicon }}"></i>
+          <i class="fa fa-{{ $sekicon }}"></i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
 

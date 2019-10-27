@@ -53,14 +53,15 @@
                           </td>
                         </tr>
                         <!-- Modal Icons -->
-                          <div id="modaldelete{{ $g->idGrafik }}" class="modal modal-fixed-footer">
+                          <div id="modaldelete{{ $g->idGrafik }}" class="modal">
                             <div class="modal-content">
-                              <h4>Apakah Anda Yakin Untuk Menghapus Data Ini?</h4>
-                              <h4>{{ $g->judulGrafik }}</h4>
-                              <p>Tempel pada field Nama Icon</p>
+                              <h5>Apakah Anda Yakin Untuk Menghapus Data Ini?</h5>
+                              <hr>
+                              <h4 class="mt-5"> &ensp; {{ $g->judulGrafik }}</h4>
+                              <h6> &ensp; Data Ini Tidak Dapat Dikembalikan Setelah Proses Hapus, Apakah Anda Yakin?</h6>
                             </div>
                             <div class="modal-footer">
-                              <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete Data Ini!!</a>
+                              <a href="/admin/delete-grafik/{{ $g->idGrafik }}" class="modal-action modal-close waves-effect waves-light red accent-2 btn-flat" style="color: white">Delete</a>
                             </div>
                           </div>
                       @endforeach

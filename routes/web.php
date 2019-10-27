@@ -67,8 +67,9 @@ Route::get('/ajax-metabase/{id}', 'GrafikController@ajax_metabase');
 
 //halaman front office
 Route::get('/', 'GuestController@index');
-Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf');
+Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf'); //tampil grafik guest
 
 // autocomplete ajax
-Route::post('/autocomplete/fetch', 'GrafikController@fetch')->name('autocomplete.fetch');
-Route::post('/modaldata/fetch', 'GuestController@fetchsektor')->name('modaldata.fetch');
+Route::post('/autocomplete/fetch', 'GrafikController@fetch')->name('autocomplete.fetch'); //live search box
+Route::post('/modaldata/fetch', 'GuestController@fetchsektor')->name('modaldata.fetch'); //modal search button kategori
+Route::post('/modaldataadmin/fetch', 'AdminController@fetchadminsektor')->name('modaldataadmin.fetch'); //modal search button kategori admin

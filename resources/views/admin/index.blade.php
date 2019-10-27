@@ -28,6 +28,7 @@
   <!-- END: Page Level CSS-->
   <!-- BEGIN: Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/hexagon.css') }}">
   <!-- END: Custom CSS-->
 
   <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">
@@ -150,7 +151,7 @@
         ?>
         @if($s->idSektor != 9 || Session::get('idBidang') == 99)
         <a class="collapsible-header waves-effect waves-cyan " href="#">
-          <i class="fa {{ $sekicon }}"></i>
+          <i class="fa fa-{{ $sekicon }}"></i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
         @endif
