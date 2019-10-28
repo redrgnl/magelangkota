@@ -25,10 +25,9 @@
               <hr>
 
               <br>
-              <div style="position:relative; z-index:2; margin: auto; width:250px;">
+              <div style="margin: auto; width: 40%; margin-bottom: -30px">
                 <select name=" FilterSktr" id="searchBySektor">
-
-                  <option value="">--Filter Sektor--</option>
+                  <option value="">-- Filter Sektor --</option>
 
                   @if(!empty($sektor))
                   @foreach($sektor as $s)

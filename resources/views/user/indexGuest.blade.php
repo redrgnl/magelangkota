@@ -47,7 +47,10 @@
       <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
         <div class="nav-wrapper">
           <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-            <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize">
+            <input class="header-search-input z-depth-2" type="text" id="nama_graf" name="nama_graf" placeholder="Cari Grafik Sekarang">
+            @csrf
+          <div id="list_graf"></div>
+
           </div>
           <ul class="navbar-list right">
             <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
@@ -91,7 +94,6 @@
       @if (!empty($sektor))
       @foreach($sektor as $s)
       @if($sktr != $s->namaSektor)
-
       <li class="bold">
 
         <?php
@@ -99,14 +101,14 @@
         $sekicon = $s->icon;
         $bdgumum = "1";
         ?>
-
+        @if($s->idSektor != 9 || Session::get('idBidang') == 99)
         <a class="collapsible-header waves-effect waves-cyan " href="#">
           <i class="fa fa-{{ $sekicon }}"></i>
           <span class="menu-title" data-i18n="">{{ $kat }}</span>
         </a>
-
         @endif
-
+        @endif
+        
         <div class="collapsible-body">
           <ul class="collapsible collapsible-sub" data-collapsible="accordion">
 
@@ -115,7 +117,7 @@
               ?>
 
               <li>
-                <a class="collapsible-body" href="/admin/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
+                <a class="collapsible-body" href="/guest/halaman-tampil-grafik/{{ $s->idGrafik }}" data-i18n="" title="{{ $s->judulGrafik }}">
                   <i class="material-icons">radio_button_unchecked</i>
                   <span class="truncate">{{ $s->judulGrafik }}</span>
                 </a>
@@ -132,7 +134,6 @@
         @endforeach
 
       </li>
-
       @endif
       <br><br>
     </ul>
@@ -199,7 +200,34 @@
   <script src="{{ asset('admin/js/scripts/ui-alerts.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
 
+<!-- Script Search -->
+<script>
+  $(document).ready(function(){
+    $('#nama_graf').keyup(function(){
+      var query = $(this).val();
 
+      if(query != '')
+      {
+        var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+          url:"{{ route('autocomplete_guest.fetch') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data)
+          {
+          console.log(data)
+
+            $('#list_graf').fadeIn();
+            $('#list_graf').html(data);
+          }
+        })
+      } else {
+          $('#list_graf').html('');
+      }
+    });
+  });
+</script>
 </body>
 
 </html>

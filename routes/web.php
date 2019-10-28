@@ -78,5 +78,7 @@ Route::get('/guest/halaman-tampil-grafik/{id}', 'GuestController@tampil_graf'); 
 Route::post('/autocomplete/fetch', 'GrafikController@fetch')->name('autocomplete.fetch'); //live search box
 // autocomplete ajax admin
 Route::post('/autocomplete_admin/fetch', 'GrafikController@fetch_admin')->name('autocomplete_admin.fetch'); //live 
+Route::post('/autocomplete_guest/fetch', 'GuestController@fetch_guest')->name('autocomplete_guest.fetch'); //live 
+
 Route::post('/modaldata/fetch', 'GuestController@fetchsektor')->name('modaldata.fetch'); //modal search button kategori
 Route::post('/modaldataadmin/fetch', 'AdminController@fetchadminsektor')->name('modaldataadmin.fetch'); //modal search button kategori admin

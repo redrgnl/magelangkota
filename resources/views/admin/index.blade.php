@@ -44,7 +44,7 @@
   <!-- BEGIN: Header-->
   <header class="page-topbar" id="header">
     <div class="navbar navbar-fixed">
-      <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
+      <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow"><input type="hidden" name="sess_id" id="sess_id" value="{{ Session::get('idBidang') }}">
 
         <div class="nav-wrapper">
           <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
@@ -257,7 +257,7 @@
   $(document).ready(function(){
     $('#nama_graf').keyup(function(){
       var query = $(this).val();
-
+      var sess = $('#sess_id').val();
       if(query != '')
       {
         var _token = $('input[name="_token"]').val();
@@ -265,7 +265,7 @@
         $.ajax({
           url:"{{ route('autocomplete_admin.fetch') }}",
           method:"POST",
-          data:{query:query, _token:_token},
+          data:{query:query, _token:_token, sess:sess},
           success:function(data)
           {
           console.log(data)
