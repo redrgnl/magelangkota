@@ -26,34 +26,46 @@ class GuestController extends Controller
 
     public function tampil_graf($id)
     {
+    if(is_numeric($id)){
         $graf = DB::table('tb_grafik')
             ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
             ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
             ->where('tb_grafik.idGrafik', $id)
             ->get();
-
+ 
         foreach ($graf as $grf) {
             $sector = $grf->namaSektor;
             $judulgraf = $grf->judulGrafik;
             $metagraf = $grf->metabaseId;
         }
-
-        $data = [
-            'sector' => $sector,
+        if(stripos($metagraf, "http://") !== false || stripos($metagraf, "https://") !== false){
+            $data = [
+                'sector' => $sector,
+                'title' => 'Command Center Magelang',
+                'judulgraf' => $judulgraf,
+                'meta' => $metagraf
+            ];
+        }else{
+            $data = [
+            'sector' => 'Unknown',
             'title' => 'Command Center Magelang',
-            'judulgraf' => $judulgraf,
-            'metaID' => $metagraf
-        ];
+            'judulgraf' => 'Unknown',
+            'meta' => 'Unknown'
+            ];
+        }
 
-        if (Session::get('idUser')) {
-            // redirect ke halaman backoffice
-        return view('/admin/content/tampilGrafik', $data);
+            if (Session::get('idUser')) {
+                // redirect ke halaman backoffice
+            return view('/admin/content/tampilGrafik', $data);
 
-        } else {
-            // redirect ke halaman front office guest
-        return view('/user/contentGuest/tampilGrafik', $data);
-        }  
-    }
+            } else {
+                // redirect ke halaman front office guest
+            return view('/user/contentGuest/tampilGrafik', $data);
+            } 
+    }else{
+        return abort(404);
+    } 
+}
     
     function fetchsektor(Request $request)
     {

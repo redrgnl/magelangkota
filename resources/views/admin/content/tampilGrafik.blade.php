@@ -25,7 +25,7 @@
                 <br>           
                 <div  id="metabase-frame">
  					<iframe
-                        src="http://cc.magelangkota.go.id:3000/public/dashboard/{{ $meta ?? '' }}"
+                        src="{{ $meta ?? '' }}"
                         frameborder="0"
                         style="width:100%;height:100vh;"
                         allowtransparency>

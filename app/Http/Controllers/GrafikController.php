@@ -42,6 +42,7 @@ class GrafikController extends Controller
     //tampil grafik
     public function tampil_graf($id)
     {
+    if(is_numeric($id)){
         $graf = DB::table('tb_grafik')
             ->join('tb_sektor', 'tb_grafik.idSektor', '=', 'tb_sektor.idSektor')
             ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
@@ -52,17 +53,28 @@ class GrafikController extends Controller
         $data['title'] = "Halaman Grafik | Command Center Magelang";
 
         foreach ($graf as $key) {
+            $met = $key->metabaseId;
+
             $data['id'] = $key->idGrafik;
-            $data['meta'] = $key->metabaseId;
+            if(stripos($met, "http://") !== false || stripos($met, "https://") !== false){
+
+                $data['meta'] = $key->metabaseId;
+            }else{
+                $data['meta'] = 'unknown';
+
+            }
             $data['judul'] = $key->judulGrafik;
             $data['nam_sek'] = $key->namaSektor;
         }
 
-        if (!empty($graf)) {
-            return view('admin/content/tampilGrafik', $data);
-        } else {
-            return "Data kosong";
-        }
+                if (!empty($graf)) {
+                    return view('admin/content/tampilGrafik', $data);
+                } else {
+                    return "Data kosong";
+                }
+    }else{
+        return abort(404);
+    } 
     }
 
     public function ajax_metabase($id)
