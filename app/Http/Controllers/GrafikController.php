@@ -223,4 +223,33 @@ class GrafikController extends Controller
             echo $output;
         }
     }
+    function fetch_admin(Request $request)
+    {
+        if (!empty($request->get('query'))) {
+            $query = $request->get('query');
+            $data = DB::table('tb_grafik')
+                ->join('tb_detailbidang', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
+                ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik')
+                ->where('tb_grafik.judulGrafik', 'LIKE', "%" . $query . "%")->limit(5)->get();
+
+            $output = '
+                <ul style="background-color: white; border: 2px solid blue; border-radius: 5px; max-height: 500px; overflow: scroll; opacity: 0.8">
+                ';
+            $total_row = $data->count();
+            if ($total_row > 0) {
+                foreach ($data as $graf) {
+                    $output .= '<li style="padding: 10px">
+                                        <a style="color: blue" href="/admin/halaman-tampil-grafik/' . $graf->idGrafik . '">' . $graf->judulGrafik . '</a>
+                                    </li> ';
+                }
+                $output .= '</ul>';
+            } else {
+
+                $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
+            }
+            $output .= '</ul>';
+
+            echo $output;
+        }
+    }
 }

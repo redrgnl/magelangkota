@@ -35,7 +35,7 @@
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-
+  <script src="{{ asset('admin/js/custom/jquery.min.js') }}"></script>
 </head>
 <!-- END: Head-->
 
@@ -45,9 +45,13 @@
   <header class="page-topbar" id="header">
     <div class="navbar navbar-fixed">
       <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
+
         <div class="nav-wrapper">
           <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
-            <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize">
+            <input class="header-search-input z-depth-2" type="text" id="nama_graf" name="nama_graf" placeholder="Cari Grafik Sekarang">
+            @csrf
+          <div id="list_graf"></div>
+
           </div>
           <ul class="navbar-list right">
 
@@ -247,7 +251,36 @@
   <script src="{{ asset('admin/js/scripts/ui-alerts.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<!-- code -->
+<!-- Script Search -->
+<script>
+  $(document).ready(function(){
+    $('#nama_graf').keyup(function(){
+      var query = $(this).val();
 
+      if(query != '')
+      {
+        var _token = $('input[name="_token"]').val();
+
+        $.ajax({
+          url:"{{ route('autocomplete_admin.fetch') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data)
+          {
+          console.log(data)
+
+            $('#list_graf').fadeIn();
+            $('#list_graf').html(data);
+          }
+        })
+      } else {
+          $('#list_graf').html('');
+      }
+    });
+  });
+  </script>
+  <!-- filter datatable -->
   <script>
     $('#searchBySektor').on('change', function() {
       var table = $('#page-length-option').DataTable();
