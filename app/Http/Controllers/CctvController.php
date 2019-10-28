@@ -26,6 +26,46 @@ class CctvController extends Controller
         ];
         return view('admin/content/tambahCctv', $data);
     }
+    public function halamanEditCctv($id)
+    {
+        $queryCctv = DB::table('tb_cctv')->where('idCctv', $id)->get();
+        foreach ($queryCctv as $key) {
+            $idCctv = $key->idCctv;
+            $namaCctv = $key->namaCctv;
+            $alamat = $key->alamatCctv;
+            $url = $key->urlCctv;
+
+        }
+
+        $data = [
+            'title' => "Update Data Cctv | Command Center Magelang",
+            'dataCctv' => $queryCctv,
+            'id' => $idCctv,
+            'nama' => $namaCctv,
+            'alamat' => $alamat,
+            'url' => $url
+
+        ];
+
+        return view('admin/content/editCctv', $data);
+    }
+    public function updateCctv(Request $update) {
+        
+        DB::table('tb_cctv')->where('idCctv', $update->id)->update([
+            'namaCctv' => $update->namaCctv,
+            'alamatCctv' => $update->alamatCctv,
+            'urlCctv' => $update->urlCctv
+        ]);
+        
+        return redirect ('admin/edit-data-cctv/'.$update->id.'')->with('success', 'Update cctv');
+    }
+    //proses delete grafik
+    public function deleteCctv($id)
+    {
+        DB::table('tb_cctv')->where('idCctv', $id)->delete();
+
+        return redirect('admin/halaman-cctv')->with('success', 'Delete cctv');
+    }
 
     public function storeCctv(Request $request)
     {

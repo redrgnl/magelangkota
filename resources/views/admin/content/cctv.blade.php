@@ -35,8 +35,8 @@
 
            <!-- translation-button-->
             <ul class="dropdown-content" id="translation-dropdown-{{ $s->idCctv }}">
-              <li><a class="grey-text text-darken-1" href="#!">Delete</a></li>
-              <li><a class="grey-text text-darken-1" href="#!">Edit</a></li>
+              <li><a class="grey-text text-darken-1 modal-trigger" href="#modaldelete{{ $s->idCctv }}">Delete</a></li>
+              <li><a class="grey-text text-darken-1" href="/admin/edit-data-cctv/{{ $s->idCctv }}">Edit</a></li>
             </ul>
 
   <video id='my-video' class='video-js' controls preload='auto' width='440' height='254'
@@ -51,6 +51,18 @@
                   </div>
                 </div>
               </div>
+                      <!-- Modal Icons -->
+                      <div id="modaldelete{{ $s->idCctv }}" class="modal">
+                        <div class="modal-content">
+                          <h5>Apakah Anda Yakin Untuk Menghapus Data Ini?</h5>
+                          <hr>
+                          <h4 class="mt-5"> &ensp; {{ $s->namaCctv }}</h4>
+                          <h6> &ensp; Data Ini Tidak Dapat Dikembalikan Setelah Proses Hapus, Apakah Anda Yakin?</h6>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="/admin/delete-cctv/{{ $s->idCctv }}" class="modal-action modal-close waves-effect waves-light red accent-2 btn-flat" style="color: white">Delete</a>
+                        </div>
+                      </div>
               @endforeach
             </div>
           </div>

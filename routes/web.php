@@ -54,7 +54,12 @@ Route::group(['middleware' => 'usersession'], function () {
     //Route CCTV
     Route::get('/admin/halaman-cctv', 'CctvController@index');
     Route::get('/admin/halaman-tambah-cctv', 'CctvController@addCctv');
+    Route::get('/admin/edit-data-cctv/{id}', 'CctvController@halamanEditCctv');
+    Route::post('/admin/update-cctv', 'CctvController@updateCctv');
+
     Route::post('/admin/store-cctv', 'CctvController@storeCctv');
+    Route::get('/admin/delete-cctv/{id}', 'CctvController@deleteCctv');
+
 });
 
 //login
