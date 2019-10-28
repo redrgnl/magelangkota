@@ -25,8 +25,8 @@
               <hr>
 
               <br>
-              <div>
-                <select name="FilterSktr" id="searchBySektor">
+              <div style="position:relative; z-index:2; margin: auto; width:250px;">
+                <select name=" FilterSktr" id="searchBySektor">
 
                   <option value="">--Filter Sektor--</option>
 
@@ -40,14 +40,14 @@
 
                 </select>
               </div>
-              <div class="row">
+              <div class="row" style="position:relative; z-index:1;">
                 <div class="col s12">
                   <table id="page-length-option" class="display">
                     <thead>
                       <tr>
                         <th>Judul Grafik</th>
                         <th>Sektor</th>
-                        <th style="width: 15px; text-align: center">Action</th>
+                        <th style=" width: 15px; text-align: center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
