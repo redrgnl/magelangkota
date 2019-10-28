@@ -248,6 +248,14 @@
   <script src="{{ asset('admin/js/scripts/advance-ui-modals.js') }}" type="text/javascript"></script>
   <script src="{{ asset('admin/js/scripts/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
+  <script>
+    $('#searchBySektor').on('change', function() {
+      var table = $('#page-length-option').DataTable();
+      table.column(1).
+      search($(this).val()).draw();
+    });
+  </script>
+
   <script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
   <!-- script sweetalert2 selesai-->
   <script type="text/javascript">

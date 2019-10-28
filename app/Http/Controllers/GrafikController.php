@@ -20,6 +20,10 @@ class GrafikController extends Controller
             ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor')
             ->get();
 
+        $data['sektor'] = DB::table('tb_sektor')
+            ->select('idSektor', 'namaSektor')
+            ->get();
+
         return view('admin/content/grafik', $data);
     }
 
@@ -34,7 +38,7 @@ class GrafikController extends Controller
 
         return view('admin/content/tambahGraf', $data);
     }
-    
+
     //tampil grafik
     public function tampil_graf($id)
     {
@@ -60,7 +64,7 @@ class GrafikController extends Controller
             return "Data kosong";
         }
     }
-    
+
     public function ajax_metabase($id)
     {
 
@@ -176,39 +180,35 @@ class GrafikController extends Controller
 
         return redirect('admin/halaman-list-grafik')->with('success', 'Delete Grafik');
     }
-    
+
     function fetch(Request $request)
     {
-        if(!empty($request->get('query')))
-        {
+        if (!empty($request->get('query'))) {
             $query = $request->get('query');
             $data = DB::table('tb_grafik')
                 ->join('tb_detailbidang', 'tb_grafik.idGrafik', '=', 'tb_detailbidang.idGrafik')
                 ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik')
                 ->where('tb_detailbidang.detBidang', 'LIKE', "%1%")
-                ->where('tb_grafik.judulGrafik', 'LIKE', "%".$query."%")->get();
-            
+                ->where('tb_grafik.judulGrafik', 'LIKE', "%" . $query . "%")->get();
+
             $output = '
                 <ul style="background-color: white; border: 2px solid blue; border-radius: 5px; max-height: 500px; overflow: scroll; opacity: 0.8">
                 ';
             $total_row = $data->count();
-          if($total_row > 0)
-          {
-                foreach ($data as $graf) 
-                {   
-                        $output .= '<li style="padding: 10px">
-                                        <a style="color: blue" href="/guest/halaman-tampil-grafik/'.$graf->idGrafik.'">'.$graf->judulGrafik.'</a>
+            if ($total_row > 0) {
+                foreach ($data as $graf) {
+                    $output .= '<li style="padding: 10px">
+                                        <a style="color: blue" href="/guest/halaman-tampil-grafik/' . $graf->idGrafik . '">' . $graf->judulGrafik . '</a>
                                     </li>';
                 }
-                    $output .= '</ul>';
-         }else{
+                $output .= '</ul>';
+            } else {
 
-            $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
-         }
-                    $output .= '</ul>';
+                $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
+            }
+            $output .= '</ul>';
 
             echo $output;
-
         }
     }
 }
