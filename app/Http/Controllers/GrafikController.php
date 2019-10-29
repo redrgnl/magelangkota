@@ -33,7 +33,8 @@ class GrafikController extends Controller
         $data = [
             'title' => "Tambah Grafik Baru | Command Center Magelang",
             'sektor' => DB::table('tb_sektor')->get(),
-            'bidang' => DB::table('tb_bidang')->get()
+            'bidang' => DB::table('tb_bidang')->get(),
+            'urlmeta' => "http://cc.magelangkota.go.id:3000/public/dashboard/" //meta url default
         ];
 
         return view('admin/content/tambahGraf', $data);
@@ -105,27 +106,36 @@ class GrafikController extends Controller
         $this->validate($request, [
             'judul' => 'required|min:5',
             'metabase' => 'required',
+            'urlmetabase' => 'required',
             'sektor' => 'required'
 
 
         ], $messages);
 
-        $lastid = DB::table('tb_grafik')->insertGetId([
-            'judulGrafik' => $request->judul,
-            'metabaseId' => $request->metabase,
-            'idSektor' => $request->sektor,
-            'waktuDibuat' => $now
-        ]);
+        if(!empty($request->get('chkbidang'))) {
+            $detbidang = implode(",", $request->get('chkbidang'));
+        
+            $lastid = DB::table('tb_grafik')->insertGetId([
+                'judulGrafik' => $request->judul,
+                'metabaseUrl' => $request->urlmetabase,
+                'metabaseId' => $request->metabase,
+                'idSektor' => $request->sektor,
+                'waktuDibuat' => $now
+            ]);
 
-        $detbidang = implode(",", $request->get('chkbidang'));
+            DB::table('tb_detailbidang')->insert([
+                'idGrafik' => $lastid,
+                'detBidang' => $detbidang . ",99",
+                'waktuDibuat' => $now
+            ]);
+            
+            return redirect('admin/halaman-list-grafik')->with('success', 'Tambah Grafik');
+        } else {
+            return redirect ('/admin/halaman-tambah-grafik');
+        }
+        
 
-        DB::table('tb_detailbidang')->insert([
-            'idGrafik' => $lastid,
-            'detBidang' => $detbidang . ",99",
-            'waktuDibuat' => $now
-        ]);
-
-        return redirect('admin/halaman-list-grafik')->with('success', 'Tambah Grafik');
+        
     }
 
     //halaman edit grafik
@@ -142,6 +152,7 @@ class GrafikController extends Controller
         foreach ($queryGrafik as $key) {
             $data['id_graf'] = $key->idGrafik;
             $data['sktr'] = $key->idSektor;
+            $data['urlmeta'] = $key->metabaseUrl;
             $data['meta'] = $key->metabaseId;
             $data['judul'] = $key->judulGrafik;
         }
@@ -168,21 +179,26 @@ class GrafikController extends Controller
     {
         $now = new DateTime();
 
-        DB::table('tb_grafik')->where('idGrafik', $update->id_graf)->update([
-            'idSektor' => $update->sektor,
-            'metabaseId' => $update->metabase,
-            'judulGrafik' => $update->judul,
-            'waktuDibuat' => $now
-        ]);
+        if(!empty($update->get('chkbidang'))) {
+            DB::table('tb_grafik')->where('idGrafik', $update->id_graf)->update([
+                'idSektor' => $update->sektor,
+                'metabaseUrl' => $update->urlmetabase,
+                'metabaseId' => $update->metabase,
+                'judulGrafik' => $update->judul,
+                'waktuDibuat' => $now
+            ]);
 
-        $detbidang = implode(",", $update->get('chkbidang'));
+            $detbidang = implode(",", $update->get('chkbidang'));
 
-        DB::table('tb_detailbidang')->where('idGrafik', $update->id_graf)->update([
-            'detBidang' => $detbidang . ",99",
-            'waktuDibuat' => $now
-        ]);
+            DB::table('tb_detailbidang')->where('idGrafik', $update->id_graf)->update([
+                'detBidang' => $detbidang . ",99",
+                'waktuDibuat' => $now
+            ]);
 
-        return redirect('admin/halaman-list-grafik')->with('success', 'Update Grafik');
+            return redirect('admin/halaman-list-grafik')->with('success', 'Update Grafik');
+        } else {
+            return redirect('/admin/edit-data-grafik/'. $update->id_graf );
+        }
     }
 
     //proses delete grafik
@@ -243,14 +259,14 @@ class GrafikController extends Controller
             $total_row = $data->count();
             if ($total_row > 0) {
                 foreach ($data as $graf) {
-                    $output .= '<li style="padding: 10px">
+                    $output .= '<li style="padding: 5px">
                                         <a style="color: blue" href="/admin/halaman-tampil-grafik/' . $graf->idGrafik . '">' . $graf->judulGrafik . '</a>
                                     </li> ';
                 }
                 $output .= '</ul>';
             } else {
 
-                $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
+                $output .= '<li style="padding: 5px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
             }
             $output .= '</ul>';
 
@@ -265,19 +281,19 @@ class GrafikController extends Controller
                 ->where('tb_grafik.judulGrafik', 'LIKE', "%" . $query . "%")->limit(5)->get();
 
             $output = '
-                <ul style="background-color: white; border: 2px solid blue; border-radius: 5px; max-height: 500px; overflow: scroll; opacity: 0.8">
+                <ul style="background-color: white; border: 2px solid blue; border-radius: 5px; max-height: 500px; overflow: scroll; opacity: 0.8;">
                 ';
             $total_row = $data->count();
             if ($total_row > 0) {
                 foreach ($data as $graf) {
-                    $output .= '<li style="padding: 10px">
+                    $output .= '<li style="padding: 5px">
                                         <a style="color: blue" href="/admin/halaman-tampil-grafik/' . $graf->idGrafik . '">' . $graf->judulGrafik . '</a>
                                     </li> ';
                 }
                 $output .= '</ul>';
             } else {
 
-                $output .= '<li style="padding: 10px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
+                $output .= '<li style="padding: 5px"><a href="#" style="color: blue">Tidak Di Temukan</a></li>';
             }
             $output .= '</ul>';
 

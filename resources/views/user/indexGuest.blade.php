@@ -46,26 +46,13 @@
     <div class="navbar navbar-fixed">
       <nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark gradient-45deg-purple-deep-orange gradient-shadow">
         <div class="nav-wrapper">
-          <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
+          <div class="header-search-wrapper"><i class="material-icons">search</i>
             <input class="header-search-input z-depth-2" type="text" id="nama_graf" name="nama_graf" placeholder="Cari Grafik Sekarang">
             @csrf
           <div id="list_graf"></div>
 
           </div>
-          <ul class="navbar-list right">
-            <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
-          </ul>
         </div>
-        <nav class="display-none search-sm">
-          <div class="nav-wrapper">
-            <form>
-              <div class="input-field">
-                <input class="search-box-sm" type="search" required="">
-                <label class="label-icon" for="search"><i class="material-icons search-sm-icon">search</i></label><i class="material-icons search-sm-close">close</i>
-              </div>
-            </form>
-          </div>
-        </nav>
       </nav>
     </div>
   </header>
