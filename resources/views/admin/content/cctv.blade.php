@@ -48,7 +48,7 @@
       <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
     </p>
   </video>
-                    <hr>
+                    <br>
                     <h8>{{ $s->namaCctv }}</h8>
                   </div>
                 </div>
