@@ -33,8 +33,7 @@ class GrafikController extends Controller
         $data = [
             'title' => "Tambah Grafik Baru | Command Center Magelang",
             'sektor' => DB::table('tb_sektor')->get(),
-            'bidang' => DB::table('tb_bidang')->get(),
-            'urlmeta' => "http://cc.magelangkota.go.id:3000/public/dashboard/" //meta url default
+            'bidang' => DB::table('tb_bidang')->get()
         ];
 
         return view('admin/content/tambahGraf', $data);
@@ -49,33 +48,32 @@ class GrafikController extends Controller
             ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
             ->where('tb_grafik.idGrafik', $id)
             ->get();
+        
+        $data['urlmetabase'] = DB::table('tb_url')->select('url')->first();
         $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id)->get();
-
         $data['title'] = "Halaman Grafik | Command Center Magelang";
 
         foreach ($graf as $key) {
             $met = $key->metabaseId;
 
             $data['id'] = $key->idGrafik;
-            if(stripos($met, "http://") !== false || stripos($met, "https://") !== false){
-
-                $data['meta'] = $key->metabaseId;
-            }else{
-                $data['meta'] = 'unknown';
-
-            }
+            $data['meta'] = $key->metabaseId;
             $data['judul'] = $key->judulGrafik;
             $data['nam_sek'] = $key->namaSektor;
+//            if(stripos($met, "http://") !== false || stripos($met, "https://") !== false){
+//
+//                $data['meta'] = $key->metabaseId;
+//            }else{
+//                $data['meta'] = 'unknown';
+//
+//            }
         }
-
-                if (!empty($graf)) {
-                    return view('admin/content/tampilGrafik', $data);
-                } else {
-                    return "Data kosong";
-                }
-    }else{
-        return abort(404);
-    } 
+        
+        return view('admin/content/tampilGrafik', $data);
+        
+      } else {
+          return abort(404);
+      } 
     }
 
     public function ajax_metabase($id)
@@ -106,7 +104,6 @@ class GrafikController extends Controller
         $this->validate($request, [
             'judul' => 'required|min:5',
             'metabase' => 'required',
-            'urlmetabase' => 'required',
             'sektor' => 'required'
 
 
@@ -117,7 +114,6 @@ class GrafikController extends Controller
         
             $lastid = DB::table('tb_grafik')->insertGetId([
                 'judulGrafik' => $request->judul,
-                'metabaseUrl' => $request->urlmetabase,
                 'metabaseId' => $request->metabase,
                 'idSektor' => $request->sektor,
                 'waktuDibuat' => $now
@@ -152,7 +148,6 @@ class GrafikController extends Controller
         foreach ($queryGrafik as $key) {
             $data['id_graf'] = $key->idGrafik;
             $data['sktr'] = $key->idSektor;
-            $data['urlmeta'] = $key->metabaseUrl;
             $data['meta'] = $key->metabaseId;
             $data['judul'] = $key->judulGrafik;
         }
@@ -182,7 +177,6 @@ class GrafikController extends Controller
         if(!empty($update->get('chkbidang'))) {
             DB::table('tb_grafik')->where('idGrafik', $update->id_graf)->update([
                 'idSektor' => $update->sektor,
-                'metabaseUrl' => $update->urlmetabase,
                 'metabaseId' => $update->metabase,
                 'judulGrafik' => $update->judul,
                 'waktuDibuat' => $now
@@ -300,5 +294,20 @@ class GrafikController extends Controller
             echo $output;
             }
         }
+    }
+    
+    public function urlmeta() {
+        $data['title'] = "Daftar Grafik | Command Center Magelang";
+        $data['urlmetabase'] = DB::table('tb_url')->select('url', 'idUrl')->first();
+        
+        return view('admin/content/urlmeta', $data);
+    }
+    
+    public function updateurlmeta(Request $update) {
+        DB::table('tb_url')->where('idUrl', $update->idurlmeta)->update([
+           'url' => $update->urlmeta 
+        ]);
+        
+        return redirect('admin/halaman-url-metabase');
     }
 }

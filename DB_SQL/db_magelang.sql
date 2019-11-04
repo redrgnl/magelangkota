@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2019 at 06:58 AM
+-- Generation Time: Oct 31, 2019 at 06:37 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -43,7 +43,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2019_10_09_011135_create_tb_bidang', 2),
 (3, '2019_10_09_011854_create_tb_sektor', 3),
 (4, '2019_10_09_012146_create_tb_grafik', 4),
-(5, '2019_10_09_020945_create_tb_detailbidang', 5);
+(5, '2019_10_09_020945_create_tb_detailbidang', 5),
+(6, '2019_10_24_123655_create_tb_cctv', 6);
 
 -- --------------------------------------------------------
 
@@ -74,6 +75,27 @@ INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_cctv`
+--
+
+CREATE TABLE `tb_cctv` (
+  `idCctv` int(10) UNSIGNED NOT NULL,
+  `namaCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamatCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urlCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tb_cctv`
+--
+
+INSERT INTO `tb_cctv` (`idCctv`, `namaCctv`, `alamatCctv`, `urlCctv`) VALUES
+(1, 'BREKSI CCTV', 'ini', 'http://202.169.224.76:1935/cctv-public/ViewBreksi.stream_160p/playlist.m3u8'),
+(2, 'MALIOBORO CCTV', 'nnn', 'http://202.169.224.76:1935/cctv-public/ViewMalioboro.stream_240p/playlist.m3u8');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_detailbidang`
 --
 
@@ -98,7 +120,7 @@ INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
 (18, '1,4,99', '2019-10-14 09:04:36'),
 (19, '1,2,5,99', '2019-10-14 09:05:19'),
 (20, '1,99', '2019-10-14 09:05:51'),
-(21, '99', '2019-10-17 02:26:46'),
+(21, '99,99', '2019-10-28 14:52:06'),
 (22, '1,99', '2019-10-19 01:52:48'),
 (23, '1,99', '2019-10-14 09:08:22'),
 (24, '1,99', '2019-10-14 09:08:57'),
@@ -120,7 +142,7 @@ INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
 (40, '1,99', '2019-10-14 09:21:28'),
 (41, '1,99', '2019-10-14 09:22:04'),
 (42, '1,99', '2019-10-14 09:23:11'),
-(43, '1,99', '2019-10-14 09:23:43'),
+(43, '1,99,99', '2019-10-29 15:39:54'),
 (44, '1,99', '2019-10-14 09:24:19'),
 (45, '1,99', '2019-10-14 09:24:47'),
 (46, '1,99', '2019-10-14 09:25:15'),
@@ -130,8 +152,7 @@ INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
 (50, '1,99', '2019-10-14 09:28:45'),
 (51, '1,99', '2019-10-14 09:29:22'),
 (52, '1,99', '2019-10-14 09:29:50'),
-(53, '1,99', '2019-10-14 09:30:30'),
-(63, '2,99', '2019-10-22 04:53:45');
+(53, '1,99', '2019-10-14 09:30:30');
 
 -- --------------------------------------------------------
 
@@ -162,7 +183,7 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 (18, 2, '1158e60e-e466-4be2-92aa-456cf93faa26', 'Jumlah Retribusi Perizinan', '2019-10-14 09:04:36'),
 (19, 1, 'e7d39029-780d-4546-86c4-b402c1c30f44', 'Rekapitulasi Unit Sekolah Dasar', '2019-10-14 09:05:19'),
 (20, 2, '6de5ddd4-d018-46bf-957c-8694d7ac6d8e', 'Timeline Perijinan', '2019-10-14 09:05:51'),
-(21, 9, '12917503-f9ec-4a8b-a424-bf424503f3e5', 'Daftar Koneksi', '2019-10-17 02:26:46'),
+(21, 9, '12917503-f9ec-4a8b-a424-bf424503f3e5', 'Daftar Koneksi', '2019-10-28 14:52:06'),
 (22, 6, 'b37914cb-514e-45e3-8a5a-eb6695007ccf', 'Detail Pegawai dan Jejak Jabatan', '2019-10-19 01:52:48'),
 (23, 6, '9066c15f-f7e6-4409-9953-8ffc65e59d0e', 'Jumlah Pegawai Berdasarkan Eselon', '2019-10-14 09:08:22'),
 (24, 6, '2e428c2a-8ccd-4a2a-aa7b-dc63d5e2da50', 'Jumlah Pegawai Berdasarkan Gender', '2019-10-14 09:08:57'),
@@ -184,7 +205,7 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 (40, 4, 'caef8214-4f01-45f5-b108-3bbec624079c', 'Jumlah Pajak Berdasarkan Waktu, Jenis Pajak dan Wilayah', '2019-10-14 09:21:28'),
 (41, 4, 'b3256a55-0c92-4c9c-bbde-cb0fc68e4d0c', 'Jumlah Pendapatan berdasarkan Wilayah', '2019-10-14 09:22:04'),
 (42, 4, '76b8d942-d70b-4149-afe9-0e47cb097ded', 'Jumlah Pendapatan Sudah Terbayar', '2019-10-14 09:23:11'),
-(43, 4, '2a2a8557-889d-40da-9d3f-c1eed0603767', 'Jumlah Pendapatan Sudah Terbayar dan Belum Terbayar', '2019-10-14 09:23:43'),
+(43, 4, '2a2a8557-889d-40da-9d3f-c1eed0603767', 'Jumlah Pendapatan Sudah Terbayar dan Belum Terbayar', '2019-10-29 15:39:54'),
 (44, 4, 'dc95947c-784d-4f05-bf5f-edb39bcb834d', 'Jumlah Wajib Pajak Yang Harus Dibayar Per Kecamatan', '2019-10-14 09:24:19'),
 (45, 4, 'c8ac25d4-12e0-4bfd-a8b9-6f9dc3588c83', 'Jumlah Wajib Pajak Yang Harus Dibayar Per Periode Waktu', '2019-10-14 09:24:47'),
 (46, 3, '5f8698c3-1a4c-44de-aac2-fc52e46669ca', 'Rekapitulasi Tenaga Keperawatan', '2019-10-14 09:25:15'),
@@ -194,8 +215,7 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 (50, 8, 'b7827e83-738b-4580-8f55-a130144a8fad', 'Rekapitulasi Anggaran SIMPOK', '2019-10-14 09:28:45'),
 (51, 8, '7d9995bb-284c-4c1d-8e37-1307ae84506e', 'Realisasi Anggaran Per OPD', '2019-10-14 09:29:22'),
 (52, 4, '2acb95a8-d5ce-4849-a811-013c787ce908', 'Rekapitulasi Total Anggaran dan Realisasi SIMDA', '2019-10-14 09:29:50'),
-(53, 6, '9ab1b682-1df1-441f-b5d3-701232324678', 'Jumlah Pegawai Berdasrkan Agama dan Golongan Darah', '2019-10-14 09:30:30'),
-(63, 1, 'qweqwe', 'qwqwe', '2019-10-22 04:53:45');
+(53, 6, '9ab1b682-1df1-441f-b5d3-701232324678', 'Jumlah Pegawai Berdasrkan Agama dan Golongan Darah', '2019-10-14 09:30:30');
 
 -- --------------------------------------------------------
 
@@ -216,15 +236,33 @@ CREATE TABLE `tb_sektor` (
 --
 
 INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`, `color`) VALUES
-(1, 'Sektor Pendidikan', '2019-10-25 00:00:00', 'school', '#4caf50'),
-(2, 'Sektor Perizinan', '2019-10-26 00:00:00', 'verified_user', '#ff9800'),
-(3, 'Sektor Kesehatan', '2019-10-11 00:00:00', 'favorite_border', '#2196f3'),
-(4, 'Sektor Keuangan', '2019-10-11 00:00:00', 'attach_money', '#f44336'),
-(5, 'Sektor Perencanaan', '2019-10-11 00:00:00', 'book', '#9c27b0'),
-(6, 'Sektor Kepegawaian', '2019-10-11 00:00:00', 'account_box', '#e91e63'),
-(7, 'Sektor Kependudukan', '2019-10-11 00:00:00', 'child_friendly', '#ffeb3b'),
-(8, 'Sektor Pembangunan', '2019-10-11 00:00:00', 'nature_people', '#cddc39'),
-(9, 'Administrator', '2019-10-21 16:01:49', 'android', '#424242');
+(1, 'Sektor Pendidikan', '2019-10-25 00:00:00', 'graduation-cap', '#4caf50'),
+(2, 'Sektor Perizinan', '2019-10-26 00:00:00', 'gavel', '#ff9800'),
+(3, 'Sektor Kesehatan', '2019-10-11 00:00:00', 'heartbeat', '#2196f3'),
+(4, 'Sektor Keuangan', '2019-10-11 00:00:00', 'money', '#f44336'),
+(5, 'Sektor Perencanaan', '2019-10-11 00:00:00', 'object-group', '#9c27b0'),
+(6, 'Sektor Kepegawaian', '2019-10-27 05:25:36', 'users', '#6a1b9a'),
+(7, 'Sektor Kependudukan', '2019-10-11 00:00:00', 'universal-access', '#ffeb3b'),
+(8, 'Sektor Pembangunan', '2019-10-27 05:26:28', 'road', '#8e24aa'),
+(9, 'Administrator', '2019-10-27 05:27:05', 'gears', '#00e5ff');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_url`
+--
+
+CREATE TABLE `tb_url` (
+  `idUrl` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_url`
+--
+
+INSERT INTO `tb_url` (`idUrl`, `url`) VALUES
+(1, 'http://cc.magelangkota.go.id:3000/public/dashboard/');
 
 -- --------------------------------------------------------
 
@@ -266,6 +304,12 @@ ALTER TABLE `tb_bidang`
   ADD PRIMARY KEY (`idBidang`);
 
 --
+-- Indexes for table `tb_cctv`
+--
+ALTER TABLE `tb_cctv`
+  ADD PRIMARY KEY (`idCctv`);
+
+--
 -- Indexes for table `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
@@ -286,6 +330,12 @@ ALTER TABLE `tb_sektor`
   ADD PRIMARY KEY (`idSektor`);
 
 --
+-- Indexes for table `tb_url`
+--
+ALTER TABLE `tb_url`
+  ADD PRIMARY KEY (`idUrl`);
+
+--
 -- Indexes for table `tb_users`
 --
 ALTER TABLE `tb_users`
@@ -300,7 +350,7 @@ ALTER TABLE `tb_users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_bidang`
@@ -309,16 +359,28 @@ ALTER TABLE `tb_bidang`
   MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
+-- AUTO_INCREMENT for table `tb_cctv`
+--
+ALTER TABLE `tb_cctv`
+  MODIFY `idCctv` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
-  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
-  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+
+--
+-- AUTO_INCREMENT for table `tb_url`
+--
+ALTER TABLE `tb_url`
+  MODIFY `idUrl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_users`

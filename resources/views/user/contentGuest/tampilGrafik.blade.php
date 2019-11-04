@@ -24,7 +24,7 @@
                 <br>           
                 <div  id="metabase-frame">
             <iframe
-                    src="{{ $meta ?? '' }}"
+                    src="{{ $urlmetabase->url }}{{ $meta ?? '' }}"
                     frameborder="0"
                     style="width:100%;height:100vh;"
                     allowtransparency>

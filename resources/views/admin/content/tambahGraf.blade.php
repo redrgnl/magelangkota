@@ -38,16 +38,9 @@
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
-                  <div class="col m4 l4">
-                    <label for="cemail">URL Metabase*</label>
-                    <input id="cemail" type="text" name="urlmetabase" data-error=".errorTxt2" required value="{{ $urlmeta }}">
-                    <div class="errorTxt2"></div>
-                  </div>
-                  <div class="col m8 l8">
-                    <label for="cemail">ID Metabase*</label>
+                  <label for="cemail">ID Metabase*</label>
                     <input id="cemail" type="text" name="metabase" data-error=".errorTxt2" required>
                     <div class="errorTxt2"></div>
-                  </div>
                 </div>
                 <div class="col s12">
                   <label for="crole">Kategori Grafik * </label>

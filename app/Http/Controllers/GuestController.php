@@ -32,27 +32,36 @@ class GuestController extends Controller
             ->select('tb_grafik.idGrafik', 'tb_grafik.judulGrafik', 'tb_sektor.namaSektor', 'tb_grafik.metabaseId')
             ->where('tb_grafik.idGrafik', $id)
             ->get();
- 
+        
         foreach ($graf as $grf) {
             $sector = $grf->namaSektor;
             $judulgraf = $grf->judulGrafik;
             $metagraf = $grf->metabaseId;
         }
-        if(stripos($metagraf, "http://") !== false || stripos($metagraf, "https://") !== false){
-            $data = [
-                'sector' => $sector,
-                'title' => 'Command Center Magelang',
-                'judulgraf' => $judulgraf,
-                'meta' => $metagraf
-            ];
-        }else{
-            $data = [
-            'sector' => 'Unknown',
+        
+        $data = [
+            'sector' => $sector,
             'title' => 'Command Center Magelang',
-            'judulgraf' => 'Unknown',
-            'meta' => 'Unknown'
-            ];
-        }
+            'judulgraf' => $judulgraf,
+            'meta' => $metagraf,
+            'urlmetabase' => DB::table('tb_url')->select('url')->first()
+        ];
+        
+//        if(stripos($metagraf, "http://") !== false || stripos($metagraf, "https://") !== false){
+//            $data = [
+//                'sector' => $sector,
+//                'title' => 'Command Center Magelang',
+//                'judulgraf' => $judulgraf,
+//                'meta' => $metagraf
+//            ];
+//        }else{
+//            $data = [
+//            'sector' => 'Unknown',
+//            'title' => 'Command Center Magelang',
+//            'judulgraf' => 'Unknown',
+//            'meta' => 'Unknown'
+//            ];
+//        }
 
             if (Session::get('idUser')) {
                 // redirect ke halaman backoffice
