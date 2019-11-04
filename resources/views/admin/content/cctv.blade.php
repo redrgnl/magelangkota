@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col s12 m12 l12">
           <div id="basic-tabs" class="card card card-default scrollspy">
-            <div class="card-content pt-5 pr-5 pb-5 pl-5">
+            <div class="card-content">
               <div class="card-title">
                 <div class="row">
                   <div class="col s12 m6 l10">
@@ -25,7 +25,7 @@
               </div>
               <hr>
               @foreach($cctv as $s)
-              <div class="col s12 m8 l6 animate fadeRight">
+              <div class="col s4 m4 l4 animate fadeRight">
                 <div class="card">
                   <div class="card-content">
                 <ul class="navbar-list right">               
@@ -39,7 +39,7 @@
               <li><a class="grey-text text-darken-1" href="/admin/edit-data-cctv/{{ $s->idCctv }}">Edit</a></li>
             </ul>
 
-  <video id='my-video' class='video-js' controls preload='auto' width='440' height='254'
+  <video id='my-video' class='video-js' controls preload='auto' width='240' height='144'
   poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
     <source src='{{$s->urlCctv}}' type='video/mp4'>
     <source src='{{$s->urlCctv}}' type='video/webm'>
@@ -48,6 +48,8 @@
       <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
     </p>
   </video>
+                    <hr>
+                    <h8>{{ $s->namaCctv }}</h8>
                   </div>
                 </div>
               </div>
