@@ -68,4 +68,11 @@ class AdminController extends Controller
 
         }
     }
+    
+    public function iframeharga() {
+        $data = [
+            'title' => "Survey Harga Pasar | Command Center Magelang"
+        ];
+        return view('admin/content/iframeharga', $data);
+    }
 }

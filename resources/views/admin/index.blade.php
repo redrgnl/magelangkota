@@ -90,6 +90,8 @@
       </li>
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-url-metabase"><i class="material-icons">language</i><span class="menu-title" data-i18n="">URL METABASE</span></a>
       </li>
+      <li class="bold"><a class="waves-effect waves-cyan " href="/admin/harga-pasar"><i class="material-icons">attach_money</i><span class="menu-title" data-i18n="">HARGA PASAR</span></a>
+      </li>
 
       <!-- menu user -->
       <li class="navigation-header"><a class="navigation-header-text">MANAGEMENT PENGGUNA</a><i class="navigation-header-icon material-icons">more_horiz</i>
@@ -354,6 +356,7 @@
       });
     }
   </script>
+    
 </body>
 
 </html>

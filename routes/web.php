@@ -63,6 +63,9 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/admin/store-cctv', 'CctvController@storeCctv');
     Route::get('/admin/delete-cctv/{id}', 'CctvController@deleteCctv');
 
+    //harga pasar
+    Route::get('/admin/harga-pasar', 'AdminController@iframeharga');
+    
 });
 
 //login
