@@ -90,8 +90,6 @@
       </li>
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-list-grafik"><i class="material-icons">equalizer</i><span class="menu-title" data-i18n="">GRAFIK</span></a>
       </li>
-      <li class="bold"><a class="waves-effect waves-cyan " href="/admin/halaman-url-metabase"><i class="material-icons">language</i><span class="menu-title" data-i18n="">URL METABASE</span></a>
-      </li>
       <li class="bold"><a class="waves-effect waves-cyan " href="/admin/harga-pasar"><i class="material-icons">attach_money</i><span class="menu-title" data-i18n="">HARGA PASAR</span></a>
       </li>
 

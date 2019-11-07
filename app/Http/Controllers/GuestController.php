@@ -43,8 +43,7 @@ class GuestController extends Controller
             'sector' => $sector,
             'title' => 'Command Center Magelang',
             'judulgraf' => $judulgraf,
-            'meta' => $metagraf,
-            'urlmetabase' => DB::table('tb_url')->select('url')->first()
+            'meta' => $metagraf
         ];
         
 //        if(stripos($metagraf, "http://") !== false || stripos($metagraf, "https://") !== false){

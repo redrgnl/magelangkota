@@ -49,7 +49,6 @@ class GrafikController extends Controller
             ->where('tb_grafik.idGrafik', $id)
             ->get();
         
-        $data['urlmetabase'] = DB::table('tb_url')->select('url')->first();
         $data['all_graf'] = DB::table('tb_grafik')->where('idSektor', $id)->get();
         $data['title'] = "Halaman Grafik | Command Center Magelang";
 
@@ -60,13 +59,6 @@ class GrafikController extends Controller
             $data['meta'] = $key->metabaseId;
             $data['judul'] = $key->judulGrafik;
             $data['nam_sek'] = $key->namaSektor;
-//            if(stripos($met, "http://") !== false || stripos($met, "https://") !== false){
-//
-//                $data['meta'] = $key->metabaseId;
-//            }else{
-//                $data['meta'] = 'unknown';
-//
-//            }
         }
         
         return view('admin/content/tampilGrafik', $data);
@@ -294,20 +286,5 @@ class GrafikController extends Controller
             echo $output;
             }
         }
-    }
-    
-    public function urlmeta() {
-        $data['title'] = "Daftar Grafik | Command Center Magelang";
-        $data['urlmetabase'] = DB::table('tb_url')->select('url', 'idUrl')->first();
-        
-        return view('admin/content/urlmeta', $data);
-    }
-    
-    public function updateurlmeta(Request $update) {
-        DB::table('tb_url')->where('idUrl', $update->idurlmeta)->update([
-           'url' => $update->urlmeta 
-        ]);
-        
-        return redirect('admin/halaman-url-metabase');
     }
 }

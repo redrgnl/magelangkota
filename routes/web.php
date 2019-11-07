@@ -32,9 +32,6 @@ Route::group(['middleware' => 'usersession'], function () {
     Route::post('/admin/update-grafik', 'GrafikController@updategrafik');
     Route::get('/admin/halaman-tampil-grafik/{id}', 'GrafikController@tampil_graf');
     Route::get('/admin/halaman-grafik/{id}', 'GrafikController@tampil_sub_graf');
-    
-    Route::get('/admin/halaman-url-metabase', 'GrafikController@urlmeta');
-    Route::post('/admin/update-url-metabase', 'GrafikController@updateurlmeta');
 
     // users
     Route::get('/admin/halaman-pengguna', 'UsersController@users');
