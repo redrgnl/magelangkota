@@ -39,7 +39,7 @@
               <li><a class="grey-text text-darken-1" href="/admin/edit-data-cctv/{{ $s->idCctv }}">Edit</a></li>
             </ul>
 
-  <video id='my-video' class='video-js' controls preload='auto' width='240' height='144'
+<!--   <video id='my-video' class='video-js' controls preload='auto' width='240' height='144'
   poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
     <source src='{{$s->urlCctv}}' type='video/mp4'>
     <source src='{{$s->urlCctv}}' type='video/webm'>
@@ -47,7 +47,23 @@
       To view this video please enable JavaScript, and consider upgrading to a web browser that
       <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
     </p>
-  </video>
+  </video> -->
+      <div id="playerBandara{{ $s->idCctv }}" style="width:240;height:144;">Loading the player...</div>
+    
+    <script>
+            // Setup the player
+            const playerBandara{{ $s->idCctv }} = jwplayer("playerBandara{{ $s->idCctv }}").setup({
+                sources: [{file: "{{$s->urlCctv}}", 
+                        }],
+                image: "http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png",
+                width: "100%",
+                aspectratio: "16:9",
+                rtmp: {
+                    bufferlength: 3
+                },
+                fallback: false
+            });
+        </script>
                     <br>
                     <h8>{{ $s->namaCctv }}</h8>
                   </div>

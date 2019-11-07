@@ -36,6 +36,8 @@
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   <script src="{{ asset('admin/js/custom/jquery.min.js') }}"></script>
+<script src="http://mam.jogjaprov.go.id/jwplayer-7.0.1/jwplayer.js"></script>
+<script>jwplayer.key = "c9LmUznIEnGsLiST2yp48x/CgoUCMjbWfowKhA==";</script> 
 </head>
 <!-- END: Head-->
 
@@ -223,7 +225,7 @@
       <div class="container"><span>&copy; 2019 <a href="#" target="_blank">Pemerintahan Kota Magelang</a></span><span class="right hide-on-small-only">Command Center Kota Magelang</span></div>
     </div>
   </footer>
-
+   
   <!-- END: Footer-->
   <!-- BEGIN VENDOR JS-->
   <script src="{{ asset('admin/js/vendors.min.js') }}" type="text/javascript"></script>

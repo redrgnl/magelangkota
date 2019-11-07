@@ -57,16 +57,23 @@
                     <i class="material-icons right">send</i>
                   </button>
                 </div>
-                <div class="input-field col s12">
-  <video id='my-video' class='video-js' controls preload='auto' width='440' height='254'
-  poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
-    <source src='{{$url}}' type='video/mp4'>
-    <source src='{{$url}}' type='video/webm'>
-    <p class='vjs-no-js'>
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
-    </p>
-  </video>
+                <div class="input-field col s6">
+     <div id="playerBandara{{ $id }}" style="width:240;height:144;">Loading the player...</div>
+    
+    <script>
+            // Setup the player
+            const playerBandara{{ $id }} = jwplayer("playerBandara{{ $id }}").setup({
+                sources: [{file: "{{$url}}", 
+                        }],
+                image: "http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png",
+                width: "100%",
+                aspectratio: "16:9",
+                rtmp: {
+                    bufferlength: 3
+                },
+                fallback: false
+            });
+        </script>
                 </div>
 
 
