@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2019 at 06:37 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Waktu pembuatan: 07 Nov 2019 pada 06.47
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -35,7 +35,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_bidang`
+-- Struktur dari tabel `tb_bidang`
 --
 
 CREATE TABLE `tb_bidang` (
@@ -59,7 +59,7 @@ CREATE TABLE `tb_bidang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_bidang`
+-- Dumping data untuk tabel `tb_bidang`
 --
 
 INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
@@ -75,28 +75,31 @@ INSERT INTO `tb_bidang` (`idBidang`, `namaBidang`, `waktuDibuat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_cctv`
+-- Struktur dari tabel `tb_cctv`
 --
 
 CREATE TABLE `tb_cctv` (
   `idCctv` int(10) UNSIGNED NOT NULL,
   `namaCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamatCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `urlCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `urlCctv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `urlTumb` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_cctv`
+-- Dumping data untuk tabel `tb_cctv`
 --
 
-INSERT INTO `tb_cctv` (`idCctv`, `namaCctv`, `alamatCctv`, `urlCctv`) VALUES
-(1, 'BREKSI CCTV', 'ini', 'http://202.169.224.76:1935/cctv-public/ViewBreksi.stream_160p/playlist.m3u8'),
-(2, 'MALIOBORO CCTV', 'nnn', 'http://202.169.224.76:1935/cctv-public/ViewMalioboro.stream_240p/playlist.m3u8');
+INSERT INTO `tb_cctv` (`idCctv`, `namaCctv`, `alamatCctv`, `urlCctv`, `urlTumb`) VALUES
+(1, 'BREKSI CCTV', 'ini', 'rtsp://admin:gtcctvadmin34@119.2.54.67:554/Streaming/Channels/2/', 'http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png'),
+(2, 'MALIOBORO CCTV', 'nnn', 'http://mam.jogjaprov.go.id:1935/cctv-public/ViewBreksi.stream/playlist.m3u8', 'http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png'),
+(3, 'Pantai Parangtritis', 'parnag', 'http://mam.jogjaprov.go.id:1935/cctv-public/ViewAlunAlunKidul.stream/playlist.m3u8', 'http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png'),
+(4, 'Gege', 'Malia', 'wefwef', 'irafan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_detailbidang`
+-- Struktur dari tabel `tb_detailbidang`
 --
 
 CREATE TABLE `tb_detailbidang` (
@@ -106,7 +109,7 @@ CREATE TABLE `tb_detailbidang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_detailbidang`
+-- Dumping data untuk tabel `tb_detailbidang`
 --
 
 INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
@@ -157,7 +160,7 @@ INSERT INTO `tb_detailbidang` (`idGrafik`, `detBidang`, `waktuDibuat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_grafik`
+-- Struktur dari tabel `tb_grafik`
 --
 
 CREATE TABLE `tb_grafik` (
@@ -169,7 +172,7 @@ CREATE TABLE `tb_grafik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_grafik`
+-- Dumping data untuk tabel `tb_grafik`
 --
 
 INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `waktuDibuat`) VALUES
@@ -220,7 +223,7 @@ INSERT INTO `tb_grafik` (`idGrafik`, `idSektor`, `metabaseId`, `judulGrafik`, `w
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_sektor`
+-- Struktur dari tabel `tb_sektor`
 --
 
 CREATE TABLE `tb_sektor` (
@@ -232,7 +235,7 @@ CREATE TABLE `tb_sektor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_sektor`
+-- Dumping data untuk tabel `tb_sektor`
 --
 
 INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`, `color`) VALUES
@@ -249,7 +252,7 @@ INSERT INTO `tb_sektor` (`idSektor`, `namaSektor`, `waktuDibuat`, `icon`, `color
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_url`
+-- Struktur dari tabel `tb_url`
 --
 
 CREATE TABLE `tb_url` (
@@ -258,7 +261,7 @@ CREATE TABLE `tb_url` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_url`
+-- Dumping data untuk tabel `tb_url`
 --
 
 INSERT INTO `tb_url` (`idUrl`, `url`) VALUES
@@ -267,7 +270,7 @@ INSERT INTO `tb_url` (`idUrl`, `url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Struktur dari tabel `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -280,7 +283,7 @@ CREATE TABLE `tb_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tb_users`
+-- Dumping data untuk tabel `tb_users`
 --
 
 INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password`, `waktuDibuat`) VALUES
@@ -292,108 +295,108 @@ INSERT INTO `tb_users` (`idUser`, `idBidang`, `namaUser`, `emailUser`, `password
 --
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_bidang`
+-- Indeks untuk tabel `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
   ADD PRIMARY KEY (`idBidang`);
 
 --
--- Indexes for table `tb_cctv`
+-- Indeks untuk tabel `tb_cctv`
 --
 ALTER TABLE `tb_cctv`
   ADD PRIMARY KEY (`idCctv`);
 
 --
--- Indexes for table `tb_detailbidang`
+-- Indeks untuk tabel `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
   ADD UNIQUE KEY `idGrafik_2` (`idGrafik`),
   ADD KEY `idGrafik` (`idGrafik`);
 
 --
--- Indexes for table `tb_grafik`
+-- Indeks untuk tabel `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
   ADD PRIMARY KEY (`idGrafik`),
   ADD KEY `idSektor` (`idSektor`);
 
 --
--- Indexes for table `tb_sektor`
+-- Indeks untuk tabel `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
   ADD PRIMARY KEY (`idSektor`);
 
 --
--- Indexes for table `tb_url`
+-- Indeks untuk tabel `tb_url`
 --
 ALTER TABLE `tb_url`
   ADD PRIMARY KEY (`idUrl`);
 
 --
--- Indexes for table `tb_users`
+-- Indeks untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`idUser`),
   ADD UNIQUE KEY `tb_users_emailuser_unique` (`emailUser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_bidang`
+-- AUTO_INCREMENT untuk tabel `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
   MODIFY `idBidang` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `tb_cctv`
+-- AUTO_INCREMENT untuk tabel `tb_cctv`
 --
 ALTER TABLE `tb_cctv`
-  MODIFY `idCctv` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCctv` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_grafik`
+-- AUTO_INCREMENT untuk tabel `tb_grafik`
 --
 ALTER TABLE `tb_grafik`
   MODIFY `idGrafik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
--- AUTO_INCREMENT for table `tb_sektor`
+-- AUTO_INCREMENT untuk tabel `tb_sektor`
 --
 ALTER TABLE `tb_sektor`
   MODIFY `idSektor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT for table `tb_url`
+-- AUTO_INCREMENT untuk tabel `tb_url`
 --
 ALTER TABLE `tb_url`
   MODIFY `idUrl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   MODIFY `idUser` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_detailbidang`
+-- Ketidakleluasaan untuk tabel `tb_detailbidang`
 --
 ALTER TABLE `tb_detailbidang`
   ADD CONSTRAINT `tb_detailbidang_ibfk_1` FOREIGN KEY (`idGrafik`) REFERENCES `tb_grafik` (`idGrafik`) ON DELETE CASCADE ON UPDATE CASCADE;

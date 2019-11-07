@@ -53,6 +53,11 @@
                   <div class="errorTxt3"></div>
                 </div>
                 <div class="input-field col s12">
+                  <label for="urlTumb">Url Tumb*</label>
+                  <input id="urlTumb" type="text" name="urlTumb" value="{{ $tumb }}" data-error=".errorTxt3" required>
+                  <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
                   <button class="btn waves-effect waves-light right submit" type="submit" name="action">Update
                     <i class="material-icons right">send</i>
                   </button>
@@ -65,7 +70,7 @@
             const playerBandara{{ $id }} = jwplayer("playerBandara{{ $id }}").setup({
                 sources: [{file: "{{$url}}", 
                         }],
-                image: "http://mam.jogjaprov.go.id/cctv-thumbs/ViewBreksi.stream.png",
+                image: "{{$tumb}}}",
                 width: "100%",
                 aspectratio: "16:9",
                 rtmp: {

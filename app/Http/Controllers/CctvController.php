@@ -34,6 +34,7 @@ class CctvController extends Controller
             $namaCctv = $key->namaCctv;
             $alamat = $key->alamatCctv;
             $url = $key->urlCctv;
+            $tumb = $key->urlTumb;
 
         }
 
@@ -43,7 +44,8 @@ class CctvController extends Controller
             'id' => $idCctv,
             'nama' => $namaCctv,
             'alamat' => $alamat,
-            'url' => $url
+            'url' => $url,
+            'tumb' => $tumb
 
         ];
 
@@ -54,7 +56,8 @@ class CctvController extends Controller
         DB::table('tb_cctv')->where('idCctv', $update->id)->update([
             'namaCctv' => $update->namaCctv,
             'alamatCctv' => $update->alamatCctv,
-            'urlCctv' => $update->urlCctv
+            'urlCctv' => $update->urlCctv,
+            'urlTumb' => $update->urlTumb
         ]);
         
         return redirect ('admin/edit-data-cctv/'.$update->id.'')->with('success', 'Update cctv');
@@ -83,7 +86,8 @@ class CctvController extends Controller
         DB::table('tb_cctv')->insert([
             'namaCctv' => $request->namaCctv,
             'alamatCctv' => $request->alamatCctv,
-            'urlCctv' => $request->urlCctv
+            'urlCctv' => $request->urlCctv,
+            'urlTumb' => $request->urlTumb
         ]);
 
         return redirect('admin/halaman-cctv');

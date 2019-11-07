@@ -51,6 +51,11 @@
                   <div class="errorTxt3"></div>
                 </div>
                 <div class="input-field col s12">
+                  <label for="urlTumb">Url Thumbnail*</label>
+                  <input id="urlTumb" type="text" name="urlTumb" data-error=".errorTxt3" required>
+                  <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
                   <button class="btn waves-effect waves-light right submit" type="submit" name="action">Tambah
                     <i class="material-icons right">send</i>
                   </button>
