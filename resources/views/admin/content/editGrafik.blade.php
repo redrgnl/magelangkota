@@ -40,7 +40,7 @@
                   <div class="errorTxt1"></div>
                 </div>
                 <div class="input-field col s12">
-                  <label for="cemail">ID Metabase*</label>
+                  <label for="cemail">URL Metabase*</label>
                     <input id="cemail" type="text" name="metabase" data-error=".errorTxt2" required value="{{ $meta }}">
                     <div class="errorTxt2"></div>
                 </div>
