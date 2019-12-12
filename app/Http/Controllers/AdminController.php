@@ -75,4 +75,11 @@ class AdminController extends Controller
         ];
         return view('admin/content/iframeharga', $data);
     }
+    
+    public function testbl() {
+        $data = [
+            'title' => "asdasdelang"
+        ];
+        return view('admin/content/test', $data);
+    }
 }

@@ -18,24 +18,37 @@
 
 <div class="col s12">
   <div class="container">
-    <div class="seaction">
+    <div class="section">
       @if(Session::get('idBidang') == 99)
       <!-- Halaman Dashboard Super Admin -->
       <div class="row">
-        <div class="col s12 m12 l12">
-          <div class="col m7 l7 mb-5 mt-5">
-            <form class="login-form">
+        <div class="col s12 m12 l12 mt-5">
+          <div class="col m9 l9 mb-5 pl-0 pr-0" style="margin-right: -35px">
+              <!-- backup old hexa -->
+              <form class="login-form">
               <div class="row">
                 <div class="grid animate fadeLeft">
-                  <ul id="hexGrid"> 
-                    @foreach($sektorss as $sektors)
-                    <li class="hex">
+                  <ul id="hexGrid" style="margin-left: 10px; margin-right: 10px"> 
+                    <?php $no = 0; ?>
+                    @foreach($sektorss as $sektors) 
+                    <?php $countss = strlen($sektors->namaSektor); $no++; 
+                        if ($countss < 11) {
+                             $margins = $countss * 3;
+                        } elseif ($countss == 11) {
+                            $margins = $countss * 3.3;
+                        } else {
+                            $margins = $countss * 2.6;
+                        }
+                    ?>
+                      <li class="hex">
                       <div class="hexIn">
-                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
-                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
-                             <i class="fa fa-{{ $sektors->icon }}" style="font-size: 47px"></i>
+                         <a class="hexLink modal-trigger active" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
+                           <div class='img' style="background-color: {{ $sektors->color }}">
+                           </div>
+                           <i class="fa fa-{{ $sektors->icon }}" style="font-size: 60px"></i>
+                           <h8 style="color: black; margin-top: 78.5%; margin-left: -{{ $margins }}%; font-size: 16px; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;" value="{{ $countss }}">{!! Str::limit($sektors->namaSektor, 13, '') !!}</h8>
                          </a>
-                        @csrf
+                        @csrf                        
                       </div>
                     </li>
                     @endforeach
@@ -43,9 +56,10 @@
                 </div>
               </div>
             </form>
+              <!-- backup old hexa -->
           </div>
-          <div class="col m5 l5 mb-5 mt-5">
-            <div class="row">
+          <div class="col m3 l3 mb-5">
+            <div class="row" style="width: 300px">
               <div class="card animate fadeLeft">
                 <div class="card-content cyan white-text">
                   <p class="card-stats-title"><i class="fa fa-bar-chart"></i> Grafik</p>

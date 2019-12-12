@@ -29,6 +29,8 @@
   <!-- BEGIN: Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/custom/custom.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/hexagon.css') }}">
+<!--  <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/new_hexa.css') }}">-->
+<!--  <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/neww_hexa.css') }}">-->
   <!-- END: Custom CSS-->
 
   <link href="https://vjs.zencdn.net/7.6.5/video-js.css" rel="stylesheet">

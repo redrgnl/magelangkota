@@ -85,3 +85,6 @@ Route::post('/autocomplete_guest/fetch', 'GuestController@fetch_guest')->name('a
 
 Route::post('/modaldata/fetch', 'GuestController@fetchsektor')->name('modaldata.fetch'); //modal search button kategori
 Route::post('/modaldataadmin/fetch', 'AdminController@fetchadminsektor')->name('modaldataadmin.fetch'); //modal search button kategori admin
+
+//text blade
+Route::get('/admin/testblade', 'AdminController@testbl');

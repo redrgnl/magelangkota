@@ -62,10 +62,11 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="row">
-          <div class="col s12 m6 l6">
+          <div class="col s12 m7 l7">
+            <div class="col m12 l12 ml-5">
             <form class="login-form">
               <div class="row">
-                <div class="input-field col s12 center-align mt-10">
+                <div class="input-field col s12 center-align mt-3">
                   <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
                   <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
                     <!-- pencarian -->
@@ -80,18 +81,29 @@
                 </div>
               </div>
             </form>
-            <div class="col m10 l10 ml-8 hide-on-small-only">
+            </div>
+            <div class="col m12 l12 ml-5 hide-on-med-and-down">
               <form class="login-form">
               <div class="row">
                 <div class="grid">
                   <ul id="hexGrid">
                     @foreach($sektorss as $sektors)
                     @if($sektors->idSektor != 9)
+                    <?php $countss = strlen($sektors->namaSektor); 
+                      if ($countss < 11) {
+                             $margins = $countss * 3;
+                        } elseif ($countss == 11) {
+                            $margins = $countss * 3.3;
+                        } else {
+                            $margins = $countss * 2.8;
+                        }
+                    ?>
                     <li class="hex">
                       <div class="hexIn">
                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
-                            <i class="fa fa-{{ $sektors->icon }}"></i>
+                            <i class="fa fa-{{ $sektors->icon }}" style="font-size: 60px"></i>
+                            <label style="color: white; margin-top: 79%; margin-left: -{{ $margins }}%; font-size: 15px; ">{{ $sektors->namaSektor }}</label>
                         </a>
                         @csrf
                       </div>
@@ -104,8 +116,8 @@
             </form>
             </div>
           </div>
-          <div class="col s12 m6 l6">
-            <div id="map-div" class="mapdiv" style="margin-top: -30px">
+          <div class="col s12 m5 l5">
+            <div id="map-div" class="mapdiv hide-on-med-and-down" style="margin-top: -30px">
               <svg  viewBox="0 0 999.75118 999.75118" version="1.2" xmlns="http://www.w3.org/2000/svg" >
                 <a xlink:title="Kec Magelang Selatan" xlink:href="https://www.google.com/maps/place/Kec.+Magelang+Sel.,+Kota+Magelang,+Jawa+Tengah/@-7.4956371,110.2022474,14z/data=!3m1!4b1!4m5!3m4!1s0x2e7a8f389a813b9d:0xedf8a11c81f8159b!8m2!3d-7.4924065!4d110.2206725" target="_blank" >
                 <path  d="
