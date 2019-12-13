@@ -33,11 +33,11 @@
                     @foreach($sektorss as $sektors) 
                     <?php $countss = strlen($sektors->namaSektor); $no++; 
                         if ($countss < 11) {
-                             $margins = $countss * 3;
+                             $margins = $countss * 2.8;
                         } elseif ($countss == 11) {
-                            $margins = $countss * 3.3;
+                            $margins = $countss * 3.1;
                         } else {
-                            $margins = $countss * 2.6;
+                            $margins = $countss * 2.4;
                         }
                     ?>
                       <li class="hex">
@@ -46,7 +46,7 @@
                            <div class='img' style="background-color: {{ $sektors->color }}">
                            </div>
                            <i class="fa fa-{{ $sektors->icon }}" style="font-size: 60px"></i>
-                           <h8 style="color: black; margin-top: 78.5%; margin-left: -{{ $margins }}%; font-size: 16px; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;" value="{{ $countss }}">{!! Str::limit($sektors->namaSektor, 13, '') !!}</h8>
+                           <h8 style="color: white; margin-top: 78.5%; margin-left: -{{ $margins }}%; font-size: 15px; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;" value="{{ $countss }}">{!! Str::limit($sektors->namaSektor, 13, '') !!}</h8>
                          </a>
                         @csrf                        
                       </div>

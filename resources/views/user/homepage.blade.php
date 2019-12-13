@@ -66,7 +66,7 @@
             <div class="col m12 l12 ml-5">
             <form class="login-form">
               <div class="row">
-                <div class="input-field col s12 center-align mt-3">
+                <div class="input-field col s12 center-align" style="margin-top: -10px">
                   <img class="z-depth-4 circle responsive-img" width="300" src="{{ asset('admin/images/magelang-pintar.png') }}" alt="">
                   <h6 style="font-size: 20px; font-weight: bold; color: white">APLIKASI COMMAND CENTER KOTA MAGELANG</h6>
                     <!-- pencarian -->
@@ -103,7 +103,7 @@
                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
                             <i class="fa fa-{{ $sektors->icon }}" style="font-size: 60px"></i>
-                            <label style="color: white; margin-top: 79%; margin-left: -{{ $margins }}%; font-size: 15px; ">{{ $sektors->namaSektor }}</label>
+                            <label style="color: white; margin-top: 79%; margin-left: -{{ $margins }}%; font-size: 15px; ">{!! Str::limit($sektors->namaSektor, 13, '') !!}</label>
                         </a>
                         @csrf
                       </div>
