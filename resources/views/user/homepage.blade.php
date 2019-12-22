@@ -95,7 +95,7 @@
                         } elseif ($countss == 11) {
                             $margins = $countss * 3.3;
                         } else {
-                            $margins = $countss * 3.2;
+                            $margins = 12 * 3.2;
                         }
                     ?>
                     <li class="hex">
