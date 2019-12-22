@@ -115,6 +115,28 @@
               </div>
             </form>
             </div>
+<!--        dev test    -->
+            <div class="col m12 l12 ml-5 show-on-small hide-on-med-and-up">
+              <form class="login-form">
+              <div class="row" id="sektor-button">
+                    @foreach($sektorss as $sektors)
+                    @if($sektors->idSektor != 9)
+                    <div class="col s12">
+                      <a class="modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
+                        <div class="card card-alert white-text" style="background-color: {{ $sektors->color }}">
+                          <div class="card-content center-align">
+                            <p><i class="fa fa-{{ $sektors->icon }}"></i></p>
+                            <p>{{ $sektors->namaSektor }}</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    @endif
+                    @endforeach
+              </div>
+            </form>
+            </div>
+<!--        dev test    -->
           </div>
           <div class="col s12 m5 l5">
             <div id="map-div" class="mapdiv hide-on-med-and-down" style="margin-top: -30px">
@@ -437,11 +459,13 @@
             $('#list_graf').fadeIn();
             $('#list_graf').html(data);
             $('#map-div').addClass('d-none');
+            $('#sektor-button').addClass('d-none');
           }
         })
       } else {
           $('#list_graf').html('');
           $('#map-div').removeClass('d-none');
+          $('#sektor-button').removeClass('d-none');
       }
     });
   });
@@ -467,5 +491,6 @@
         $('#nama_graf').val('');
         $('#list_graf').html('');
         $('#map-div').removeClass('d-none');
+        $('#sektor-button').removeClass('d-none');
     }
 </script>
