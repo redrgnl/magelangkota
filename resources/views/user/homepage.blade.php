@@ -95,7 +95,7 @@
                         } elseif ($countss == 11) {
                             $margins = $countss * 3.3;
                         } else {
-                            $margins = $countss * 2.8;
+                            $margins = $countss * 3.2;
                         }
                     ?>
                     <li class="hex">
@@ -103,7 +103,7 @@
                         <a class="hexLink modal-trigger" href="#modalsektor" title="{{ $sektors->namaSektor }}" onclick="datasektor({{ $sektors->idSektor }})">
                           <div class='img' style="background-color: {{ $sektors->color }}"></div>
                             <i class="fa fa-{{ $sektors->icon }}" style="font-size: 60px"></i>
-                            <label style="color: white; margin-top: 79%; margin-left: -{{ $margins }}%; font-size: 15px; ">{!! Str::limit($sektors->namaSektor, 13, '') !!}</label>
+                            <label style="color: white; margin-top: 79%; margin-left: -{{ $margins }}%; font-size: 15px; ">{!! Str::limit($sektors->namaSektor, 12, '') !!}</label>
                         </a>
                         @csrf
                       </div>
